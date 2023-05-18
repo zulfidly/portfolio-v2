@@ -1,0 +1,1 @@
+import{f as e,a as t,o as c,e as s}from"./entry.bc3c23fd.js";const o={},n={class:"flex justify-center items-center"},a=s("p",{class:"text-2xl text-center p-3"}," Contact ",-1),r=[a];function _(f,i){return c(),t("div",n,r)}const l=e(o,[["render",_]]);export{l as default};
