@@ -1,0 +1,1 @@
+import{a as e,r as t,b as s,e as o,o as c,f as a}from"./entry.0d9fa590.js";const n={class:"flex justify-center items-center"},r=a("p",{class:"text-2xl text-center p-3"}," Contact ",-1),_=[r],l={__name:"contact",setup(p){return e(()=>{t(s().path)}),(u,d)=>(c(),o("div",n,_))}};export{l as default};
