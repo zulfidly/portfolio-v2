@@ -1,42 +1,25 @@
-# Nuxt 3 Minimal Starter
+# npx nuxi init 'project name'
+- cd to project folder
+- npm install
+- npm run dev -- -o (this opens new browser)
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Adding Tailwind CSS 
+- npm install -D @nuxtjs/tailwindcss
+    export default defineNuxtConfig({
+        modules: ['@nuxtjs/tailwindcss'],
+    })
 
-## Setup
+# Adding FormKit 
+https://formkit.com/getting-started/installation
+npm install @formkit/nuxt
+// nuxt.config
+    export default defineNuxtConfig({
+    modules: ['@formkit/nuxt'],
+    })
 
-Make sure to install the dependencies:
+# CLI :  create a page => npx nuxi add page index
+index.vue  //landing page must be named index.vue
+this is to be used with <code><NuxtPage/></code> inside app.vue
 
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+# Add nodemailer
+- npm install nodemailer
