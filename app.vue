@@ -4,6 +4,10 @@
   onMounted(()=> {
     console.log('app mounted');
   })
+
+  definePageMeta({
+    'Permissions-Policy': 'interest-cohort=()'
+  })
 </script>
 
 <template>
