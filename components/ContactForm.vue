@@ -9,9 +9,9 @@
             {
                 method: 'post',
                 body: {
-                    from: "👻 " + x.name + ' ' + x.email, // sender address
+                    from: "👻 " + x.name + ' ' + x.email||"", // sender address
                     to: "zulfidly@gmail.com", // list of receivers
-                    cc: x.email, 
+                    cc: x.email||'', 
                     subject: x.name + " : Portfolio Contact Form", // Subject line
                     text: "text", // plain text body
                     html: `
@@ -22,7 +22,7 @@
                             </tr>
                             <tr>
                                 <td style="text-align:center; padding:10px; border:1px solid; font-size:16px; font-weight:bold;"> Email</td>
-                                <td style="padding:10px; border:1px solid; font-size:16px;"> ${x.email} </td>
+                                <td style="padding:10px; border:1px solid; font-size:16px;"> ${x.email||'not provided'} </td>
                             </tr>
                             <tr>
                                 <td style="text-align:center; padding:10px; border:1px solid; font-size:16px; font-weight:bold;"> Rating </td>
@@ -110,7 +110,7 @@
                 :disabled="value.isCC ? false : true"
                 prefix-icon="email"
                 placeholder="email address"
-                validation="required|email"
+                :validation="value.isCC ? 'required|email' : 'email' "
                 message-class="$reset text-end text-[var(--color-text)]"
                 prefix-icon-class="$reset w-10 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-r border-gray-400 [&>svg]:w-full [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto"
             />
