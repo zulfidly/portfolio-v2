@@ -21,7 +21,7 @@
                     subject: x.name + " : Portfolio Contact Form", // Subject line
                     text: "text", // plain text body
                     html: `
-                        <table style="border-collapse:separate; border-spacing:0px; color:#050c17; border:1px solid #242f40; ">
+                        <table style="border-collapse:separate; border-spacing:0px; color:#141f30; ">
                             <tr>
                                 <td style="text-align:center; padding:10px; border:1px solid; font-size:16px; font-weight:bold; border-top-left-radius: 7px;">Name</td>
                                 <td style="padding:10px; border:1px solid; font-size:16px; border-top-right-radius: 7px;"> ${x.name}</td>
