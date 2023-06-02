@@ -1,5 +1,7 @@
 <script setup>
   import { onMounted } from 'vue'
+  import { isMenuHidden } from './components/NavBar.vue'
+
 
   onMounted(()=> {
     console.log('app mounted');

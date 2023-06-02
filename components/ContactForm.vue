@@ -73,7 +73,6 @@
                 validation="required"
                 message-class="$reset text-end text-[var(--color-text)]"
                 input-class="$reset appearance-none bg-transparent focus:outline-none focus:ring-0 focus:shadow-none block w-full h-32 px-3 py-3 border-none text-base placeholder-gray-400 focus:shadow-outline text-[var(--color-text)]"    
-
             />
             <br>
             <FormKit
@@ -110,7 +109,7 @@
                 :disabled="value.isCC ? false : true"
                 prefix-icon="email"
                 placeholder="email address"
-                :validation="value.isCC ? 'required|email' : 'email' "
+                :validation="value.isCC ? 'required|email' : '' "
                 message-class="$reset text-end text-[var(--color-text)]"
                 prefix-icon-class="$reset w-10 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-r border-gray-400 [&>svg]:w-full [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto"
             />
