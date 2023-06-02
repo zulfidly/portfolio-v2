@@ -2,8 +2,10 @@
     import { ref } from 'vue'
     const isCCref = ref(true)
     const rate = ref(5)
-    const sendMsg = (x) => {
+    const sendMsg = async(x) => {
         // console.log(x);
+        // const { data } = await useFetch('/api/nodemailer')
+        // console.log(data);
         $fetch(
             '/api/nodemailer',
             {
@@ -17,8 +19,8 @@
                     html: `
                         <table style="border-collapse:separate; border-spacing:5px;">
                             <tr>
-                                <td style="text-align:center; padding:10px; border:1px solid; font-size:16px; font-weight:bold; border-top-left-radius: 15px;">Name</td>
-                                <td style="padding:10px; border:1px solid; font-size:16px; border-top-right-radius: 15px;"> ${x.name}</td>
+                                <td style="text-align:center; padding:10px; border:1px solid; font-size:16px; font-weight:bold; border-top-left-radius: 10px;">Name</td>
+                                <td style="padding:10px; border:1px solid; font-size:16px; border-top-right-radius: 10px;"> ${x.name}</td>
                             </tr>
                             <tr>
                                 <td style="text-align:center; padding:10px; border:1px solid; font-size:16px; font-weight:bold;"> Email</td>
@@ -29,14 +31,14 @@
                                 <td style="padding:10px; border:1px solid; font-size:16px;"> ${x.rating} / 10 </td>
                             </tr>
                             <tr>
-                                <td style="text-align:center; padding:10px; border:1px solid; font-size:16px; font-weight:bold; border-bottom-left-radius: 15px;"> Message</td>
-                                <td style="padding:10px; border:1px solid; font-size:16px; border-bottom-right-radius: 15px;"> ${x.message} </td>
+                                <td style="text-align:center; padding:10px; border:1px solid; font-size:16px; font-weight:bold; border-bottom-left-radius: 10px;"> Message</td>
+                                <td style="padding:10px; border:1px solid; font-size:16px; border-bottom-right-radius: 10px;"> ${x.message} </td>
                             </tr>
                         </table>
                     `
                 }                 
             }
-        )
+        ).then((resp) => console.log(resp))
     }
 
 </script>

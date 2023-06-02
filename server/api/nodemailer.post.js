@@ -12,12 +12,16 @@ async function emailer(x) {
     }); 
     let info = await transporter.sendMail(x)  
     console.log("Message sent: %s", info.messageId);
+    return info
+    // console.log("Message sent: %s", info);
   } 
   
   export default defineEventHandler(async (event) => {
     const body = await readBody(event)
-    emailer(body).catch(console.error);
-    return { body }
+    const response = await emailer(body)
+    console.log(response);
+    // emailer(body).catch(console.error);
+    return {body}
 }) 
 
   // async..await is not allowed in global scope, must use a wrapper
