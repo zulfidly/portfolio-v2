@@ -1,6 +1,6 @@
 <script setup>
     import { ref } from 'vue'
-    
+    const isCCref = ref(true)
     const rate = ref(5)
     const sendMsg = (x) => {
         // console.log(x);
@@ -41,6 +41,7 @@
 
 </script>
 
+<!-- #default="{value}" -->
 <template>
     <div class="w-full flex flex-col justify-center items-center">
         <FormKit
@@ -50,7 +51,6 @@
             'suffix-icon': 'submit',
             help: ''
           }"
-          #default="{value}"
           @submit="(value)=> sendMsg(value)"
           form-class="$reset min-w-[340px]"
         >          
@@ -100,16 +100,17 @@
                 name="isCC"
                 decorator-icon="check"
                 label-class="$reset select-none pl-3 flex items-center [&>span:first-child]:text-[var(--color-text)]"
-                :value="true"
+                :value="isCCref"
+                @click="isCCref = !isCCref"
                 decorator-class="$reset block relative h-5 w-5 mr-2 rounded bg-transparent ring-1 ring-gray-400 peer-checked:ring-blue-500 text-transparent peer-checked:text-blue-500"
             />
             <FormKit
                 type="email"
                 name="email"
-                :disabled="value.isCC ? false : true"
+                :disabled="isCCref ? false : true"
                 prefix-icon="email"
                 placeholder="email address"
-                :validation="value.isCC ? 'required|email' : '' "
+                :validation="isCCref ? 'required|email' : '' "
                 message-class="$reset text-end text-[var(--color-text)]"
                 prefix-icon-class="$reset w-10 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-r border-gray-400 [&>svg]:w-full [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto"
             />
