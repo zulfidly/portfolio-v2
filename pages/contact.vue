@@ -4,7 +4,7 @@
     import { isMenuHidden } from '../components/NavBar.vue'
     import ContactForm from '../components/ContactForm.vue'
 
-    isNavBtnHidden.value = true
+    // isNavBtnHidden.value = true
     useHead({  title: 'Contact' })
     SocMedVisibilityMngr(useRoute().path)
 
