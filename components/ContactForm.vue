@@ -2,10 +2,14 @@
     import { ref } from 'vue'
     const isCCref = ref(true)
     const rate = ref(5)
+    const isSending = ref(false)
+    const isSent = ref(false)
+
     const sendMsg = async(x) => {
         // console.log(x);
         // const { data } = await useFetch('/api/nodemailer')
         // console.log(data);
+        isSending.value = true
         $fetch(
             '/api/nodemailer',
             {
@@ -38,7 +42,12 @@
                     `
                 }                 
             }
-        ).then((resp) => console.log(resp))
+        ).then((resp) => {
+            isSending.value = false
+            isSent.value = true
+            setTimeout(()=> { isSent.value = false}, 3000)
+            // console.log(resp)
+        })
     }
 
 </script>
@@ -47,22 +56,25 @@
 <template>
     <div class="w-full flex flex-col justify-center items-center">
         <FormKit
-          type="form"
-          submit-label="Send"
-          :submit-attrs="{
-            'suffix-icon': 'submit',
-            help: ''
-          }"
-          @submit="(value)=> sendMsg(value)"
+            id="contactForm"
+            type="form"
+            :submit-label=" isSending ? 'Sending' : 'Send' "
+            :submit-attrs="{
+            'suffix-icon': isSending ? 'spinner' : 'submit',
+            'wrapperClass' : isSending ? '$reset mt-8 [&>button>span:first-child]:animate-spin' : '$reset mt-8',
+        }"
+
+          @submit="(value)=> { sendMsg(value); $formkit.reset('contactForm') }"
           form-class="$reset min-w-[340px]"
+          message-class="$reset hidden"
         >          
             <FormKit
                 type="text"
                 name="name"
                 label=""
-                placeholder="Name"
+                placeholder="what is your name ?"
                 validation="required"
-                message-class="$reset text-end text-[var(--color-text)]"
+                message-class="$reset text-end text-red-400 absolute top-full right-0"
                 input-class="$reset appearance-none bg-transparent webkit-autofill:bg-transparent focus:outline-none focus:ring-0 focus:shadow-none w-full px-3 py-2 border-none text-base placeholder-gray-400 text-[var(--color-text)] transition-all duration-300"
             />
             <br>            
@@ -73,7 +85,7 @@
                 label=""
                 placeholder="what do you want to say ?"
                 validation="required"
-                message-class="$reset text-end text-[var(--color-text)]"
+                message-class="$reset text-end text-red-400 absolute top-full right-0"
                 input-class="$reset appearance-none bg-transparent focus:outline-none focus:ring-0 focus:shadow-none block w-full h-32 px-3 py-3 border-none text-base placeholder-gray-400 focus:shadow-outline text-[var(--color-text)]"    
             />
             <br>
@@ -88,11 +100,10 @@
                 suffix-icon="heart"
                 :label=" 'Rate my portfolio site : ' + rate + ' /10'"
                 wrapper-class="$reset space-y-4"
+                input-class="$reset rounded-full w-full h-2 p-0"
                 help-class="text-[var(--color-text)]"
-                label-class="$reset mb-4 font-bold text-sm [&>label:first-child]:text-[var(--color-text)]"
+                label-class="$reset mb-4 text-md"
             />
-            <br>
-            <br>
             <br>
             <br>
 
@@ -113,13 +124,14 @@
                 prefix-icon="email"
                 placeholder="email address"
                 :validation="isCCref ? 'required|email' : '' "
-                message-class="$reset text-end text-[var(--color-text)]"
+                message-class="$reset text-end text-red-400 absolute top-full right-0"
                 prefix-icon-class="$reset w-10 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-r border-gray-400 [&>svg]:w-full [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto"
-            />
-
+                input-class="$reset appearance-none bg-transparent focus:outline-none focus:ring-0 focus:shadow-none w-full px-3 py-2 border-none text-base text-[var(--color-text)] placeholder-gray-400"
+                />
             <!-- <pre wrap class="overflow-scroll"> {{ value }}</pre> -->
             
         </FormKit>
+        <p class="text-md text-[var(--color-text)] transition-all duration-200" :class=" isSent ? 'opacity-100' : 'opacity-0' ">Message sent !</p>
     </div>
 </template>
 

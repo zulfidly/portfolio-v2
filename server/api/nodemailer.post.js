@@ -12,14 +12,15 @@ async function emailer(x) {
     }); 
     let info = await transporter.sendMail(x)  
     console.log("Message sent: %s", info.messageId);
+    // console.log(info);
     return info
     // console.log("Message sent: %s", info);
   } 
   
   export default defineEventHandler(async (event) => {
     const body = await readBody(event)
-    const response = await emailer(body)
-    console.log(response);
+    const info = await emailer(body)
+    // console.log(info);
     // emailer(body).catch(console.error);
     return {body}
 }) 

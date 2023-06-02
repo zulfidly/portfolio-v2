@@ -17,7 +17,7 @@
 
 <template>
     <div class="h-[100svh] flex flex-col justify-start items-center transition-all duration-500" :class="isMenuHidden?opac.show:opac.hide">
-        <p class="py-4 mx-auto text-2xl text-[var(--color-text)]">Send a message</p>
+        <p class="py-4 mx-auto text-2xl text-[var(--color-text)]">Send Fidly a message &#128236;</p>
         <ContactForm />
     </div>
 </template>
