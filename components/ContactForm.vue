@@ -21,22 +21,22 @@
                     subject: x.name + " : Portfolio Contact Form", // Subject line
                     text: "text", // plain text body
                     html: `
-                        <table style="border-collapse:separate; border-spacing:0px; color:#141f30; ">
+                        <table style="border-collapse:separate; border-spacing:3px; color:#749ad4; ">
                             <tr>
-                                <td style="text-align:center; padding:10px; border:1px solid; font-size:16px; font-weight:bold; border-top-left-radius: 7px;">Name</td>
-                                <td style="padding:10px; border:1px solid; font-size:16px; border-top-right-radius: 7px;"> ${x.name}</td>
+                                <td style="text-align:center; padding:16px; border:1px solid; font-size:16px; font-weight:bold; border-top-left-radius: 7px;">Name</td>
+                                <td style="padding:16px; border:1px solid; font-size:16px; border-top-right-radius: 7px;"> ${x.name}</td>
                             </tr>
                             <tr>
-                                <td style="text-align:center; padding:10px; border:1px solid; font-size:16px; font-weight:bold;"> Email</td>
-                                <td style="padding:10px; border:1px solid; font-size:16px;"> ${x.email||'not provided'} </td>
+                                <td style="text-align:center; padding:16px; border:1px solid; font-size:16px; font-weight:bold;"> Email</td>
+                                <td style="padding:16px; border:1px solid; font-size:16px;"> ${x.email||'not provided'} </td>
                             </tr>
                             <tr>
-                                <td style="text-align:center; padding:10px; border:1px solid; font-size:16px; font-weight:bold;"> Rating </td>
-                                <td style="padding:10px; border:1px solid; font-size:16px;"> ${x.rating} / 10 </td>
+                                <td style="text-align:center; padding:16px; border:1px solid; font-size:16px; font-weight:bold;"> Rating </td>
+                                <td style="padding:16px; border:1px solid; font-size:16px;"> ${x.rating} / 10 </td>
                             </tr>
                             <tr>
-                                <td style="text-align:center; padding:10px; border:1px solid; font-size:16px; font-weight:bold; border-bottom-left-radius: 7px;"> Message</td>
-                                <td style="padding:10px; border:1px solid; font-size:16px; border-bottom-right-radius: 7px;"> ${x.message} </td>
+                                <td style="text-align:center; padding:16px; border:1px solid; font-size:16px; font-weight:bold; border-bottom-left-radius: 7px;"> Message</td>
+                                <td style="padding:16px; border:1px solid; font-size:16px; border-bottom-right-radius: 7px;"> ${x.message} </td>
                             </tr>
                         </table>
                     `
