@@ -1,4 +1,6 @@
-# npx nuxi init 'project name'
+## [view site](https://portfolio-fidly.netlify.app/)
+
+## npx nuxi init 'project name'
 - cd to project folder
 - npm install
 - npm run dev -- -o (this opens new browser)
