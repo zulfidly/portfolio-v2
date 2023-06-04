@@ -6,11 +6,10 @@
     useHead({  title: 'Home' })
     SocMedVisibilityMngr(useRoute().path)
 
-    // console.log("Homepage loaded");
     const intro = {
-        init: ["transition-all duration-300"],
+        init: ["transition-all duration-200"],
         hide: ["opacity-0"],
-        show: ["opacity-100 delay-300"],
+        show: ["opacity-100 delay-200"],
         greet: ["text-7xl text-center"],
         msg: ["text-4xl text-center"],
     }

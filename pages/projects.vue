@@ -53,8 +53,8 @@
 </script>
 
 <template>
-    <div class="transition-all duration-500 sm:px-8" :class="[isMenuHidden ? 'opacity-100' : 'opacity-0']" >
-        <ul @scroll="isCardInsideOfViewport" :style="getHeight" class="w-full grid gap-4 snap-y snap-mandatory overflow-scroll transition-all duration-300" :class="[isPortrait?'':scrLscape.uL]" >    
+    <div class="transition-all duration-200 sm:px-8" :class="[isMenuHidden ? 'opacity-100' : 'opacity-0']" >
+        <ul @scroll="isCardInsideOfViewport" :style="getHeight" class="w-full grid gap-4 snap-y snap-mandatory overflow-scroll transition-all duration-200" :class="[isPortrait?'':scrLscape.uL]" >    
             <li v-for="(x, ind) in data" class="relative list-none h-[inherit] snap-center p-0" :key="'li'+ind">
                 <div :id="'card'+ind" class="h-full w-full bg-[var(--color-background-mute)] rounded-xl overflow-clip p-4">
                     <ProjectCard :key="'card'+ind"
@@ -68,7 +68,7 @@
                                 :id="'imgCard'+ind"
                                 :alt="x.description"                        
                                 :hidden="false"
-                                class="mx-auto rounded-lg transition-all duration-500 delay-100 w-auto h-auto sm:hidden"
+                                class="mx-auto rounded-lg transition-all duration-500 w-auto h-auto sm:hidden"
                                 :class="loadedImg.includes(ind+1) ? 'opacity-100' : 'opacity-0' "
                                 :src="loadedImg.includes(ind)&&isPortrait ? x.imgURL : '#' "
                             />

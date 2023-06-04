@@ -13,7 +13,7 @@
 </script>
 
 <template>
-    <div class="mt-[15px] p-3 md:px-14 transition-all duration-500" :class="isMenuHidden?opac.show:opac.hide">
+    <div class="mt-[15px] p-3 md:px-14 transition-all duration-200" :class="isMenuHidden?opac.show:opac.hide">
         <img class="mx-auto md:float-left md:m-4" src="/images/profilePhoto.png" />
 
         <p class="text-2xl md:text-xl text-center py-2 px-4">
