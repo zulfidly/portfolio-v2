@@ -54,7 +54,7 @@
 
 <template>
     <div class="transition-all duration-500 sm:px-8" :class="[isMenuHidden ? 'opacity-100' : 'opacity-0']" >
-        <ul @scroll="isCardInsideOfViewport" :style="getHeight" class="w-full grid gap-4 snap-y snap-mandatory overflow-scroll" :class="[isPortrait?'':scrLscape.uL]" >    
+        <ul @scroll="isCardInsideOfViewport" :style="getHeight" class="w-full grid gap-4 snap-y snap-mandatory overflow-scroll transition-all duration-300" :class="[isPortrait?'':scrLscape.uL]" >    
             <li v-for="(x, ind) in data" class="relative list-none h-[inherit] snap-center p-0" :key="'li'+ind">
                 <div :id="'card'+ind" class="h-full w-full bg-[var(--color-background-mute)] rounded-xl overflow-clip p-4">
                     <ProjectCard :key="'card'+ind"
