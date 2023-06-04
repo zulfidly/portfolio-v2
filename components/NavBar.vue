@@ -62,7 +62,6 @@
         isNavBtnHidden.value = false
     }
     const isSensorHidden = computed(()=> {
-        // console.log(isSensorHidden);
         if(isMenuHidden.value && isNavBtnHidden.value) return false
         else return true
     })
@@ -105,7 +104,7 @@
     </button>
 
 	<div :class="[nav.menu.ctnr.init, isMenuHidden?nav.menu.ctnr.close:nav.menu.ctnr.open]">
-		<NuxtLink @mousedown="toggleMenu" to="/">           <p :class="link" class="delay-[30ms]" >Home</p></NuxtLink>
+		<NuxtLink @mousedown="toggleMenu" to="/">           <p :class="link, 'underline underline-offset-2'" class="delay-[30ms]" >Home</p></NuxtLink>
 		<NuxtLink @mousedown="toggleMenu" to="/projects">   <p :class="link" class="delay-[60ms]">Projects</p></NuxtLink>
 		<NuxtLink @mousedown="toggleMenu" to="/about">      <p :class="link" class="delay-[90ms]">About</p></NuxtLink>
 		<NuxtLink @mousedown="toggleMenu" to="/contact">    <p :class="link" class="delay-[120ms]">Contact</p></NuxtLink>

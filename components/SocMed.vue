@@ -18,10 +18,10 @@
 </script>
 
 <template>
-    <div id="linkedin" :class="[opac.init, isSocMedHidden ? opac.hide : opac.show]" class="fixed bottom-0 w-full  translate-1/2 left-0 space-y-5">
+    <div :class="[opac.init, isSocMedHidden ? opac.hide : opac.show]" class="fixed bottom-0 w-full  translate-1/2 left-0 space-y-5">
         <div class="flex justify-evenly">
             <button>
-                <svg x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                <svg name="linkedin" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                     <g>
                         <path class="fill-[var(--linkedin)] transition-all duration-300" d="M19.962,39.997c-5.656,0-11.312-0.021-16.969,0.013c-1.501,0.008-2.771-1.037-2.976-2.457
                             c-0.021-0.146-0.03-0.297-0.03-0.445C-0.014,25.708-0.014,14.308-0.014,2.908c0-1.644,1.226-2.891,2.878-2.903
@@ -45,7 +45,7 @@
             </button>
     
             <button>
-                <svg id="github" class="fill-[var(--color-text)] transition-all duration-300" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                <svg name="github" class="fill-[var(--color-text)] transition-all duration-300" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                     <g>
                         <path d="M20,0C9.236,0,0.516,8.956,0.516,20c0,11.046,8.726,20,19.484,20c10.764,0,19.484-8.953,19.484-20
                             C39.484,8.956,30.764,0,20,0z M25.85,37.963c-0.938,0.188-1.27-0.402-1.27-0.91c0-0.619,0.021-2.66,0.021-5.191
@@ -86,7 +86,7 @@
             --linkedin: var(--color-text);
         }
         .insta {
-            filter: invert(69%) grayscale(100%);
+            filter: invert(60%) grayscale(100%);
         }
     }
 </style>

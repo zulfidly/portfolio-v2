@@ -1,10 +1,13 @@
 <script setup>
     import { isMenuHidden } from '../components/NavBar.vue'
     import { SocMedVisibilityMngr } from '../components/SocMed.vue'
-
+    useHead({  title: 'About' })
     SocMedVisibilityMngr(useRoute().path)
 
-    useHead({  title: 'About' })
+    const emiT = defineEmits(['pgPath'])
+    onMounted(()=>{
+        emiT('pgPath', useRoute().path)
+    })
 
     const opac = {
         show: ["opacity-100"],

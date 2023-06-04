@@ -17,12 +17,10 @@
     const getHeight = ref('height:100px;') // dummy init for server side
     const isPortrait = ref(undefined)    
     onMounted(()=> {
-        // console.log(' projects mounted');
         isPortrait.value = window.matchMedia("(orientation: portrait)").matches
         window.addEventListener("resize", () => {
-                isPortrait.value = window.matchMedia("(orientation: portrait)").matches
-                // console.log('isPortrait :', isPortrait.value);  
-                getHeight.value = `height:${window.innerHeight-32}px;`
+            isPortrait.value = window.matchMedia("(orientation: portrait)").matches
+            getHeight.value = `height:${window.innerHeight-32}px;`
         })
         getWidth.value = window.innerWidth
         getHeight.value = `height:${window.innerHeight-32}px;`
