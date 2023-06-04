@@ -5,19 +5,31 @@
     import { SocMedVisibilityMngr } from '../components/SocMed.vue'
     import { ref } from 'vue'
     import { onMounted } from 'vue'
-    import { computed } from 'vue'
-
-    // console.log(data);
-    // console.log(Object.keys(data).length);
     useHead({  title: 'Projects' })
     SocMedVisibilityMngr(useRoute().path)
-    const cardRef = ref(null)
+    // console.log(data);
+    // console.log(Object.keys(data).length);
+
     const currKard = ref(1)
     const totalCards = Object.keys(data).length;
- 
+
+    const getWidth = ref('width:100px;') // dummy init for server side
+    const getHeight = ref('height:100px;') // dummy init for server side
+    const isPortrait = ref(undefined)    
+    onMounted(()=> {
+        // console.log(' projects mounted');
+        isPortrait.value = window.matchMedia("(orientation: portrait)").matches
+        window.addEventListener("resize", () => {
+                isPortrait.value = window.matchMedia("(orientation: portrait)").matches
+                // console.log('isPortrait :', isPortrait.value);  
+                getHeight.value = `height:${window.innerHeight-32}px;`
+        })
+        getWidth.value = window.innerWidth
+        getHeight.value = `height:${window.innerHeight-32}px;`
+    })    
+
     let loadedImg = [0, 1]
     function isCardInsideOfViewport() {  
-        console.log(cardRef.value);            
         data.forEach((x, ind)=> {
             let y = document.getElementById('card' + ind)
             let z = y.firstElementChild
@@ -35,20 +47,14 @@
             }            
         })
     }    
-    const getWidth = ref('width:100px;') // dummy init for server side
-    const getHeight = ref('height:100px;') // dummy init for server side
-
-    onMounted(()=> {
-        getWidth.value = window.innerWidth
-        getHeight.value = window.innerHeight
-    })
-
-    
+    const scrLscape = {
+        uL: ["sm:grid sm:grid-cols-2 sm:grid-flow-row sm:gap-4"]
+    }
 </script>
 
 <template>
-    <div class="transition-all duration-500" :class="[isMenuHidden ? 'opacity-100' : 'opacity-0']" >
-        <ul @scroll="isCardInsideOfViewport" class="h-[95svh] w-full grid snap-y snap-mandatory overflow-scroll">    
+    <div class="transition-all duration-500 sm:px-8" :class="[isMenuHidden ? 'opacity-100' : 'opacity-0']" >
+        <ul @scroll="isCardInsideOfViewport" :style="getHeight" class="w-full grid gap-4 snap-y snap-mandatory overflow-scroll" :class="[isPortrait?'':scrLscape.uL]" >    
             <li v-for="(x, ind) in data" class="relative list-none h-[inherit] snap-center p-0" :key="'li'+ind">
                 <div :id="'card'+ind" class="h-full w-full bg-[var(--color-background-mute)] rounded-xl overflow-clip p-4">
                     <ProjectCard :key="'card'+ind"
@@ -62,14 +68,14 @@
                                 :id="'imgCard'+ind"
                                 :alt="x.description"                        
                                 :hidden="false"
-                                class="mx-auto mt-4 rounded-lg transition-all duration-500 delay-100 w-auto max-h-[380px] sm:hidden"
+                                class="mx-auto rounded-lg transition-all duration-500 delay-100 w-auto h-auto sm:hidden"
                                 :class="loadedImg.includes(ind+1) ? 'opacity-100' : 'opacity-0' "
-                                :src="loadedImg.includes(ind) ? x.imgURL : '#' "
+                                :src="loadedImg.includes(ind)&&isPortrait ? x.imgURL : '#' "
                             />
                         </template>
 
                         <template #links>
-                            <div class="space-x-14 flex justify-start pl-8">
+                            <div class="space-x-14 p-2 flex justify-start pl-8 sm:pl-0 sm:justify-evenly">
                                 <IconGitHub :link="x.githubURL" />
                                 <IconNetlify :link="x.netlifyURL" />
                             </div>
@@ -80,7 +86,7 @@
                 </div>
             </li>    
         </ul>
-        <ProjectCardPagination :current-kard="currKard" :total-kards="totalCards" />
+        <ProjectCardPagination :current-kard="currKard" :total-kards="totalCards" v-if="isPortrait"/>
 
     </div>
 </template>

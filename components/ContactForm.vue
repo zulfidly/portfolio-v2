@@ -43,10 +43,10 @@
                 }                 
             }
         ).then((resp) => {
+            // console.log(resp)
             isSending.value = false
             isSent.value = true
             setTimeout(()=> { isSent.value = false}, 3000)
-            // console.log(resp)
         })
     }
 
@@ -60,9 +60,9 @@
             type="form"
             :submit-label=" isSending ? 'Sending' : 'Send' "
             :submit-attrs="{
-            'suffix-icon': isSending ? 'spinner' : 'submit',
-            'wrapperClass' : isSending ? '$reset mt-8 [&>button>span:first-child]:animate-spin' : '$reset mt-8',
-        }"
+                'wrapperClass' : isSending ? '$reset mt-8 [&>button>span:first-child]:animate-spin' : '$reset mt-8',
+                'suffix-icon': isSending ? 'spinner' : 'submit',
+            }"
 
           @submit="(value)=> { sendMsg(value); $formkit.reset('contactForm') }"
           form-class="$reset min-w-[340px]"

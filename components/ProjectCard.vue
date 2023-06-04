@@ -20,10 +20,10 @@
 </script>
 
 <template>
-    <div class="flex flex-col justify-between relative h-[inherit] w-full bg-[var(--color-background-mute)] rounded-xl">
+    <div class="flex flex-col justify-between sm:justify-evenly relative h-[inherit] w-full bg-[var(--color-background-mute)] rounded-xl">
         
-        <div>
-            <p class="text-3xl text-center"> {{ title }} </p>
+        <div class="space-y-1">
+            <p class="font-bold text-2xl sm:text-xl text-center"> {{ title }} </p>
             <p class="text-xl text-center"> {{ description }} </p>
     
             <table class="text-md mx-auto">

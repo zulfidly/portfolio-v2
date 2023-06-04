@@ -11,7 +11,6 @@
     export const isSocMedHidden = ref(false)
 
     export const SocMedVisibilityMngr = (path) => {
-        console.log(useRoute().path);
         if(path == '/' || path == '/about') isSocMedHidden.value = false
         else if(path == '/projects' || path == '/contact') isSocMedHidden.value = true
         else console.log('error in SocMed.vue');
