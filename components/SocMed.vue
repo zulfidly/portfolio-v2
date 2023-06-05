@@ -2,12 +2,11 @@
     const opac = {
         init: ['transition-all duration-200 delay-300'],
         show: ['opacity-100'],
-        hide: ['opacity-0']
+        hide: ['opacity-0 -z-10']
     }
 </script>
 
 <script>
-    import { ref } from "vue"
     export const isSocMedHidden = ref(false)
 
     export const SocMedVisibilityMngr = (path) => {

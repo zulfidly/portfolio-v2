@@ -3,13 +3,14 @@
     import ProjectCardPagination from '../components/ProjectPageNumber.vue'
     import { isMenuHidden } from '~/components/NavBar.vue';
     import { SocMedVisibilityMngr } from '../components/SocMed.vue'
-    import { ref } from 'vue'
-    import { onMounted } from 'vue'
     useHead({  title: 'Projects' })
     SocMedVisibilityMngr(useRoute().path)
     // console.log(data);
     // console.log(Object.keys(data).length);
-
+    const emiT = defineEmits(['pgPath'])
+    onMounted(()=>{
+        emiT('pgPath', useRoute().path)
+    })
     const currKard = ref(1)
     const totalCards = Object.keys(data).length;
 

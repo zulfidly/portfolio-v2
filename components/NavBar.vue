@@ -1,11 +1,8 @@
 <script setup>
-    import { computed } from 'vue'
-    import { ref } from 'vue' 
-    import { onMounted } from 'vue'
-
     const centerMark = ref(undefined)
     const navButtonRef = ref(null)
     const navButtonSensorRef = ref(null)
+    const currentPath = inject("dataProvide")
 
     onMounted(()=> {
         centerMark.value = `top:${ window.innerHeight/2 }px;`        
@@ -13,12 +10,6 @@
             centerMark.value = `top:${ window.innerHeight/2 }px;`
         })
     })    
-
-    function toggleMenu() {
-        isNavBtnHidden.value = !isNavBtnHidden.value
-        if(isNavBtnHidden.value) isMenuHidden.value = false
-        else isMenuHidden.value = true
-    }
     
     const nav = {
         svg: {
@@ -28,65 +19,72 @@
         },
         sign: {
             init: ["transition-all fill-[var(--color-text)]"],
-            close: ["delay-150"],
+            close: ["delay-200"],
             open: ["opacity-0 rotate-45"],
         },
         menu: {
             ctnr: {
                 init: ["fixed -translate-y-1/2 top-1/2 flex flex-col space-y-4"],
-                close: ["right-full delay-150"],
+                close: ["right-full delay-200"],
                 open: ["right-[90%]"]
             },
-            init: ["text-6xl md:text-3xl transition-all duration-150"],
+            init: ["text-6xl md:text-3xl transition-all duration-200"],
             close: ["opacity-0 -translate-x-0"],
             open: ["opacity-100 translate-x-full"],
         },
         closeSVG: {
-            init: [" transition-all duration-150 fill-[var(--color-text)]"],
+            init: [" transition-all duration-200 fill-[var(--color-text)]"],
         }
     }
     const navSensor = {
         init: ["block w-[8px] h-[76px] bg-red-400 rounded-e-full "],
         in: ["left-0"],
         out: ["-left-full"],
-        ctnr: ["fixed w-[55px] h-[76px] -translate-y-1/2 transition-all duration-150"]
+        ctnr: ["fixed w-[55px] h-[76px] -translate-y-1/2 transition-all duration-200"]
     }
     const navBtn = {
-        init: ["fixed -translate-y-1/2 transition-all duration-150"],
+        init: ["fixed -translate-y-1/2 transition-all duration-200"],
         hide: ["-left-full"],
         show: ["left-0"]
     }
-
+    const pop = {
+        currLink: ["font-bold drop-shadow scale-105 delay-200"]
+    }
     const slideInNavIcon = () => {
         console.log('slideInNavIcon');
         isNavBtnHidden.value = false
+    }
+    function toggleMenu() {
+        isNavBtnHidden.value = !isNavBtnHidden.value
+        if(isNavBtnHidden.value) isMenuHidden.value = false
+        else isMenuHidden.value = true
     }
     const isSensorHidden = computed(()=> {
         if(isMenuHidden.value && isNavBtnHidden.value) return false
         else return true
     })
-
+    
     var link = computed(()=> {
-        return [nav.menu.init, isMenuHidden.value?nav.menu.close:nav.menu.open]
+        return [nav.menu.init, isMenuHidden.value?nav.menu.close:nav.menu.open, ]
     })
+
 </script>
 
 <script>
-    import { watch } from 'vue'
     export const isNavBtnHidden = ref(false)
     export const isMenuHidden = ref(true)
-    // console.log('script NavBar.vue loaded');
     watch(
         isNavBtnHidden,
         ()=> {
-            if(isNavBtnHidden.value==false) {
-                const x = setTimeout(()=> {
-                    if(isMenuHidden.value==true) {
-                        console.log("isNavBtnHidden.value = true")
-                        isNavBtnHidden.value = true
-                    } else clearTimeout(x)
-                }, 1500)
-            } else return
+            if(isNavBtnHidden.value == true) return
+            let delay = undefined
+            if(isMenuHidden.value) delay = 1700
+            if(isMenuHidden.value == false) delay = 10
+
+            setTimeout(()=> {
+                console.log("isNavBtnHidden.value = true")
+                isNavBtnHidden.value = true
+            }, delay)
         },
     )
 </script>
@@ -104,10 +102,10 @@
     </button>
 
 	<div :class="[nav.menu.ctnr.init, isMenuHidden?nav.menu.ctnr.close:nav.menu.ctnr.open]">
-		<NuxtLink @mousedown="toggleMenu" to="/">           <p :class="link, 'underline underline-offset-2'" class="delay-[30ms]" >Home</p></NuxtLink>
-		<NuxtLink @mousedown="toggleMenu" to="/projects">   <p :class="link" class="delay-[60ms]">Projects</p></NuxtLink>
-		<NuxtLink @mousedown="toggleMenu" to="/about">      <p :class="link" class="delay-[90ms]">About</p></NuxtLink>
-		<NuxtLink @mousedown="toggleMenu" to="/contact">    <p :class="link" class="delay-[120ms]">Contact</p></NuxtLink>
+		<NuxtLink @mousedown="toggleMenu" to="/">           <p :class="link, currentPath=='/'?pop.currLink:'' " class="delay-[50ms]" >Home</p></NuxtLink>
+		<NuxtLink @mousedown="toggleMenu" to="/projects">   <p :class="link, currentPath=='/projects'?pop.currLink:'' " class="delay-[100ms]">Projects</p></NuxtLink>
+		<NuxtLink @mousedown="toggleMenu" to="/about">      <p :class="link, currentPath=='/about'?pop.currLink:'' " class="delay-[150ms]">About</p></NuxtLink>
+		<NuxtLink @mousedown="toggleMenu" to="/contact">    <p :class="link, currentPath=='/contact'?pop.currLink:'' " class="delay-[200ms]">Contact</p></NuxtLink>
 
         <button @click="toggleMenu" class="pt-8 flex justify-center delay-[150ms]"  :class="[nav.closeSVG.init, isMenuHidden?nav.menu.close:nav.menu.open]">
             <svg x="0px" y="0px"  width="51px" height="22px" viewBox="0 0 51 22" enable-background="new 0 0 51 22" xml:space="preserve">

@@ -1,11 +1,13 @@
 <script setup>
-    import { computed } from 'vue'
     import { isMenuHidden } from '../components/NavBar.vue'
     import { SocMedVisibilityMngr } from '../components/SocMed.vue'
-
     useHead({  title: 'Home' })
     SocMedVisibilityMngr(useRoute().path)
-
+    
+    const emiT = defineEmits(['pgPath'])
+    onMounted(()=>{
+        emiT('pgPath', useRoute().path)
+    })
     const intro = {
         init: ["transition-all duration-200"],
         hide: ["opacity-0"],

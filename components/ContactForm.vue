@@ -1,5 +1,4 @@
 <script setup>
-    import { ref } from 'vue'
     const isCCref = ref(true)
     const rate = ref(5)
     const isSending = ref(false)
@@ -15,10 +14,10 @@
             {
                 method: 'post',
                 body: {
-                    from: "👻 " + x.name + ' ' + x.email||"", // sender address
+                    from: x.name + ' ' + x.email||"", // sender address
                     to: "zulfidly@gmail.com", // list of receivers
                     cc: x.email||'', 
-                    subject: x.name + " : Portfolio Contact Form", // Subject line
+                    subject: "👻 Portfolio Contact Form", // Subject line
                     text: "text", // plain text body
                     html: `
                         <table style="border-collapse:separate; border-spacing:3px; color:#749ad4; ">
@@ -145,9 +144,9 @@
     select:-webkit-autofill,
     select:-webkit-autofill:hover,
     select:-webkit-autofill:focus {
-    /* border: 1px solid green; */
-    -webkit-text-fill-color: var(--color-text);
-    /* -webkit-box-shadow: 0 0 0px 1000px #000 inset; */
-    transition: background-color 5000s ease-in-out 0s;
+        /* border: 1px solid green; */
+        -webkit-text-fill-color: var(--color-text);
+        /* -webkit-box-shadow: 0 0 0px 1000px #000 inset; */
+        transition: background-color 5000s ease-in-out 0s;
     }
 </style>
