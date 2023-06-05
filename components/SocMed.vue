@@ -1,8 +1,8 @@
 <script setup>
     const opac = {
-        init: ['transition-all duration-200 delay-300'],
-        show: ['opacity-100'],
-        hide: ['opacity-0 -z-10']
+        init: ['fixed w-full translate-1/2 left-0 space-y-2 transition-all duration-300'],
+        show: ['opacity-100 bottom-0'],
+        hide: ['opacity-0 -bottom-full']
     }
 </script>
 
@@ -17,7 +17,7 @@
 </script>
 
 <template>
-    <div :class="[opac.init, isSocMedHidden ? opac.hide : opac.show]" class="fixed bottom-0 w-full  translate-1/2 left-0 space-y-5">
+    <div :class="[opac.init, isSocMedHidden ? opac.hide : opac.show]" class="">
         <div class="flex justify-evenly">
             <button>
                 <svg name="linkedin" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">

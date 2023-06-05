@@ -48,7 +48,7 @@
         show: ["left-0"]
     }
     const pop = {
-        currLink: ["font-bold drop-shadow scale-105 delay-200"]
+        currLink: ["font-bold drop-shadow-sm scale-105 delay-200"]
     }
     const slideInNavIcon = () => {
         console.log('slideInNavIcon');
