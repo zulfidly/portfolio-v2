@@ -25,3 +25,5 @@ this is to be used with <code><NuxtPage/></code> inside app.vue
 
 # Add nodemailer
 - npm install nodemailer
+
+

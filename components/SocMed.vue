@@ -2,7 +2,7 @@
     const opac = {
         init: ['fixed w-full translate-1/2 left-0 space-y-2 transition-all duration-300'],
         show: ['opacity-100 bottom-0'],
-        hide: ['opacity-0 -bottom-full']
+        hide: ['opacity-0 -bottom-full'],
     }
 </script>
 
@@ -22,7 +22,7 @@
             <button>
                 <svg name="linkedin" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                     <g>
-                        <path class="fill-[var(--linkedin)] transition-all duration-300" d="M19.962,39.997c-5.656,0-11.312-0.021-16.969,0.013c-1.501,0.008-2.771-1.037-2.976-2.457
+                        <path class="fill-[var(--linkedin)]" d="M19.962,39.997c-5.656,0-11.312-0.021-16.969,0.013c-1.501,0.008-2.771-1.037-2.976-2.457
                             c-0.021-0.146-0.03-0.297-0.03-0.445C-0.014,25.708-0.014,14.308-0.014,2.908c0-1.644,1.226-2.891,2.878-2.903
                             C4.675-0.01,6.485,0,8.296,0c9.577,0,19.153,0.01,28.729-0.01c1.55-0.003,2.603,1.053,2.857,2.037
                             c0.071,0.274,0.125,0.563,0.125,0.844c0.006,11.413,0.006,22.824,0.006,34.236c0,1.619-1.23,2.875-2.857,2.886
@@ -44,7 +44,7 @@
             </button>
     
             <button>
-                <svg name="github" class="fill-[var(--color-text)] transition-all duration-300" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                <svg name="github" class="fill-[var(--color-text)]" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                     <g>
                         <path d="M20,0C9.236,0,0.516,8.956,0.516,20c0,11.046,8.726,20,19.484,20c10.764,0,19.484-8.953,19.484-20
                             C39.484,8.956,30.764,0,20,0z M25.85,37.963c-0.938,0.188-1.27-0.402-1.27-0.91c0-0.619,0.021-2.66,0.021-5.191
@@ -61,31 +61,9 @@
             </button>
                 
             <button>
-                <img class="insta transition-all duration-300" src="/images/insta40.png" alt="Instagram logo" />
+                <img class="grayscale-0 dark:grayscale invert-0 dark:invert-[60%]" src="/images/insta40.png" alt="Instagram logo" />
             </button>
         </div>
-        <p class="text-xs text-center italic">Nuxt 3.4.3 / @nuxt/tailwindcss 6.6.8 </p>
+        <p class="text-xs text-center italic text-[var(--color-text)]">Nuxt 3.4.3 / @nuxt/tailwindcss 6.6.8 </p>
     </div>
 </template>
-
-<style>
-    :root {
-        --netlifyWord: #014847;
-        --netlifyGeo: #05BDBA;
-        --linkedin: #0077B5;
-    }
-
-    .insta {
-        filter: invert(0%) grayscale(0%);
-    }
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --netlifyWord: var(--color-text);
-            --netlifyGeo: var(--color-text);
-            --linkedin: var(--color-text);
-        }
-        .insta {
-            filter: invert(60%) grayscale(100%);
-        }
-    }
-</style>

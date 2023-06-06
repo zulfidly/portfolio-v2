@@ -1,7 +1,5 @@
 <script setup>
     const centerMark = ref(undefined)
-    // const navButtonRef = ref(null)
-    // const navButtonSensorRef = ref(null)
     const currentPath = inject("dataProvide")
 
     onMounted(()=> {

@@ -3,6 +3,8 @@
 const formKitTailwind = require('@formkit/themes/tailwindcss')
 
 module.exports = {
+  darkMode: 'class',
+
   content: [
     './src/**/*.{html,js,vue}',
     './node_modules/@formkit/themes/dist/tailwindcss/genesis/index.cjs',
