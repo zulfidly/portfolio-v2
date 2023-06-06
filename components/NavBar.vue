@@ -26,7 +26,7 @@
                 close: ["right-full delay-200"],
                 open: ["right-[90%]"]
             },
-            init: ["text-6xl md:text-3xl transition-all duration-200"],
+            init: ["text-6xl md:text-3xl text-[var(--color-text)]"],
             close: ["opacity-0 -translate-x-0"],
             open: ["opacity-100 translate-x-full"],
         },
