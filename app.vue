@@ -1,15 +1,12 @@
 <script setup>
+  const nuxtApp = useNuxtApp()
+
   const currentPath = ref(useRoute().path)
-  const isDark = ref(undefined)
+  const isDark = ref(true)
   provide("dataProvide", currentPath)
   provide("isDarkProvide", isDark)
 
 
-const temp1 = ref(undefined)
-
-  onBeforeMount(()=> {
-    document.querySelector('html').classList.add('dark')
-  })
   onMounted(()=> {
       console.log('app mounted: path=', useRoute().path); // to see reloaded page path    
     checkIfDark( window.matchMedia("(prefers-color-scheme: dark)").matches )
@@ -29,25 +26,34 @@ const temp1 = ref(undefined)
       document.querySelector('html').classList.remove('dark')
     }
   }
-
   
   const providePathToNavBar = (x) => {
     console.log('pgPath :' , x);
     currentPath.value = x
   }
-  // const nuxtApp = useNuxtApp()
-  // console.log(useNuxtApp());
+
 
   const darkManualToggle = () => {
     const htmlTop = document.querySelector('html')
     htmlTop.classList.toggle('dark')
     isDark.value = !isDark.value
   }
+
+  const isNavBtnHiddenApp = ref(false)
+  const isMenuHiddenApp = ref(true)
+  nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (same as Vue3's provide/inject)
+  nuxtApp.provide('isMenuHiddenApp', ()=> isMenuHiddenApp)
+  const provideNavBarEventsToOthers = (y)=> {
+    console.log(y);
+    isNavBtnHiddenApp.value = y.isNavBtnHiddenEmitted
+    isMenuHiddenApp.value = y.isMenuHiddenEmitted
+    console.log(nuxtApp.$isMenuHiddenApp());
+  }
 </script>
 
 <template>
   <NuxtPage @pgPath="(x)=> providePathToNavBar(x)" />
-  <NavBar  />
+  <NavBar  @toggleMenu="(y)=> provideNavBarEventsToOthers(y)"/>
   <SocMed />
   
   <button @click="darkManualToggle" class=" text-[var(--color-text)] fixed m-1 top-0 right-0 border-2 rounded-full border-green-700 h-[60px] w-[60px] bg-[var(--color-background-mute)]">

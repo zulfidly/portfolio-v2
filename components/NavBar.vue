@@ -2,6 +2,24 @@
     const centerMark = ref(undefined)
     const currentPath = inject("dataProvide")
 
+    const isNavBtnHidden = ref(false)
+    const isMenuHidden = ref(true)
+
+    watch(
+        isNavBtnHidden,
+        ()=> {
+            if(isNavBtnHidden.value == true) return
+            let delay = undefined
+            if(isMenuHidden.value) delay = 1700
+            if(isMenuHidden.value == false) delay = 10
+
+            setTimeout(()=> {
+                console.log("isNavBtnHidden.value = true")
+                isNavBtnHidden.value = true
+            }, delay)
+        },
+    )
+
     onMounted(()=> {
         centerMark.value = `top:${ window.innerHeight/2 }px;`        
         window.addEventListener("resize", () => {
@@ -22,9 +40,9 @@
         },
         menu: {
             ctnr: {
-                init: ["fixed -translate-y-1/2 flex flex-col space-y-4 transition-all duration-200"],
+                init: ["fixed -translate-y-1/2 flex flex-col space-y-4 transition-all duration-200 "],
                 close: ["right-full delay-200"],
-                open: ["right-[90%]"]
+                open: ["right-[10%]"]
             },
             init: ["text-6xl md:text-3xl text-[var(--color-text)]"],
             close: ["opacity-0 -translate-x-0"],
@@ -52,23 +70,36 @@
         console.log('slideInNavIcon');
         isNavBtnHidden.value = false
     }
+
+    // <NavBar  @toggleMenu="(y)=> test2(y)" />
+    const emiT = defineEmits(['toggleMenu'])
     function toggleMenu() {
         isNavBtnHidden.value = !isNavBtnHidden.value
         if(isNavBtnHidden.value) isMenuHidden.value = false
         else isMenuHidden.value = true
+        
+        emiT('toggleMenu', {
+            isNavBtnHiddenEmitted: isNavBtnHidden.value,
+            isMenuHiddenEmitted: isMenuHidden.value,
+        })
     }
     const isSensorHidden = computed(()=> {
         if(isMenuHidden.value && isNavBtnHidden.value) return false
         else return true
-    })
-    
-    var link = computed(()=> {
-        return [nav.menu.init, isMenuHidden.value?nav.menu.close:nav.menu.open, ]
-    })
+    })    
 
+    const nLink = {
+        ctnrInit: ['fixed -translate-x-[110%] -translate-y-1/2 flex flex-col space-y-4 transition-all duration-200 '],
+        div: {
+            init: ['transition-all duration-200'],
+            hide: ['translate-x-0 opacity-0'],
+            show: ['translate-x-[110%] opacity-100'],
+        },
+        link: ['text-6xl md:text-3xl text-[var(--color-text)]'],
+    }
 </script>
 
-<script>
+<!-- <script>
     export const isNavBtnHidden = ref(false)
     export const isMenuHidden = ref(true)
     watch(
@@ -85,7 +116,7 @@
             }, delay)
         },
     )
-</script>
+</script> -->
 
 <template>
     <button :style="centerMark" :class="[navBtn.init, isSensorHidden?navBtn.show:navBtn.hide]" @click="toggleMenu">
@@ -99,11 +130,31 @@
         <span id="navIconSensor" :class="[navSensor.init]"></span>
     </button>
 
-	<div :style="centerMark" :class="[nav.menu.ctnr.init, isMenuHidden?nav.menu.ctnr.close:nav.menu.ctnr.open]">
-		<NuxtLink @mousedown="toggleMenu" to="/">           <p :class="link, currentPath=='/'?pop.currLink:'' " class="delay-[50ms]" >Home</p></NuxtLink>
-		<NuxtLink @mousedown="toggleMenu" to="/projects">   <p :class="link, currentPath=='/projects'?pop.currLink:'' " class="delay-[100ms]">Projects</p></NuxtLink>
-		<NuxtLink @mousedown="toggleMenu" to="/about">      <p :class="link, currentPath=='/about'?pop.currLink:'' " class="delay-[150ms]">About</p></NuxtLink>
-		<NuxtLink @mousedown="toggleMenu" to="/contact">    <p :class="link, currentPath=='/contact'?pop.currLink:'' " class="delay-[200ms]">Contact</p></NuxtLink>
+	<div :style="centerMark" :class="[nLink.ctnrInit]">
+		<div @click="toggleMenu"
+            :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
+            class="delay-[50ms]" 
+        >
+                <NuxtLink to="/">           <p :class="nLink.link, currentPath=='/'?pop.currLink:''"         >Home</p>      </NuxtLink>
+        </div>
+		<div @click="toggleMenu"
+            :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
+            class="delay-[100ms]"
+        >
+                <NuxtLink to="/projects">   <p :class="nLink.link, currentPath=='/projects'?pop.currLink:''" >Projects</p>  </NuxtLink>
+        </div>
+		<div @click="toggleMenu"
+            :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
+            class="delay-[150ms]"
+        >
+                <NuxtLink to="/about">      <p :class="nLink.link, currentPath=='/about'?pop.currLink:''"    >About</p>     </NuxtLink>
+        </div>
+		<div @click="toggleMenu"
+            :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
+            class="delay-[200ms]"
+        >
+                <NuxtLink to="/contact">    <p :class="nLink.link, currentPath=='/contact'?pop.currLink:''"  >Contact</p>   </NuxtLink>
+        </div>
 
         <button @click="toggleMenu" :class="[nav.closeSVG.init, isMenuHidden?nav.menu.close:nav.menu.open]" class="delay-[200ms]">
             <svg x="0px" y="0px"  width="51px" height="22px" viewBox="0 0 51 22" enable-background="new 0 0 51 22" xml:space="preserve">

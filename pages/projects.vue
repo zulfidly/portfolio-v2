@@ -1,13 +1,12 @@
 <script setup>
     import data from '../assets/projectsItems.json'
     import ProjectCardPagination from '../components/ProjectPageNumber.vue'
-    import { isMenuHidden } from '~/components/NavBar.vue';
     import { SocMedVisibilityMngr } from '../components/SocMed.vue'
     useHead({  title: 'Projects' })
     SocMedVisibilityMngr(useRoute().path)
-    // console.log(data);
-    // console.log(Object.keys(data).length);
+    // console.log(data, Object.keys(data).length);
     const isDarkScoped = inject("isDarkProvide")
+    const isMenuHidden =  useNuxtApp().$isMenuHiddenApp()
 
     const emiT = defineEmits(['pgPath'])
     onMounted(()=>{
