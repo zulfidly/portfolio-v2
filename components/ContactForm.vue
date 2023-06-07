@@ -101,7 +101,7 @@
                 wrapper-class="$reset space-y-4"
                 input-class="$reset rounded-full w-full h-2 p-0"
                 help-class="text-[var(--color-text)]"
-                label-class="$reset mb-4 text-md"
+                label-class="$reset mb-4 text-md text-[var(--color-text)]"
             />
             <br>
             <br>
@@ -111,10 +111,10 @@
                 label="send me a copy of this message"
                 name="isCC"
                 decorator-icon="check"
-                label-class="$reset select-none pl-3 flex items-center [&>span:first-child]:text-[var(--color-text)]"
+                label-class="$reset select-none pl-3 flex items-center text-[var(--color-text)] [&>span:first-child]:text-[var(--color-text)]"
                 :value="isCCref"
                 @click="isCCref = !isCCref"
-                decorator-class="$reset block relative h-5 w-5 mr-2 rounded bg-transparent ring-1 ring-gray-400 peer-checked:ring-blue-500 text-transparent peer-checked:text-blue-500"
+                decorator-class="$reset transition-all duration-200 block relative h-5 w-5 mr-2 rounded bg-transparent ring-1 ring-gray-400 peer-checked:ring-blue-500 text-transparent peer-checked:text-blue-500"
             />
             <FormKit
                 type="email"
@@ -124,13 +124,13 @@
                 placeholder="email address"
                 :validation="isCCref ? 'required|email' : '' "
                 message-class="$reset text-end text-red-400 absolute top-full right-0"
-                prefix-icon-class="$reset w-10 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-r border-gray-400 [&>svg]:w-full [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto"
+                prefix-icon-class="$reset w-10 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-r border-gray-400  [&>svg]:fill-[var(--color-text)] [&>svg]:w-full [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto"
                 input-class="$reset appearance-none bg-transparent focus:outline-none focus:ring-0 focus:shadow-none w-full px-3 py-2 border-none text-base text-[var(--color-text)] placeholder-gray-400"
                 />
             <!-- <pre wrap class="overflow-scroll"> {{ value }}</pre> -->
             
         </FormKit>
-        <p class="text-md text-[var(--color-text)] transition-all duration-200" :class=" isSent ? 'opacity-100' : 'opacity-0' ">Message sent !</p>
+        <p class="text-md text-[var(--color-text)] " :class=" isSent ? 'opacity-100' : 'opacity-0' ">Message sent !</p>
     </div>
 </template>
 

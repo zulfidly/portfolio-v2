@@ -15,13 +15,12 @@
     isMenuHiddenApp.value = y.isMenuHiddenEmitted
   }
 
-
   onMounted(()=> {
       console.log('app mounted: path=', useRoute().path); // to see reloaded page path    
-    checkIfDark( window.matchMedia("(prefers-color-scheme: dark)").matches )
+      checkIfDark( window.matchMedia("(prefers-color-scheme: dark)").matches)
     window.matchMedia("(prefers-color-scheme:dark)").addEventListener("change", () => {
-      checkIfDark( window.matchMedia("(prefers-color-scheme: dark)").matches )
-      console.log('is system Dark ? : ', window.matchMedia("(prefers-color-scheme: dark)").matches);
+      checkIfDark( window.matchMedia("(prefers-color-scheme: dark)").matches)
+      // console.log('is system Dark ? : ', window.matchMedia("(prefers-color-scheme: dark)").matches);
     })
   })
 
