@@ -3,17 +3,17 @@
     import { SocMedVisibilityMngr } from '../components/SocMed.vue'
     useHead({  title: 'Home' })
     SocMedVisibilityMngr(useRoute().path)
-    const isMenuHidden =  useNuxtApp().$isMenuHiddenApp()
+    const isMenuHidden = useNuxtApp().$isMenuHiddenApp()
 
     const emiT = defineEmits(['pgPath'])
     onMounted(()=>{
         emiT('pgPath', useRoute().path)
     })
     const intro = {
-        init: ["text-4xl text-center text-[var(--color-text)] transition-opacity duration-300"],
-        greet: ["text-7xl text-center text-[var(--color-text)] transition-opacity duration-300"],
+        init: ["text-4xl text-center text-[var(--color-text)] transition-opacity duration-200"],
+        greet: ["text-7xl text-center text-[var(--color-text)] transition-opacity duration-200"],
         hide: ["opacity-0"],
-        show: ["opacity-100"],
+        show: ["opacity-100 delay-100"],
     }
     const style = computed(() => {
         return [intro.init, isMenuHidden.value?intro.show:intro.hide]

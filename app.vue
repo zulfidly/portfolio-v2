@@ -1,6 +1,5 @@
 <script setup>
   const nuxtApp = useNuxtApp()
-
   const currentPath = ref(useRoute().path)
   const isDark = ref(true)
   nuxtApp.provide("currentPathApp", ()=> currentPath)
@@ -10,11 +9,10 @@
   const isMenuHiddenApp = ref(true)
   nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (same as Vue3's provide/inject)
   nuxtApp.provide('isMenuHiddenApp', ()=> isMenuHiddenApp)
+
   const provideNavBarEventsToOthers = (y)=> {
-    // console.log(y);
     isNavBtnHiddenApp.value = y.isNavBtnHiddenEmitted
     isMenuHiddenApp.value = y.isMenuHiddenEmitted
-    // console.log(nuxtApp.$isMenuHiddenApp());
   }
 
 
@@ -43,13 +41,11 @@
     currentPath.value = x
   }
 
-
   const darkManualToggle = () => {
     const htmlTop = document.querySelector('html')
     htmlTop.classList.toggle('dark')
     isDark.value = !isDark.value
   }
-
 </script>
 
 <template>

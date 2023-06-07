@@ -27,8 +27,8 @@
     
     const nav = {
         svg: {
-            init: ["transition-all duration-200"],
-            close: ["scale-100 fill-[var(--color-background-soft)] "],
+            init: ["transition-all duration-[250ms]"],
+            close: ["scale-100 fill-[var(--color-background-soft)]"],
             open: ["scale-[12] md:scale-[18] fill-[var(--color-background-mute)]"],
         },
         sign: {
@@ -38,7 +38,7 @@
         menu: {
             ctnr: {
                 init: ["fixed -translate-y-1/2 flex flex-col space-y-4 transition-all duration-200 "],
-                close: ["right-full delay-200"],
+                close: ["right-full "],
                 open: ["right-[10%]"]
             },
             init: ["text-6xl md:text-3xl text-[var(--color-text)]"],
@@ -46,7 +46,7 @@
             open: ["opacity-100 translate-x-full"],
         },
         closeSVG: {
-            init: ["transition-all duration-200 fill-[var(--color-text)] pt-8 flex justify-center"],
+            init: ["transition-all duration-[250ms] fill-[var(--color-text)] pt-8 flex justify-center"],
         }
     }
     const navSensor = {
@@ -56,12 +56,12 @@
         ctnr: ["fixed w-[55px] h-[76px] -translate-y-1/2 transition-all duration-200"]
     }
     const navBtn = {
-        init: ["fixed -translate-y-1/2 transition-all duration-200"],
+        init: ["fixed -translate-y-1/2 transition-all duration-[200ms]"],
         hide: ["-left-full"],
         show: ["left-0"]
     }
     const pop = {
-        currLink: ["font-bold drop-shadow-sm scale-105 delay-200"]
+        currLink: ["font-bold drop-shadow-sm scale-105"]
     }
     const slideInNavIcon = () => {
         console.log('slideInNavIcon');
@@ -86,20 +86,20 @@
     })    
 
     const nLink = {
-        ctnrInit: ['fixed -translate-x-[110%] -translate-y-1/2 flex flex-col space-y-4 transition-all duration-200 '],
+        ctnrInit: ['fixed -translate-x-[110%] -translate-y-1/2 flex flex-col space-y-4 '],
         div: {
             init: ['transition-all duration-200'],
             hide: ['translate-x-0 opacity-0'],
-            show: ['translate-x-[110%] opacity-100'],
+            show: ['translate-x-[115%] opacity-100'],
         },
     }
 </script>
 
 <template>
     <button :style="centerMark" :class="[navBtn.init, isSensorHidden?navBtn.show:navBtn.hide]" @click="toggleMenu">
-        <svg :class="[nav.svg.init, isMenuHidden?'':nav.svg.open]" x="0px" y="0px" width="55px" height="76px" viewBox="0 0 55 76" enable-background="new 0 0 55 76" xml:space="preserve">
+        <svg :class="[nav.svg.init, isMenuHidden?nav.svg.close:nav.svg.open]" x="0px" y="0px" width="55px" height="76px" viewBox="0 0 55 76" enable-background="new 0 0 55 76" xml:space="preserve">
             <path d="M17,0c-0.084,0-0.166,0.006-0.25,0.006V0h-17v76h17v-0.006C16.834,75.994,16.916,76,17,76c20.987,0,38-17.013,38-38 C55,17.013,37.987,0,17,0z"/>
-            <path :class="[nav.sign.init, isMenuHidden?nav.sign.close:nav.sign.open]" d="M37.75,37h-6v-6.5c0-0.828-0.672-1.5-1.5-1.5s-1.5,0.672-1.5,1.5V37h-6c-0.828,0-1.5,0.672-1.5,1.5 s0.672,1.5,1.5,1.5h6v5.5c0,0.828,0.672,1.5,1.5,1.5s1.5-0.672,1.5-1.5V40h6c0.828,0,1.5-0.672,1.5-1.5S38.578,37,37.75,37z"/>
+            <path :class="[nav.sign.init, isMenuHidden?'':nav.sign.open]" d="M37.75,37h-6v-6.5c0-0.828-0.672-1.5-1.5-1.5s-1.5,0.672-1.5,1.5V37h-6c-0.828,0-1.5,0.672-1.5,1.5 s0.672,1.5,1.5,1.5h6v5.5c0,0.828,0.672,1.5,1.5,1.5s1.5-0.672,1.5-1.5V40h6c0.828,0,1.5-0.672,1.5-1.5S38.578,37,37.75,37z"/>
         </svg>
     </button>
 
@@ -110,25 +110,25 @@
 	<div :style="centerMark" :class="[nLink.ctnrInit]">
             <div @click="toggleMenu"
                 :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
-                class="delay-[50ms]" 
+                class="delay-[0ms]" 
             >
                     <NuxtLink to="/">           <p class="text-6xl md:text-3xl text-[var(--color-text)]" :class="currentPath=='/'?pop.currLink:''"          >Home</p></NuxtLink>
             </div>
             <div @click="toggleMenu"
                 :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
-                class="delay-[100ms]"
+                class="delay-[50ms]"
             >
                     <NuxtLink to="/projects">   <p class="text-6xl md:text-3xl text-[var(--color-text)]" :class="currentPath=='/projects'?pop.currLink:''" >Projects</p>  </NuxtLink>
             </div>
             <div @click="toggleMenu"
                 :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
-                class="delay-[150ms]"
+                class="delay-[100ms]"
             >
                     <NuxtLink to="/about">      <p class="text-6xl md:text-3xl text-[var(--color-text)]" :class="currentPath=='/about'?pop.currLink:''"    >About</p>     </NuxtLink>
             </div>
             <div @click="toggleMenu"
                 :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
-                class="delay-[200ms]"
+                class="delay-[150ms]"
             >
                     <NuxtLink to="/contact">    <p class="text-6xl md:text-3xl text-[var(--color-text)]" :class="currentPath=='/contact'?pop.currLink:''"   >Contact</p>   </NuxtLink>
             </div>
