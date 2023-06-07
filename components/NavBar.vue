@@ -1,26 +1,24 @@
 <script setup>
-    const centerMark = ref(undefined)
-    const currentPath = inject("dataProvide")
-
+    const centerMark = ref('top:100%; left:-100%;') //dummy init for server side
+    const currentPath = useNuxtApp().$currentPathApp()
     const isNavBtnHidden = ref(false)
     const isMenuHidden = ref(true)
-
-    watch(
-        isNavBtnHidden,
-        ()=> {
-            if(isNavBtnHidden.value == true) return
-            let delay = undefined
-            if(isMenuHidden.value) delay = 1700
-            if(isMenuHidden.value == false) delay = 10
-
-            setTimeout(()=> {
-                console.log("isNavBtnHidden.value = true")
-                isNavBtnHidden.value = true
-            }, delay)
-        },
-    )
-
+    
     onMounted(()=> {
+        watch(
+            isNavBtnHidden,
+            ()=> {
+                if(isNavBtnHidden.value == true) return
+                let delay = undefined
+                if(isMenuHidden.value) delay = 1700
+                if(isMenuHidden.value == false) delay = 10
+    
+                setTimeout(()=> {
+                    console.log("isNavBtnHidden.value = true")
+                    isNavBtnHidden.value = true
+                }, delay)
+            },
+        )
         centerMark.value = `top:${ window.innerHeight/2 }px;`        
         window.addEventListener("resize", () => {
             centerMark.value = `top:${ window.innerHeight/2 }px;`
@@ -35,7 +33,6 @@
         },
         sign: {
             init: ["transition-all fill-[var(--color-text)]"],
-            close: ["delay-200"],
             open: ["opacity-0 rotate-45"],
         },
         menu: {
@@ -53,7 +50,7 @@
         }
     }
     const navSensor = {
-        init: ["block w-[8px] h-[76px] bg-red-400 rounded-e-full "],
+        init: ["block w-[8px] h-[76px] bg-orange-300 rounded-e-full "],
         in: ["left-0"],
         out: ["-left-full"],
         ctnr: ["fixed w-[55px] h-[76px] -translate-y-1/2 transition-all duration-200"]
@@ -79,8 +76,8 @@
         else isMenuHidden.value = true
         
         emiT('toggleMenu', {
-            isNavBtnHiddenEmitted: isNavBtnHidden.value,
-            isMenuHiddenEmitted: isMenuHidden.value,
+            'isNavBtnHiddenEmitted': isNavBtnHidden.value,
+            'isMenuHiddenEmitted': isMenuHidden.value,
         })
     }
     const isSensorHidden = computed(()=> {
@@ -95,32 +92,12 @@
             hide: ['translate-x-0 opacity-0'],
             show: ['translate-x-[110%] opacity-100'],
         },
-        link: ['text-6xl md:text-3xl text-[var(--color-text)]'],
     }
 </script>
 
-<!-- <script>
-    export const isNavBtnHidden = ref(false)
-    export const isMenuHidden = ref(true)
-    watch(
-        isNavBtnHidden,
-        ()=> {
-            if(isNavBtnHidden.value == true) return
-            let delay = undefined
-            if(isMenuHidden.value) delay = 1700
-            if(isMenuHidden.value == false) delay = 10
-
-            setTimeout(()=> {
-                console.log("isNavBtnHidden.value = true")
-                isNavBtnHidden.value = true
-            }, delay)
-        },
-    )
-</script> -->
-
 <template>
     <button :style="centerMark" :class="[navBtn.init, isSensorHidden?navBtn.show:navBtn.hide]" @click="toggleMenu">
-        <svg :class="[nav.svg.init, isMenuHidden?nav.svg.close:nav.svg.open]" x="0px" y="0px" width="55px" height="76px" viewBox="0 0 55 76" enable-background="new 0 0 55 76" xml:space="preserve">
+        <svg :class="[nav.svg.init, isMenuHidden?'':nav.svg.open]" x="0px" y="0px" width="55px" height="76px" viewBox="0 0 55 76" enable-background="new 0 0 55 76" xml:space="preserve">
             <path d="M17,0c-0.084,0-0.166,0.006-0.25,0.006V0h-17v76h17v-0.006C16.834,75.994,16.916,76,17,76c20.987,0,38-17.013,38-38 C55,17.013,37.987,0,17,0z"/>
             <path :class="[nav.sign.init, isMenuHidden?nav.sign.close:nav.sign.open]" d="M37.75,37h-6v-6.5c0-0.828-0.672-1.5-1.5-1.5s-1.5,0.672-1.5,1.5V37h-6c-0.828,0-1.5,0.672-1.5,1.5 s0.672,1.5,1.5,1.5h6v5.5c0,0.828,0.672,1.5,1.5,1.5s1.5-0.672,1.5-1.5V40h6c0.828,0,1.5-0.672,1.5-1.5S38.578,37,37.75,37z"/>
         </svg>
@@ -131,30 +108,30 @@
     </button>
 
 	<div :style="centerMark" :class="[nLink.ctnrInit]">
-		<div @click="toggleMenu"
-            :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
-            class="delay-[50ms]" 
-        >
-                <NuxtLink to="/">           <p :class="nLink.link, currentPath=='/'?pop.currLink:''"         >Home</p>      </NuxtLink>
-        </div>
-		<div @click="toggleMenu"
-            :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
-            class="delay-[100ms]"
-        >
-                <NuxtLink to="/projects">   <p :class="nLink.link, currentPath=='/projects'?pop.currLink:''" >Projects</p>  </NuxtLink>
-        </div>
-		<div @click="toggleMenu"
-            :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
-            class="delay-[150ms]"
-        >
-                <NuxtLink to="/about">      <p :class="nLink.link, currentPath=='/about'?pop.currLink:''"    >About</p>     </NuxtLink>
-        </div>
-		<div @click="toggleMenu"
-            :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
-            class="delay-[200ms]"
-        >
-                <NuxtLink to="/contact">    <p :class="nLink.link, currentPath=='/contact'?pop.currLink:''"  >Contact</p>   </NuxtLink>
-        </div>
+            <div @click="toggleMenu"
+                :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
+                class="delay-[50ms]" 
+            >
+                    <NuxtLink to="/">           <p class="text-6xl md:text-3xl text-[var(--color-text)]" :class="currentPath=='/'?pop.currLink:''"          >Home</p></NuxtLink>
+            </div>
+            <div @click="toggleMenu"
+                :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
+                class="delay-[100ms]"
+            >
+                    <NuxtLink to="/projects">   <p class="text-6xl md:text-3xl text-[var(--color-text)]" :class="currentPath=='/projects'?pop.currLink:''" >Projects</p>  </NuxtLink>
+            </div>
+            <div @click="toggleMenu"
+                :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
+                class="delay-[150ms]"
+            >
+                    <NuxtLink to="/about">      <p class="text-6xl md:text-3xl text-[var(--color-text)]" :class="currentPath=='/about'?pop.currLink:''"    >About</p>     </NuxtLink>
+            </div>
+            <div @click="toggleMenu"
+                :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
+                class="delay-[200ms]"
+            >
+                    <NuxtLink to="/contact">    <p class="text-6xl md:text-3xl text-[var(--color-text)]" :class="currentPath=='/contact'?pop.currLink:''"   >Contact</p>   </NuxtLink>
+            </div>
 
         <button @click="toggleMenu" :class="[nav.closeSVG.init, isMenuHidden?nav.menu.close:nav.menu.open]" class="delay-[200ms]">
             <svg x="0px" y="0px"  width="51px" height="22px" viewBox="0 0 51 22" enable-background="new 0 0 51 22" xml:space="preserve">

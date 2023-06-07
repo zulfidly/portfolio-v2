@@ -3,8 +3,19 @@
 
   const currentPath = ref(useRoute().path)
   const isDark = ref(true)
-  provide("dataProvide", currentPath)
-  provide("isDarkProvide", isDark)
+  nuxtApp.provide("currentPathApp", ()=> currentPath)
+  nuxtApp.provide("isDarkApp", ()=> isDark)
+
+  const isNavBtnHiddenApp = ref(false)
+  const isMenuHiddenApp = ref(true)
+  nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (same as Vue3's provide/inject)
+  nuxtApp.provide('isMenuHiddenApp', ()=> isMenuHiddenApp)
+  const provideNavBarEventsToOthers = (y)=> {
+    // console.log(y);
+    isNavBtnHiddenApp.value = y.isNavBtnHiddenEmitted
+    isMenuHiddenApp.value = y.isMenuHiddenEmitted
+    // console.log(nuxtApp.$isMenuHiddenApp());
+  }
 
 
   onMounted(()=> {
@@ -28,7 +39,7 @@
   }
   
   const providePathToNavBar = (x) => {
-    console.log('pgPath :' , x);
+    // console.log('pgPath :' , x);
     currentPath.value = x
   }
 
@@ -39,16 +50,6 @@
     isDark.value = !isDark.value
   }
 
-  const isNavBtnHiddenApp = ref(false)
-  const isMenuHiddenApp = ref(true)
-  nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (same as Vue3's provide/inject)
-  nuxtApp.provide('isMenuHiddenApp', ()=> isMenuHiddenApp)
-  const provideNavBarEventsToOthers = (y)=> {
-    console.log(y);
-    isNavBtnHiddenApp.value = y.isNavBtnHiddenEmitted
-    isMenuHiddenApp.value = y.isMenuHiddenEmitted
-    console.log(nuxtApp.$isMenuHiddenApp());
-  }
 </script>
 
 <template>
