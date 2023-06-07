@@ -87,7 +87,7 @@
     })    
 
     const nLink = {
-        ctnrInit: ['fixed -translate-x-[110%] -translate-y-1/2 flex flex-col space-y-4 '],
+        ctnrInit: ['fixed -translate-x-[110%] -translate-y-1/2 flex flex-col space-y-4 transition-all duration-200'],
         div: {
             init: ['transition-all duration-200'],
             hide: ['translate-x-0 opacity-0'],

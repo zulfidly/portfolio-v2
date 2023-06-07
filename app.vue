@@ -52,9 +52,9 @@
   <NavBar  @toggleMenu="(y)=> provideNavBarEventsToOthers(y)"/>
   <SocMed />
   
-  <button @click="darkManualToggle" class=" text-[var(--color-text)] fixed m-1 top-0 right-0 border-2 rounded-full border-green-700 h-[60px] w-[60px] bg-[var(--color-background-mute)]">
+  <!-- <button @click="darkManualToggle" class=" text-[var(--color-text)] fixed m-1 top-0 right-0 border-2 rounded-full border-green-700 h-[60px] w-[60px] bg-[var(--color-background-mute)]">
     {{ isDark?'Dark':'Light' }}
-  </button>
+  </button> -->
 </template>
 
 
