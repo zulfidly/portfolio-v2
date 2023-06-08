@@ -1,12 +1,10 @@
 <script setup>
   useHead({
     title: 'loading...',
-    htmlAttrs:{ 
-      lang:'en', 
-      class: { 'dark': true, 'zappa1': true  },
-    }
+    script: `if(window.matchMedia("(prefers-color-scheme:dark)").matches) document.querySelector('html').classList.add('dark')`,
+    htmlAttrs:{ lang:'en', class: { 'zappa1':true, 'zappa2':false, } },
   })
-  console.log('script setup App');
+  // console.log('script setup App');
   const isDark = ref(undefined)
   const nuxtApp = useNuxtApp()
   const currentPath = ref(useRoute().path)
@@ -15,24 +13,24 @@
 
   const isNavBtnHiddenApp = ref(false)
   const isMenuHiddenApp = ref(true)
-  nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (same as Vue3's provide/inject)
+  nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (similar to Vue3's provide/inject)
   nuxtApp.provide('isMenuHiddenApp', ()=> isMenuHiddenApp)  
 
   onNuxtReady(()=> {  // upon landed
-    console.log('onNuxtReady: path=', useRoute().path); // to see reloaded page path    
-    checkSystemColorMode( window.matchMedia("(prefers-color-scheme: dark)").matches)
+    // console.log('onNuxtReady: path=', useRoute().path); // to see reloaded page path    
+    checkSystemColorMode( window.matchMedia("(prefers-color-scheme:dark)").matches)
     addListener_WhenUserChangeSystemColorMode()
       useHead({
         title: getTabTitle(),
-        htmlAttrs:{ 
+        htmlAttrs: { 
           lang:'en', 
-          class: { 'dark':isDark.value, 'zappa1':true, 'zappa2':true },
+          class: { 'dark':isDark.value, 'zappa1':true, 'zappa2':true, },
         }
-      }, { mode: 'client' })
+      }, { mode: 'client' }) // extras
   })
 
   function checkSystemColorMode(X) {
-    if(X)               { isDark.value = true;  useHead({ htmlAttrs: {class: { 'dark': true}}}) }    
+    if(X)               { isDark.value = true;  useHead({ htmlAttrs: {class: { 'dark': true }}}) }    
     else if(X == false) { isDark.value = false; useHead({ htmlAttrs: {class: { 'dark': false}}}) }
     else console.log('app.vue: unknown prefers-color-scheme');
   }      
@@ -52,7 +50,7 @@
       else return 'Others'
   }
  
-  watch ( currentPath,
+  watch ( currentPath,    // zappa classes removed upon navigation
     ()=> { useHead({  title: getTabTitle(), htmlAttrs: {class: { 'dark': isDark.value}} }) }
   )
 
@@ -61,7 +59,7 @@
     isMenuHiddenApp.value = y.isMenuHiddenEmitted
   }
   
-  const providePathToNavBar = (x) =>  currentPath.value = x
+  const providePathToNavBar = (x) => currentPath.value = x
 
   const darkManualToggle = () => {
     document.querySelector('html').classList.toggle('dark')
@@ -72,8 +70,7 @@
 <template>
   <NuxtPage @pgPath="(x)=> providePathToNavBar(x)" />
   <NavBar  @toggleMenu="(y)=> provideNavBarEventsToOthers(y)"/>
-  <SocMed />
-  
+  <SocMed />  
 
   <button @click="darkManualToggle" class=" text-[var(--color-text)] absolute m-1 top-0 right-0 border-2 rounded-full border-green-700 h-[60px] w-[60px] bg-[var(--color-background-mute)]">
     {{ isDark?'Dark':'Light' }}

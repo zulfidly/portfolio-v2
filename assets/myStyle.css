@@ -43,9 +43,7 @@
     --netlifyWord: #014847;
     --netlifyGeo: #05BDBA;
     --linkedin: #0077B5;
-  }
-
-  
+  }  
   html.dark {
     --color-background: var(--vt-c-black);
     --color-background-soft: var(--vt-c-black-soft);
@@ -69,8 +67,7 @@
     margin: 0;
     position: relative;
     font-weight: normal;
-  }
-  
+  }  
 
   body::-webkit-scrollbar { /* hide scrollbar in Chrome */
     display: none;
@@ -81,15 +78,11 @@
   }
 
   .zappa1 {
-    transition-property: opacity, filter;
-    transition-duration:0.5s;
-    transition-timing-function: ease-out;
-    opacity: 65%;
-    filter: grayscale(50%), invert(50%);
+    filter: grayscale(100%);
+    transition: filter 0.5s ease-out;
   }
-  .zappa1.zappa2 {
-    opacity: 100%;
-    filter: grayscale(0%), invert(0%);
+  .zappa2 {
+    filter: grayscale(0%);
   }
 
   #__nuxt {

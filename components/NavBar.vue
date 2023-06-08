@@ -93,7 +93,7 @@
             hide: ['translate-x-0 opacity-0'],
             show: ['translate-x-[115%] opacity-100'],
         },
-        link: ['text-6xl md:text-3xl text-[var(--color-text)] transition duration-200'],
+        link: ['text-6xl md:text-3xl text-[var(--color-text)] transition-all duration-200'],
     }
 </script>
 

@@ -6,13 +6,12 @@ async function emailer(x) {
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: process.env.EMAIL, // generated ethereal user
-        pass: process.env.PASSWORD, // generated ethereal password 
+        user: process.env.EMAIL, 
+        pass: process.env.PASSWORD,  
       },
     }); 
     let info = await transporter.sendMail(x)  
     console.log("Message sent: %s", info.messageId);
-    // console.log(info);
     return info
     // console.log("Message sent: %s", info);
   } 
@@ -21,7 +20,6 @@ async function emailer(x) {
     const body = await readBody(event)
     const info = await emailer(body)
     // console.log(info);
-    // emailer(body).catch(console.error);
     return {body}
 }) 
 
