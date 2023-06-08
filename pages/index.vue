@@ -1,7 +1,5 @@
 <script setup>
-    // import { isMenuHidden } from '../components/NavBar.vue'
     import { SocMedVisibilityMngr } from '../components/SocMed.vue'
-    useHead({  title: 'Home' })
     SocMedVisibilityMngr(useRoute().path)
     const isMenuHidden = useNuxtApp().$isMenuHiddenApp()
 
@@ -9,6 +7,7 @@
     onMounted(()=>{
         emiT('pgPath', useRoute().path)
     })
+
     const intro = {
         init: ["text-4xl text-center text-[var(--color-text)] transition-opacity duration-200"],
         greet: ["text-7xl text-center text-[var(--color-text)] transition-opacity duration-200"],

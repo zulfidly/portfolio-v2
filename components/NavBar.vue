@@ -93,6 +93,7 @@
             hide: ['translate-x-0 opacity-0'],
             show: ['translate-x-[115%] opacity-100'],
         },
+        link: ['text-6xl md:text-3xl text-[var(--color-text)] transition duration-200'],
     }
 </script>
 
@@ -113,25 +114,25 @@
             :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
             class="delay-[0ms]" 
         >
-                <NuxtLink to="/">           <p class="text-6xl md:text-3xl text-[var(--color-text)] transition duration-200" :class="currentPath=='/'?pop.currLink:pop.init"          >Home</p></NuxtLink>
+                <NuxtLink to="/">           <p :class="[nLink.link, currentPath=='/'?pop.currLink:pop.init]"          >Home</p></NuxtLink>
         </div>
         <div @click="toggleMenu"
             :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
             class="delay-[50ms]"
         >
-                <NuxtLink to="/projects">   <p class="text-6xl md:text-3xl text-[var(--color-text)] transition duration-200" :class="currentPath=='/projects'?pop.currLink:pop.init" >Projects</p>  </NuxtLink>
+                <NuxtLink to="/projects">   <p :class="[nLink.link, currentPath=='/projects'?pop.currLink:pop.init]" >Projects</p>  </NuxtLink>
         </div>
         <div @click="toggleMenu"
             :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
             class="delay-[100ms]"
         >
-                <NuxtLink to="/about">      <p class="text-6xl md:text-3xl text-[var(--color-text)] transition duration-200" :class="currentPath=='/about'?pop.currLink:pop.init"    >About</p>     </NuxtLink>
+                <NuxtLink to="/about">      <p :class="[nLink.link, currentPath=='/about'?pop.currLink:pop.init]"    >About</p>     </NuxtLink>
         </div>
         <div @click="toggleMenu"
             :class="[nLink.div.init, isMenuHidden?nLink.div.hide:nLink.div.show]"
             class="delay-[150ms]"
         >
-                <NuxtLink to="/contact">    <p class="text-6xl md:text-3xl text-[var(--color-text)] transition duration-200" :class="currentPath=='/contact'?pop.currLink:pop.init"   >Contact</p>   </NuxtLink>
+                <NuxtLink to="/contact">    <p :class="[nLink.link, currentPath=='/contact'?pop.currLink:pop.init]"   >Contact</p>   </NuxtLink>
         </div>
 
         <button @click="toggleMenu" :class="[nav.closeSVG.init, isMenuHidden?nav.menu.close:nav.menu.open]" class="delay-[200ms]">

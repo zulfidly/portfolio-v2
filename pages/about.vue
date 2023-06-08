@@ -1,6 +1,5 @@
 <script setup>
     import { SocMedVisibilityMngr } from '../components/SocMed.vue'
-    useHead({  title: 'About' })
     SocMedVisibilityMngr(useRoute().path)
     const isMenuHidden =  useNuxtApp().$isMenuHiddenApp()
 

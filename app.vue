@@ -1,7 +1,9 @@
 <script setup>
+  const isDark = ref(undefined)
   const nuxtApp = useNuxtApp()
+// console.log(nuxtApp);
+  console.log('scripte setup');
   const currentPath = ref(useRoute().path)
-  const isDark = ref(true)
   nuxtApp.provide("currentPathApp", ()=> currentPath)
   nuxtApp.provide("isDarkApp", ()=> isDark)
 
@@ -9,40 +11,54 @@
   const isMenuHiddenApp = ref(true)
   nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (same as Vue3's provide/inject)
   nuxtApp.provide('isMenuHiddenApp', ()=> isMenuHiddenApp)
+  
+  onMounted(()=> {  // upon user landing
+    console.log('app mounted: path=', useRoute().path); // to see reloaded page path    
+    checkSystemColorMode( window.matchMedia("(prefers-color-scheme: dark)").matches)
+    addListener_WhenUserChangeSystemColorMode()
+    useHeadInitialLoad(isDark.value)      
+  })
+
+  function useHeadInitialLoad(x) {      
+    useHead({  title: getTabTitle(), htmlAttrs: { class: { 'dark': x  }, lang:'en' }}) // init upon browser reload
+  }
+
+  function addListener_WhenUserChangeSystemColorMode() {
+    window.matchMedia("(prefers-color-scheme:dark)").addEventListener("change", () => {
+      checkSystemColorMode( window.matchMedia("(prefers-color-scheme: dark)").matches) // switches when user change local system color setting
+    })
+  }
+
+  function getTabTitle() {
+    let temp = currentPath.value.toString()
+      if(temp == '/') return 'Home'
+      else if(temp == '/projects') return 'Projects'
+      else if(temp == '/about') return 'About'
+      else if(temp == '/contact') return 'Contact'
+      else return 'Others'
+  }
+
+  watch ( currentPath,
+    ()=> { useHead({  title: getTabTitle() }) }
+  )
 
   const provideNavBarEventsToOthers = (y)=> {
     isNavBtnHiddenApp.value = y.isNavBtnHiddenEmitted
     isMenuHiddenApp.value = y.isMenuHiddenEmitted
   }
 
-  onMounted(()=> {
-      console.log('app mounted: path=', useRoute().path); // to see reloaded page path    
-      checkIfDark( window.matchMedia("(prefers-color-scheme: dark)").matches)
-    window.matchMedia("(prefers-color-scheme:dark)").addEventListener("change", () => {
-      checkIfDark( window.matchMedia("(prefers-color-scheme: dark)").matches)
-      // console.log('is system Dark ? : ', window.matchMedia("(prefers-color-scheme: dark)").matches);
-    })
-  })
-
-  const checkIfDark = (X) => {
-    if(X) {
-      isDark.value = true 
-      document.querySelector('html').classList.add('dark')
-    }
-    else {
-      isDark.value = false
-      document.querySelector('html').classList.remove('dark')
-    }
-  }
+  function checkSystemColorMode(X) {
+    if(X)               { isDark.value = true;  useHead({ htmlAttrs: { class: { 'dark': X  }, }}); }    
+    else if(X == false) { isDark.value = false; useHead({ htmlAttrs: { class: { 'dark': X  }, }}); }
+    else console.log('app.vue: unknown prefers-color-scheme');
+  }      
   
   const providePathToNavBar = (x) => {
-    // console.log('pgPath :' , x);
     currentPath.value = x
   }
 
   const darkManualToggle = () => {
-    const htmlTop = document.querySelector('html')
-    htmlTop.classList.toggle('dark')
+    document.querySelector('html').classList.toggle('dark')
     isDark.value = !isDark.value
   }
 </script>

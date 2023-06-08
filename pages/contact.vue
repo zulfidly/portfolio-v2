@@ -1,7 +1,6 @@
 <script setup>
     import { SocMedVisibilityMngr } from '../components/SocMed.vue'
     import ContactForm from '../components/ContactForm.vue'
-    useHead({  title: 'Contact' })
     SocMedVisibilityMngr(useRoute().path)
     const isMenuHidden = useNuxtApp().$isMenuHiddenApp()
 

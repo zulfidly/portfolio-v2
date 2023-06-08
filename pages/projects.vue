@@ -2,11 +2,10 @@
     import data from '../assets/projectsItems.json'
     import ProjectCardPagination from '../components/ProjectPageNumber.vue'
     import { SocMedVisibilityMngr } from '../components/SocMed.vue'
-    useHead({  title: 'Projects' })
     SocMedVisibilityMngr(useRoute().path)
     // console.log(data, Object.keys(data).length);
     const isDarkScoped = useNuxtApp().$isDarkApp()
-    const isMenuHidden =  useNuxtApp().$isMenuHiddenApp()
+    const isMenuHidden = useNuxtApp().$isMenuHiddenApp()
 
     const emiT = defineEmits(['pgPath'])
     onMounted(()=>{
@@ -15,7 +14,6 @@
     const currKard = ref(1)
     const totalCards = Object.keys(data).length;
 
-    const getWidth = ref('width:100px;') // dummy init for server side
     const getHeight = ref('height:100px;') // dummy init for server side
     const isPortrait = ref(undefined)    
     onMounted(()=> {
@@ -24,7 +22,6 @@
             isPortrait.value = window.matchMedia("(orientation: portrait)").matches
             getHeight.value = `height:${window.innerHeight-32}px;`
         })
-        getWidth.value = window.innerWidth
         getHeight.value = `height:${window.innerHeight-32}px;`
     })    
 
@@ -69,7 +66,7 @@
                                 :alt="x.description"                        
                                 :hidden="false"
                                 class="mx-auto rounded-lg transition-all duration-300 w-auto h-auto sm:hidden"
-                                :class="loadedImg.includes(ind+1) ? 'opacity-100' : 'opacity-0', isDarkScoped?'grayscale':'grayscale-0' "
+                                :class="[loadedImg.includes(ind+1) ? 'opacity-100' : 'opacity-0', isDarkScoped?'grayscale':'grayscale-0']"
                                 :src="loadedImg.includes(ind)&&isPortrait ? x.imgURL : '#' "
                             />
                         </template>
