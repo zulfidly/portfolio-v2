@@ -1,5 +1,13 @@
+<script setup>
+    const currentPath = useNuxtApp().$currentPathApp()
+    const loca = computed(()=> {
+        if(currentPath.value == '/projects') return ['absolute bottom-[80px] right-[40px]']
+        else return ['absolute m-4 top-0 right-0']
+    })
+</script>
+
 <template>
-    <div>
+    <div class="sm:hidden" :class="[loca]">
         <button class="vt-switch" type="button" role="switch" aria-label="Toggle dark mode" >
             <span class="vt-switch-check">
                 <span class=" vt-switch-icon">
@@ -71,12 +79,7 @@
     .dark .vt-switch-appearance-moon, .vt-switch-appearance-sun{
         opacity: 1;
     }
-    /* .vt-switch-appearance-moon {
-        opacity: 0;
-    } */
-    /* .vt-switch-appearance-sun {
-        opacity: 1;
-    } */
+
     .dark .vt-switch-appearance-sun, .vt-switch-appearance-moon {
         opacity: 0;
     }

@@ -53,7 +53,7 @@
 
 <!-- #default="{value}" -->
 <template>
-    <div class="w-full flex flex-col justify-center items-center">
+    <div class="mt-2 w-full flex flex-col justify-center items-center">
         <FormKit
             id="contactForm"
             type="form"
@@ -147,6 +147,6 @@
         /* border: 1px solid green; */
         -webkit-text-fill-color: var(--color-text);
         /* -webkit-box-shadow: 0 0 0px 1000px #000 inset; */
-        transition: background-color 5000s ease-in-out 0s;
+        transition: background-color 0.3s ease-in-out 0s;
     }
 </style>

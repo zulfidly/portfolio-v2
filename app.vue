@@ -5,16 +5,11 @@
     htmlAttrs:{ lang:'en', class: { 'zappa1':true, 'zappa2':false, } },
   })
   // console.log('script setup App');
-  const isDark = ref(undefined)
   const nuxtApp = useNuxtApp()
-  const currentPath = ref(useRoute().path)
-  nuxtApp.provide("currentPathApp", ()=> currentPath)
-  nuxtApp.provide("isDarkApp", ()=> isDark)
-
-  const isNavBtnHiddenApp = ref(false)
-  const isMenuHiddenApp = ref(true)
-  nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (similar to Vue3's provide/inject)
-  nuxtApp.provide('isMenuHiddenApp', ()=> isMenuHiddenApp)  
+  const isDark = ref(undefined); nuxtApp.provide("isDarkApp", ()=> isDark);
+  const currentPath = ref(useRoute().path); nuxtApp.provide("currentPathApp", ()=> currentPath);
+  const isNavBtnHiddenApp = ref(false); nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (similar to Vue3's provide/inject)
+  const isMenuHiddenApp = ref(true); nuxtApp.provide('isMenuHiddenApp', ()=> isMenuHiddenApp)  
 
   onNuxtReady(()=> {  // upon landed
     // console.log('onNuxtReady: path=', useRoute().path); // to see reloaded page path    
@@ -69,10 +64,9 @@
 
 <template>
   <NuxtPage @pgPath="(x)=> providePathToNavBar(x)" />
-  <NavBar  @toggleMenu="(y)=> provideNavBarEventsToOthers(y)"/>
+  <NavBar  @toggleMenu="(y)=> provideNavBarEventsToOthers(y)" />
   <SocMed />  
-
-  <ColorModeSwitch @click="darkManualToggle" class="absolute m-4 top-0 right-0 "/>
+  <ColorModeSwitch @click="darkManualToggle" />
 
 </template>
 

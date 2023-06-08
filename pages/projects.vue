@@ -67,7 +67,7 @@
                                 :hidden="false"
                                 class="mx-auto rounded-lg transition-all duration-300 w-auto h-auto sm:hidden"
                                 :class="[loadedImg.includes(ind+1) ? 'opacity-100' : 'opacity-0', isDarkScoped?'grayscale':'grayscale-0']"
-                                :src="loadedImg.includes(ind)&&isPortrait ? x.imgURL : '#' "
+                                :src="[loadedImg.includes(ind)&&isPortrait ? x.imgURL : '#' ]"
                             />
                         </template>
 
