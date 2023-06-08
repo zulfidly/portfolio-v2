@@ -6,7 +6,7 @@
       class: { 'dark': true, 'zappa1': true  },
     }
   })
-  
+  console.log('script setup App');
   const isDark = ref(undefined)
   const nuxtApp = useNuxtApp()
   const currentPath = ref(useRoute().path)
@@ -53,7 +53,7 @@
   }
  
   watch ( currentPath,
-    ()=> { useHead({  title: getTabTitle() }) }
+    ()=> { useHead({  title: getTabTitle(), htmlAttrs: {class: { 'dark': isDark.value}} }) }
   )
 
   const provideNavBarEventsToOthers = (y)=> {

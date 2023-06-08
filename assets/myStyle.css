@@ -26,47 +26,40 @@
   }
   
   html {
-    /* :root { */
-      --color-background: var(--vt-c-white);
-      --color-background-soft: var(--vt-c-white-soft);
-      --color-background-mute: var(--vt-c-white-mute);
-    
-      --color-border: var(--vt-c-divider-light-2);
-      --color-border-hover: var(--vt-c-divider-light-1);
-    
-      --color-heading: var(--vt-c-text-light-1);
-      --color-text: var(--vt-c-text-light-1);
-      --color-text-invert: var(--vt-c-text-dark-2);
-    
-      --section-gap: 160px;
+    -webkit-tap-highlight-color: transparent;
+    --color-background: var(--vt-c-white);
+    --color-background-soft: var(--vt-c-white-soft);
+    --color-background-mute: var(--vt-c-white-mute);
+  
+    --color-border: var(--vt-c-divider-light-2);
+    --color-border-hover: var(--vt-c-divider-light-1);
+  
+    --color-heading: var(--vt-c-text-light-1);
+    --color-text: var(--vt-c-text-light-1);
+    --color-text-invert: var(--vt-c-text-dark-2);
+  
+    --section-gap: 160px;
 
-      --netlifyWord: #014847;
-      --netlifyGeo: #05BDBA;
-      --linkedin: #0077B5;
-      -webkit-tap-highlight-color: transparent;
-
-    /* } */
+    --netlifyWord: #014847;
+    --netlifyGeo: #05BDBA;
+    --linkedin: #0077B5;
   }
 
   
-  /* @media (prefers-color-scheme: dark) { */
   html.dark {
-    /* :root { */
-      --color-background: var(--vt-c-black);
-      --color-background-soft: var(--vt-c-black-soft);
-      --color-background-mute: var(--vt-c-black-mute);
-  
-      --color-border: var(--vt-c-divider-dark-2);
-      --color-border-hover: var(--vt-c-divider-dark-1);
-  
-      --color-heading: var(--vt-c-text-dark-1);
-      --color-text: var(--vt-c-text-dark-2);
-      --color-text-invert: var(--vt-c-text-light-1);
-      --netlifyWord: var(--color-text);
-      --netlifyGeo: var(--color-text);
-      --linkedin: var(--color-text);
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
 
-    /* } */
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+    --color-text-invert: var(--vt-c-text-light-1);
+    --netlifyWord: var(--color-text);
+    --netlifyGeo: var(--color-text);
+    --linkedin: var(--color-text);
   }
   
   *,
@@ -85,8 +78,6 @@
 
   * {
     transition: color 0.3s, background-color 0.3s;
-    /* transition: all 0.3s; */
-
   }
 
   .zappa1 {
@@ -100,7 +91,6 @@
     opacity: 100%;
     filter: grayscale(0%), invert(0%);
   }
-
 
   #__nuxt {
     -ms-overflow-style: none;  /* hide scrollbar in IE and Edge */
