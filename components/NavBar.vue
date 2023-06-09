@@ -98,14 +98,14 @@
 </script>
 
 <template>
-    <button :style="centerMark" :class="[navBtn.init, isSensorHidden?navBtn.show:navBtn.hide]" @click="toggleMenu">
+    <button :style="centerMark" :class="[navBtn.init, isSensorHidden?navBtn.show:navBtn.hide]" @click="toggleMenu" aria-haspopup="menu" :aria-expanded="[isMenuHidden?'nav bar closed':'nav bar opened']" aria-label="Toggle navigation menu">
         <svg :class="[nav.svg.init, isMenuHidden?nav.svg.close:nav.svg.open]" x="0px" y="0px" width="55px" height="76px" viewBox="0 0 55 76" enable-background="new 0 0 55 76" xml:space="preserve">
             <path d="M17,0c-0.084,0-0.166,0.006-0.25,0.006V0h-17v76h17v-0.006C16.834,75.994,16.916,76,17,76c20.987,0,38-17.013,38-38 C55,17.013,37.987,0,17,0z"/>
             <path :class="[nav.sign.init, isMenuHidden?'':nav.sign.open]" d="M37.75,37h-6v-6.5c0-0.828-0.672-1.5-1.5-1.5s-1.5,0.672-1.5,1.5V37h-6c-0.828,0-1.5,0.672-1.5,1.5 s0.672,1.5,1.5,1.5h6v5.5c0,0.828,0.672,1.5,1.5,1.5s1.5-0.672,1.5-1.5V40h6c0.828,0,1.5-0.672,1.5-1.5S38.578,37,37.75,37z"/>
         </svg>
     </button>
 
-    <button :style="centerMark" :class="[navSensor.ctnr, isSensorHidden?navSensor.out:navSensor.in]"  @click="slideInNavIcon">
+    <button :style="centerMark" :class="[navSensor.ctnr, isSensorHidden?navSensor.out:navSensor.in]" @click="slideInNavIcon" aria-label="nav bar button sensor">
         <span id="navIconSensor" :class="[navSensor.init]"></span>
     </button>
 

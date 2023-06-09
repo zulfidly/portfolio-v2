@@ -1,4 +1,5 @@
 <script setup>
+    const isDarkScoped = useNuxtApp().$isDarkApp()
     const currentPath = useNuxtApp().$currentPathApp()
     const loca = computed(()=> {
         if(currentPath.value == '/projects') return ['absolute bottom-[80px] right-[40px]']
@@ -8,7 +9,7 @@
 
 <template>
     <div class="sm:hidden" :class="[loca]">
-        <button class="vt-switch" type="button" role="switch" aria-label="Toggle dark mode" >
+        <button class="vt-switch" type="button" role="switch" aria-label="Toggle dark mode" :aria-checked="[isDarkScoped?'Dark mode on':'Light mode on']">
             <span class="vt-switch-check">
                 <span class=" vt-switch-icon">
 

@@ -19,8 +19,8 @@
 <template>
     <div :class="[opac.init, isSocMedHidden ? opac.hide : opac.show]" class="">
         <div class="flex justify-evenly">
-            <button>
-                <a href="https://www.linkedin.com/in/zulfidly/" target="_blank">
+            <button aria-label="visit linked in website">
+                <a href="https://www.linkedin.com/in/zulfidly/" target="_blank" aria-label="visit linked in website">
                     <svg name="linkedin" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                         <g>
                             <path class="fill-[var(--linkedin)]" d="M19.962,39.997c-5.656,0-11.312-0.021-16.969,0.013c-1.501,0.008-2.771-1.037-2.976-2.457
@@ -45,8 +45,8 @@
                 </a>
             </button>
     
-            <button>
-                <a href="https://github.com/zulfidly" target="_blank">
+            <button aria-label="visit github in website">
+                <a href="https://github.com/zulfidly" target="_blank" aria-label="visit github in website">
                     <svg name="github" class="fill-[var(--color-text)]" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                         <g>
                             <path d="M20,0C9.236,0,0.516,8.956,0.516,20c0,11.046,8.726,20,19.484,20c10.764,0,19.484-8.953,19.484-20
@@ -64,8 +64,8 @@
                 </a>
             </button>
                 
-            <button>
-                <a href="https://www.instagram.com/fidlybass/" target="_blank">
+            <button aria-label="visit instagram in website">
+                <a href="https://www.instagram.com/fidlybass/" target="_blank" aria-label="visit instagram in website">
                     <img class="grayscale-0 dark:grayscale invert-0 dark:invert-[60%]" src="/images/insta40.png" alt="Instagram logo" />
                 </a>
             </button>                    
