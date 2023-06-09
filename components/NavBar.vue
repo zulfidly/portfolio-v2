@@ -1,5 +1,5 @@
 <script setup>
-    const centerMark = ref('top:100%; left:-100%;') //dummy init for server side
+    const centerMark = ref('position:fixed; top:100%; left:-100%;') //dummy init for server side
     const currentPath = useNuxtApp().$currentPathApp()
     const isNavBtnHidden = ref(false)
     const isMenuHidden = ref(true)

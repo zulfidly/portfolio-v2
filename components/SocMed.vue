@@ -66,7 +66,7 @@
                 
             <button aria-label="visit instagram in website">
                 <a href="https://www.instagram.com/fidlybass/" target="_blank" aria-label="visit instagram in website">
-                    <img class="grayscale-0 dark:grayscale invert-0 dark:invert-[60%]" src="/images/insta40.png" alt="Instagram logo" />
+                    <img class="grayscale-0 dark:grayscale invert-0 dark:invert-[60%] w-[40px] h-[40px]" src="/images/insta40.png" alt="Instagram logo" />
                 </a>
             </button>                    
         </div>
