@@ -4,7 +4,13 @@
     script: `if(window.matchMedia("(prefers-color-scheme:dark)").matches) document.querySelector('html').classList.add('dark')`,
     htmlAttrs:{ lang:'en', class: { 'zappa1':true, 'zappa2':false, } },
   })
-  // console.log('script setup App');
+  useServerSeoMeta({
+    author: 'zulfidly@gmail.com',
+    description: 'zulfidly, a frontend web developer',
+    keywords: 'vuejs, nuxtjs, html, css, javascript',
+    // ogImage: 'https://example.com/image.png',
+    // twitterCard: 'summary_large_image',
+  })  
   const nuxtApp = useNuxtApp()
   const isDark = ref(undefined); nuxtApp.provide("isDarkApp", ()=> isDark);
   const currentPath = ref(useRoute().path); nuxtApp.provide("currentPathApp", ()=> currentPath);
@@ -38,10 +44,10 @@
 
   function getTabTitle() {
     let temp = currentPath.value.toString()
-      if(temp == '/') return 'Home'
-      else if(temp == '/projects') return 'Projects'
-      else if(temp == '/about') return 'About'
-      else if(temp == '/contact') return 'Contact'
+      if(temp == '/') return 'Freddie > Home'
+      else if(temp == '/projects') return 'Freddie > Projects'
+      else if(temp == '/about') return 'Freddie > About'
+      else if(temp == '/contact') return 'Freddie > Contact'
       else return 'Others'
   }
  
