@@ -45,15 +45,20 @@
             // console.log(resp)
             isSending.value = false
             isSent.value = true
-            setTimeout(()=> { isSent.value = false}, 3000)
+            setTimeout(()=> { isSent.value = false}, 2000)
         })
     }
 
+const test = ref(false)
+const testf = () => {
+    test.value = !test.value
+}
 </script>
 
 <!-- #default="{value}" -->
 <template>
-    <div class="mt-2 w-full flex flex-col justify-center items-center">
+    <div @click="testf" class="mt-2 w-full flex flex-col justify-center items-center">
+
         <FormKit
             id="contactForm"
             type="form"
@@ -62,20 +67,21 @@
                 'wrapperClass' : isSending ? '$reset mt-8 [&>button>span:first-child]:animate-spin' : '$reset mt-8',
                 'suffix-icon': isSending ? 'spinner' : 'submit',
             }"
-
-          @submit="(value)=> { sendMsg(value); $formkit.reset('contactForm') }"
-          form-class="$reset min-w-[340px]"
-          message-class="$reset hidden"
+            @submit="(value)=> { sendMsg(value); $formkit.reset('contactForm') }"
+            form-class="$reset min-w-[340px]"
+            message-class="$reset hidden"
         >          
             <FormKit
                 type="text"
                 name="name"
                 label=""
                 placeholder="what is your name ?"
-                validation="required"
+                :validation="[ ['required'], ['matches', /^[A-Za-z]+$/], ['length', 3] ]"
+                validation-visibility= 'dirty'
                 message-class="$reset text-end text-red-400 absolute top-full right-0"
                 input-class="$reset appearance-none bg-transparent webkit-autofill:bg-transparent focus:outline-none focus:ring-0 focus:shadow-none w-full px-3 py-2 border-none text-base placeholder-gray-400 text-[var(--color-text)] transition-all duration-300"
             />
+            <br>            
             <br>            
             <FormKit
                 type="textarea"
@@ -83,10 +89,12 @@
                 rows="3"
                 label=""
                 placeholder="what do you want to say ?"
-                validation="required"
+                :validation="[ ['required'], ['matches', /^[A-Za-z0-9][^<>]*$/], ['length', 10] ]"
+                validation-visibility= 'dirty'
                 message-class="$reset text-end text-red-400 absolute top-full right-0"
                 input-class="$reset appearance-none bg-transparent focus:outline-none focus:ring-0 focus:shadow-none block w-full h-32 px-3 py-3 border-none text-base placeholder-gray-400 focus:shadow-outline text-[var(--color-text)]"    
             />
+            <br>
             <br>
             <FormKit
                 v-model="rate"
@@ -122,7 +130,9 @@
                 :disabled="isCCref ? false : true"
                 prefix-icon="email"
                 placeholder="email address"
-                :validation="isCCref ? 'required|email' : '' "
+                validation-visibility= 'dirty'
+                :validation="isCCref ? [['required','email'], ['matches', /^[A-Za-z0-9][^<>]*$/], ['length', 5]]: '' "
+
                 message-class="$reset text-end text-red-400 absolute top-full right-0"
                 prefix-icon-class="$reset w-10 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-r border-gray-400  [&>svg]:fill-[var(--color-text)] [&>svg]:w-full [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto"
                 input-class="$reset appearance-none bg-transparent focus:outline-none focus:ring-0 focus:shadow-none w-full px-3 py-2 border-none text-base text-[var(--color-text)] placeholder-gray-400"
@@ -130,7 +140,8 @@
             <!-- <pre wrap class="overflow-scroll"> {{ value }}</pre> -->
             
         </FormKit>
-        <p class="text-md text-[var(--color-text)] " :class=" isSent ? 'opacity-100' : 'opacity-0' ">Message sent !</p>
+        <p class="fixed flex items-center origin-center px-12 bg-orange-300 h-1/3 w-fit rounded-xl text-xl text-[var(--vt-c-indigo)] transition-all duration-300" :class="[ isSent?'opacity-100':'opacity-0', isSent?'z-10':'-z-10 delay-300' ]">Message sent ! &#127925;</p>
+
     </div>
 </template>
 
