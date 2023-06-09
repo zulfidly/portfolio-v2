@@ -98,7 +98,7 @@
 </script>
 
 <template>
-    <button :style="centerMark" :class="[navBtn.init, isSensorHidden?navBtn.show:navBtn.hide]" @click="toggleMenu" aria-haspopup="menu" :aria-expanded="[isMenuHidden?'nav bar closed':'nav bar opened']" aria-label="Toggle navigation menu">
+    <button :style="centerMark" :class="[navBtn.init, isSensorHidden?navBtn.show:navBtn.hide]" @click="toggleMenu" aria-haspopup="menu" :aria-expanded="[isMenuHidden?'false':'true']" aria-label="Toggle navigation menu">
         <svg :class="[nav.svg.init, isMenuHidden?nav.svg.close:nav.svg.open]" x="0px" y="0px" width="55px" height="76px" viewBox="0 0 55 76" enable-background="new 0 0 55 76" xml:space="preserve">
             <path d="M17,0c-0.084,0-0.166,0.006-0.25,0.006V0h-17v76h17v-0.006C16.834,75.994,16.916,76,17,76c20.987,0,38-17.013,38-38 C55,17.013,37.987,0,17,0z"/>
             <path :class="[nav.sign.init, isMenuHidden?'':nav.sign.open]" d="M37.75,37h-6v-6.5c0-0.828-0.672-1.5-1.5-1.5s-1.5,0.672-1.5,1.5V37h-6c-0.828,0-1.5,0.672-1.5,1.5 s0.672,1.5,1.5,1.5h6v5.5c0,0.828,0.672,1.5,1.5,1.5s1.5-0.672,1.5-1.5V40h6c0.828,0,1.5-0.672,1.5-1.5S38.578,37,37.75,37z"/>
@@ -135,7 +135,7 @@
                 <NuxtLink to="/contact">    <p :class="[nLink.link, currentPath=='/contact'?pop.currLink:pop.init]"   >Contact</p>   </NuxtLink>
         </div>
 
-        <button @click="toggleMenu" :class="[nav.closeSVG.init, isMenuHidden?nav.menu.close:nav.menu.open]" class="delay-[200ms]">
+        <button @click="toggleMenu" :class="[nav.closeSVG.init, isMenuHidden?nav.menu.close:nav.menu.open]" class="delay-[200ms]" aria-label="close navigation bar menu">
             <svg x="0px" y="0px"  width="51px" height="22px" viewBox="0 0 51 22" enable-background="new 0 0 51 22" xml:space="preserve">
                 <path d="M49,9H7.193l5.821-5.821c0.648-0.647,0.648-1.698,0-2.346c-0.648-0.648-1.698-0.648-2.346,0L0.5,11l10.168,10.167 c0.324,0.323,0.749,0.486,1.173,0.486c0.424,0,0.85-0.163,1.172-0.486c0.648-0.647,0.648-1.698,0-2.346L7.193,13H49 c0.828,0,1.5-0.893,1.5-2S49.828,9,49,9z"/>
             </svg>

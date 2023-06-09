@@ -9,7 +9,7 @@
 
 <template>
     <div class="sm:hidden" :class="[loca]">
-        <button class="vt-switch" type="button" role="switch" aria-label="Toggle dark mode" :aria-checked="[isDarkScoped?'Dark mode on':'Light mode on']">
+        <button class="vt-switch" type="button" role="switch" aria-label="Toggle dark mode" :aria-checked="[isDarkScoped?'true':'false']">
             <span class="vt-switch-check">
                 <span class=" vt-switch-icon">
 
