@@ -8,6 +8,7 @@
         // console.log(x);
         // const { data } = await useFetch('/api/nodemailer')
         // console.log(data);
+        isCCref.value = true
         isSending.value = true
         $fetch(
             '/api/nodemailer',
@@ -76,8 +77,8 @@ const testf = () => {
                 name="name"
                 label=""
                 placeholder="what is your name ?"
-                :validation="[ ['required'], ['matches', /^[A-Za-z]+$/], ['length', 3] ]"
                 validation-visibility= 'dirty'
+                :validation="[ ['required'], ['matches', /^[A-Za-z]+$/], ['length', 3] ]"
                 message-class="$reset text-end text-red-400 absolute top-full right-0"
                 input-class="$reset appearance-none bg-transparent webkit-autofill:bg-transparent focus:outline-none focus:ring-0 focus:shadow-none w-full px-3 py-2 border-none text-base placeholder-gray-400 text-[var(--color-text)] transition-all duration-300"
             />
@@ -137,8 +138,7 @@ const testf = () => {
                 prefix-icon-class="$reset w-10 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-r border-gray-400  [&>svg]:fill-[var(--color-text)] [&>svg]:w-full [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto"
                 input-class="$reset appearance-none bg-transparent focus:outline-none focus:ring-0 focus:shadow-none w-full px-3 py-2 border-none text-base text-[var(--color-text)] placeholder-gray-400"
                 />
-            <!-- <pre wrap class="overflow-scroll"> {{ value }}</pre> -->
-            
+            <!-- <pre wrap class="overflow-scroll"> {{ value }}</pre> -->            
         </FormKit>
         <p class="fixed flex items-center origin-center px-12 bg-orange-300 h-1/3 w-fit rounded-xl text-xl text-[var(--vt-c-indigo)] transition-all duration-300" :class="[ isSent?'opacity-100':'opacity-0', isSent?'z-10':'-z-10 delay-300' ]">Message sent ! &#127925;</p>
 

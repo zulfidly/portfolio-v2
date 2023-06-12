@@ -1,3 +1,10 @@
+<template>
+  <NuxtPage @pgPath="(x)=> providePathToNavBar(x)" />
+    <SocMed />  
+    <ColorModeSwitch @click="darkManualToggle" />
+    <NavBar @toggleMenu="(y)=> provideNavBarEventsToOthers(y)"  />
+</template>
+
 <script setup>
   useHead({
     title: 'loading...',
@@ -8,26 +15,25 @@
     author: 'zulfidly@gmail.com',
     description: 'zulfidly, a frontend web developer',
     keywords: 'vuejs, nuxtjs, html, css, javascript',
-    // ogImage: 'https://example.com/image.png',
-    // twitterCard: 'summary_large_image',
   })  
   const nuxtApp = useNuxtApp()
   const isDark = ref(undefined); nuxtApp.provide("isDarkApp", ()=> isDark);
   const currentPath = ref(useRoute().path); nuxtApp.provide("currentPathApp", ()=> currentPath);
   const isNavBtnHiddenApp = ref(false); nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (similar to Vue3's provide/inject)
   const isMenuHiddenApp = ref(true); nuxtApp.provide('isMenuHiddenApp', ()=> isMenuHiddenApp)  
+  const isMobile = ref(true); nuxtApp.provide('isMobile', ()=> isMobile)
+  const scrBreakpoint = ref(1024); // set mobile vs desktop breakpoint here
 
   onNuxtReady(()=> {  // upon landed
     // console.log('onNuxtReady: path=', useRoute().path); // to see reloaded page path    
-    checkSystemColorMode( window.matchMedia("(prefers-color-scheme:dark)").matches)
     addListener_WhenUserChangeSystemColorMode()
-      useHead({
-        title: getTabTitle(),
-        htmlAttrs: { 
-          lang:'en', 
-          class: { 'dark':isDark.value, 'zappa1':true, 'zappa2':true, },
-        }
-      }, { mode: 'client' }) // extras
+    addListener_WhenInnerWidthChanges()
+    useHead({
+      title: getTabTitle(),
+      htmlAttrs: { 
+        class: { 'dark':isDark.value, 'zappa1':true, 'zappa2':true, },
+      }
+    }, { mode: 'client' }) // extras
   })
 
   function checkSystemColorMode(X) {
@@ -35,8 +41,15 @@
     else if(X == false) { isDark.value = false; useHead({ htmlAttrs: {class: { 'dark': false}}}) }
     else console.log('app.vue: unknown prefers-color-scheme');
   }      
-
+  function addListener_WhenInnerWidthChanges() {
+    if(window.innerWidth >= scrBreakpoint.value) isMobile.value = false;
+    window.addEventListener("resize", ()=> {
+      if(window.innerWidth >= scrBreakpoint.value) isMobile.value = false;
+      else isMobile.value = true
+    })
+  }
   function addListener_WhenUserChangeSystemColorMode() {
+    checkSystemColorMode( window.matchMedia("(prefers-color-scheme:dark)").matches)
     window.matchMedia("(prefers-color-scheme:dark)").addEventListener("change", () => {
       checkSystemColorMode( window.matchMedia("(prefers-color-scheme: dark)").matches) // switches when user change local system color setting
     })
@@ -44,10 +57,10 @@
 
   function getTabTitle() {
     let temp = currentPath.value.toString()
-      if(temp == '/') return 'Freddie > Home'
-      else if(temp == '/projects') return 'Freddie > Projects'
-      else if(temp == '/about') return 'Freddie > About'
-      else if(temp == '/contact') return 'Freddie > Contact'
+      if(temp == '/') return 'Home : Freddie\'s Portfolio'
+      else if(temp == '/projects') return 'Projects : Freddie\'s Portfolio'
+      else if(temp == '/about') return 'About : Freddie\'s Portfolio'
+      else if(temp == '/contact') return 'Contact : Freddie\'s Portfolio'
       else return 'Others'
   }
  
@@ -68,13 +81,7 @@
   }
 </script>
 
-<template>
-  <NuxtPage @pgPath="(x)=> providePathToNavBar(x)" />
-  <NavBar  @toggleMenu="(y)=> provideNavBarEventsToOthers(y)" />
-  <SocMed />  
-  <ColorModeSwitch @click="darkManualToggle" />
 
-</template>
 
 
 

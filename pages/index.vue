@@ -1,6 +1,4 @@
 <script setup>
-    import { SocMedVisibilityMngr } from '../components/SocMed.vue'
-    SocMedVisibilityMngr(useRoute().path)
     const isMenuHidden = useNuxtApp().$isMenuHiddenApp()
 
     const emiT = defineEmits(['pgPath'])

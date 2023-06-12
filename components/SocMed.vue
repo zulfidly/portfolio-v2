@@ -1,25 +1,25 @@
 <script setup>
-    const opac = {
+    const currentPath = useNuxtApp().$currentPathApp()
+    const isMobile = useNuxtApp().$isMobile()
+
+    const isSocMedHidden = computed(()=> {
+        if(currentPath.value == '/' || currentPath.value == '/about') return false
+        else if(currentPath.value == '/projects' || currentPath.value == '/contact') return true
+        else console.log('error in SocMed.vue');
+    })
+
+    const mobi = {
         init: ['fixed w-full translate-1/2 left-0 space-y-2 transition-all duration-300'],
+        initDesktop: ['  '],
         show: ['opacity-100 bottom-0'],
         hide: ['opacity-0 -bottom-full'],
     }
 </script>
 
-<script>
-    export const isSocMedHidden = ref(false)
-
-    export const SocMedVisibilityMngr = (path) => {
-        if(path == '/' || path == '/about') isSocMedHidden.value = false
-        else if(path == '/projects' || path == '/contact') isSocMedHidden.value = true
-        else console.log('error in SocMed.vue');
-    }
-</script>
-
 <template>
-    <div :class="[opac.init, isSocMedHidden ? opac.hide : opac.show]" class="">
-        <div class="flex justify-evenly">
-            <button aria-label="visit linked in website">
+    <div :class="[isMobile?[mobi.init, isSocMedHidden?mobi.hide:mobi.show]:'absolute top-0 right-0 mt-24 mr-8 ' ]" >
+        <div :class="[isMobile?'flex justify-evenly':['flex flex-col gap-5 transition-all duration-200']]">
+            <button class="delay-50" aria-label="visit linked in website">
                 <a href="https://www.linkedin.com/in/zulfidly/" target="_blank" aria-label="visit linked in website">
                     <svg name="linkedin" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                         <g>
@@ -45,7 +45,7 @@
                 </a>
             </button>
     
-            <button aria-label="visit github in website">
+            <button class="delay-50" aria-label="visit github in website">
                 <a href="https://github.com/zulfidly" target="_blank" aria-label="visit github in website">
                     <svg name="github" class="fill-[var(--color-text)]" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                         <g>
@@ -64,12 +64,12 @@
                 </a>
             </button>
                 
-            <button aria-label="visit instagram in website">
+            <button class="delay-50" aria-label="visit instagram in website">
                 <a href="https://www.instagram.com/fidlybass/" target="_blank" aria-label="visit instagram in website">
                     <img class="grayscale-0 dark:grayscale invert-0 dark:invert-[60%] w-[40px] h-[40px]" src="/images/insta40.png" alt="Instagram logo" />
                 </a>
             </button>                    
         </div>
-        <p class="text-xs text-center italic text-[var(--color-text)]">Nuxt 3.4.3 / @nuxt/tailwindcss 6.6.8 </p>
+        <p :class="isMobile?'':'hidden'" class="text-xs text-center italic text-[var(--color-text)]">Nuxt 3.4.3 / @nuxt/tailwindcss 6.6.8 </p>
     </div>
 </template>

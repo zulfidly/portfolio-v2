@@ -44,6 +44,7 @@
     --netlifyGeo: #05BDBA;
     --linkedin: #0077B5;
   }  
+  
   html.dark {
     --color-background: var(--vt-c-black);
     --color-background-soft: var(--vt-c-black-soft);
@@ -69,12 +70,14 @@
     font-weight: normal;
   }  
 
-  body::-webkit-scrollbar { /* hide scrollbar in Chrome */
+  *::-webkit-scrollbar { /* hide scrollbar in Chrome */
     display: none;
   }  
-
   * {
     transition: color 0.3s, background-color 0.3s;
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
+    scroll-behavior: smooth;
   }
 
   .zappa1 {
@@ -95,15 +98,14 @@
     margin: 0 auto;
     padding: 1rem;
     font-weight: normal;
-    /* transition: color 2.3s, background-color 0.3s; */
   }
   
+
+
   body {
     min-height: 100vh;
     color: var(--color-text);
     background: var(--color-background);
-    /* transition: all 0.5s; */
-    /* transition: color 0.3s, background-color 0.3s; */
     line-height: 1.6;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
       Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -113,7 +115,6 @@
     -moz-osx-font-smoothing: grayscale;
     display: flex;
     justify-content: center;
-    /* align-items: flex-start; */
   }
 
   .page-enter-active,
@@ -126,10 +127,13 @@
   }
 
   @media (min-width: 1024px) {
-    body {
+    #__nuxt {
+      max-width: 1280px;
       display: flex;
-      /* place-items: center; */
+      align-items: center;
+      justify-content: center;
+      /* border: 1px dotted var(--color-border); */
+      padding: 3rem;
     }
-  
   }
     

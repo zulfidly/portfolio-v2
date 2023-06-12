@@ -1,14 +1,20 @@
 <script setup>
     const isDarkScoped = useNuxtApp().$isDarkApp()
     const currentPath = useNuxtApp().$currentPathApp()
+    const isMobile = useNuxtApp().$isMobile()
+
     const loca = computed(()=> {
-        if(currentPath.value == '/projects') return ['absolute bottom-[80px] right-[40px]']
-        else return ['absolute m-4 top-0 right-0']
+        if(isMobile.value) {
+            if(currentPath.value == '/projects') return ['absolute bottom-[80px] right-[40px]']
+            else return ['absolute m-4 top-0 right-0']
+        } else {
+            return ['absolute m-7 top-0 right-0']
+        }
     })
 </script>
 
 <template>
-    <div class="sm:hidden" :class="[loca]">
+    <div class="sm:hidden lg:block" :class="[loca]">
         <button class="vt-switch" type="button" role="switch" aria-label="Toggle dark mode" :aria-checked="[isDarkScoped?'true':'false']">
             <span class="vt-switch-check">
                 <span class=" vt-switch-icon">
