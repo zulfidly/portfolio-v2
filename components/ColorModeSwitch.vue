@@ -6,16 +6,16 @@
     const loca = computed(()=> {
         if(isMobile.value) {
             if(currentPath.value == '/projects') return ['absolute bottom-[80px] right-[40px]']
-            else return ['absolute m-4 top-0 right-0']
+            else return ['absolute m-4 top-0 right-0 ']
         } else {
-            return ['absolute m-7 top-0 right-0']
+            return ['absolute m-7 top-0 right-0 ']
         }
     })
 </script>
 
 <template>
-    <div class="sm:hidden lg:block" :class="[loca]">
-        <button class="vt-switch" type="button" role="switch" aria-label="Toggle dark mode" :aria-checked="[isDarkScoped?'true':'false']">
+    <div class="sm:hidden lg:block rounded-xl" :class="[loca]">
+        <button class="vt-switch hover:border hover:border-[var(--color-soft-oppo)]" type="button" role="switch" aria-label="Toggle dark mode" :aria-checked="[isDarkScoped?'true':'false']">
             <span class="vt-switch-check">
                 <span class=" vt-switch-icon">
 
@@ -51,7 +51,7 @@
         flex-shrink: 0;
         border: 1px solid var(--color-border);
         background-color: var(--color-background-mute);
-        transition: border-color .25s, background-color .25s;
+        transition: border-color .2s, background-color .2s;
         font-family: inherit;
     }
     .vt-switch-check {
@@ -63,7 +63,7 @@
         border-radius: 50%;
         background-color: var(--color-background);
         box-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 1px 2px rgba(0, 0, 0, .06);
-        transition: background-color .25s, transform .25s;
+        transition: background-color .2s, transform .2s;
     }
     .vt-switch-icon {
         position: relative;
@@ -81,7 +81,7 @@
         width: 12px;
         height: 12px;
         fill: var(--color-text);
-        transition: opacity .25s;
+        transition: opacity .2s;
     }
     .dark .vt-switch-appearance-moon, .vt-switch-appearance-sun{
         opacity: 1;

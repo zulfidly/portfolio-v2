@@ -65,7 +65,7 @@
     }
     const pop = {
         init: ['font-normal scale-100'],
-        currLink: ["font-bold drop-shadow-sm scale-105"]
+        currLink: ["font-bold scale-105 dark:text-slate-300"]
     }
     const slideInNavIcon = () => {
         console.log('slideInNavIcon');
@@ -93,12 +93,12 @@
         ctnrInit: ['fixed -translate-x-[110%] -translate-y-1/2 flex flex-col space-y-4 '],
         ctnrInitDesktop: ['flex flex-row gap-8 '],
         div: {
-            init: ['transition-all duration-200'],
+            init: ['transition-all duration-150 transform-gpu p-1'],
             hide: ['translate-x-0 opacity-0'],
             show: ['translate-x-[115%] opacity-100'],
         },
         link: ['text-6xl md:text-3xl text-[var(--color-text)]'],
-        linkDesktop: ['text-4xl text-[var(--color-text)] transition-transform duration-200'],
+        linkDesktop: ['text-4xl text-[var(--color-text)] hover:scale-105'],
     }
     
 </script>
@@ -121,25 +121,25 @@
                 :class="[nLink.div.init, isMobile?[isMenuHidden?nLink.div.hide:nLink.div.show]:'' ]"
                 class="delay-[0ms]" 
             >
-                    <NuxtLink to="/">           <p :class="[isMobile?nLink.link:nLink.linkDesktop, currentPath=='/'?pop.currLink:pop.init]"          >Home</p></NuxtLink>
+                    <NuxtLink to="/">           <p :class="['transition-all duration-150', isMobile?nLink.link:nLink.linkDesktop, currentPath=='/'?pop.currLink:pop.init]"          >Home</p></NuxtLink>
             </li>
             <li @click="toggleMenu"
                 :class="[nLink.div.init, isMobile?[isMenuHidden?nLink.div.hide:nLink.div.show]:'']"
                 class="delay-[50ms]"
             >
-                    <NuxtLink to="/projects">   <p :class="[isMobile?nLink.link:nLink.linkDesktop, currentPath=='/projects'?pop.currLink:pop.init]" >Projects</p>  </NuxtLink>
+                    <NuxtLink to="/projects">   <p :class="['transition-all duration-150', isMobile?nLink.link:nLink.linkDesktop, currentPath=='/projects'?pop.currLink:pop.init]" >Projects</p>  </NuxtLink>
             </li>
             <li @click="toggleMenu"
                 :class="[nLink.div.init, isMobile?[isMenuHidden?nLink.div.hide:nLink.div.show]:'']"
                 class="delay-[100ms]"
             >
-                    <NuxtLink to="/about">      <p :class="[isMobile?nLink.link:nLink.linkDesktop, currentPath=='/about'?pop.currLink:pop.init]"    >About</p>     </NuxtLink>
+                    <NuxtLink to="/about">      <p :class="['transition-all duration-150', isMobile?nLink.link:nLink.linkDesktop, currentPath=='/about'?pop.currLink:pop.init]"    >About</p>     </NuxtLink>
             </li>
             <li @click="toggleMenu"
                 :class="[nLink.div.init, isMobile?[isMenuHidden?nLink.div.hide:nLink.div.show]:'']"
                 class="delay-[150ms]"
             >
-                    <NuxtLink to="/contact">    <p :class="[isMobile?nLink.link:nLink.linkDesktop, currentPath=='/contact'?pop.currLink:pop.init]"   >Contact</p>   </NuxtLink>
+                    <NuxtLink to="/contact">    <p :class="['transition-all duration-150', isMobile?nLink.link:nLink.linkDesktop, currentPath=='/contact'?pop.currLink:pop.init]"   >Contact</p>   </NuxtLink>
             </li>
     
             <button v-if="isMobile" @click="toggleMenu" :class="[isMobile?[nav.closeSVG.init, isMenuHidden?nav.menu.close:nav.menu.open]:'hidden']" class="delay-[200ms]" aria-label="close navigation bar menu">

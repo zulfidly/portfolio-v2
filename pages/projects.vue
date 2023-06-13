@@ -2,7 +2,7 @@
     import data from '../assets/projectsItems.json'
     import ProjectCardPagination from '../components/ProjectPageNumber.vue'
     // console.log(data, Object.keys(data).length);
-    const isDarkScoped = useNuxtApp().$isDarkApp()
+    const isDark = useNuxtApp().$isDarkApp()
     const isMenuHidden = useNuxtApp().$isMenuHiddenApp()
     const isMobile = useNuxtApp().$isMobile()
 
@@ -54,10 +54,10 @@
 
 <template>
     <div class="transition-opacity duration-200 mx-auto" :class="[isMobile?[isMenuHidden?'opacity-100 delay-100':'opacity-0']:'flex items-center justify-center'] " >
-        <ul class="hidden p-1 lg:flex border min-w-[350px] h-[80svh] rounded-xl  flex-col justify-center mr-4 box-border">
+        <ul v-if="!isMobile" class="p-1 lg:flex border min-w-[350px] h-[80svh] rounded-xl  flex-col justify-center mr-4 box-border">
             <p class="mb-2 tracking-wider text-2xl text-center font-bold underline underline-offset-2 text-[var(--color-text)]"> Titles </p>
-            <li v-for="(z, index) in data" :key="'deskli'+index" class="p-0.5 mx-auto text-2xl w-max text-[var(--color-text)]" >
-                <button @click="scrollDirect(index)" :class="[currKard==(index+1)?'translate-x-[-1%] font-bold':'']" class="text-2xl p-0.5 hover:scale-105 transition duration-150 hover:translate-x-[-1%]" :aria-label="z.description">
+            <li v-for="(z, index) in data" :key="'deskli'+index" class="p-0.5 mx-auto w-max text-[var(--color-text)] flex justify-items items-center" >
+                <button @click="scrollDirect(index)" :class="[currKard==(index+1)?'font-bold dark:text-slate-300':'']" class="text-2xl p-0.5 hover:scale-105 transition-all duration-150 " :aria-label="z.description">
                     {{ z.title }}
                 </button>
             </li>
@@ -76,7 +76,7 @@
                                 :id="'imgCard'+ind"
                                 :alt="x.description"                        
                                 class="mx-auto rounded-lg transition-all duration-300 w-auto h-auto sm:hidden lg:block"
-                                :class="[loadedImg.includes(ind +1)?'opacity-100':'opacity-0', isDarkScoped?'grayscale-[75%]':'grayscale-0']"                               
+                                :class="[loadedImg.includes(ind +1)?'opacity-100':'opacity-0', isDark?'grayscale-[75%]':'grayscale-0']"                               
                                 :src="[loadedImg.includes(ind)?x.imgURL:undefined]"                                
                             />
                         </template>
