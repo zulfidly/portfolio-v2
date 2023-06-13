@@ -26,16 +26,16 @@
             <p class="font-extrabold text-2xl sm:text-xl text-center text-[var(--color-text)]"> {{ title }} </p>
             <p class="font-semibold text-xl text-center text-[var(--color-text)]"> {{ description }} </p>
     
-            <table class="py-2 font-medium text-center text-md mx-auto text-[var(--color-text)]">
+            <table class="py-2 font-medium text-center text-md lg:text-lg mx-auto text-[var(--color-text)]">
                 <tbody>
                     <tr>
                         <td class="align-top text-[var(--color-text)]"> Stacks </td>
-                        <td class="align-top">&nbsp; : &nbsp;</td>
+                        <td class="align-top text-[var(--color-text)]">&nbsp; : &nbsp;</td>
                         <td class="text-[var(--color-text)]"> {{ steks }} </td>
                     </tr>
                     <tr>
                         <td class="align-top text-[var(--color-text)]"> UI/UX</td>
-                        <td class="align-top">&nbsp; : &nbsp;</td>
+                        <td class="align-top text-[var(--color-text)]">&nbsp; : &nbsp;</td>
                         <td>
                             <li v-for="x in uiux"  class="text-[var(--color-text)]">{{ x }}</li>                        
                         </td>

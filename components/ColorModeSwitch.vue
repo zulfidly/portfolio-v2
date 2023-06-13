@@ -15,7 +15,7 @@
 
 <template>
     <div class="sm:hidden lg:block rounded-xl" :class="[loca]">
-        <button class="vt-switch hover:border hover:border-[var(--color-soft-oppo)]" type="button" role="switch" aria-label="Toggle dark mode" :aria-checked="[isDarkScoped?'true':'false']">
+        <button class="vt-switch lg:hover:border lg:hover:border-[var(--color-soft-oppo)]" type="button" role="switch" aria-label="Toggle dark mode" :aria-checked="[isDarkScoped?'true':'false']">
             <span class="vt-switch-check">
                 <span class=" vt-switch-icon">
 

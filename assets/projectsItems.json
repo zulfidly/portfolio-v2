@@ -34,6 +34,17 @@
     "imgURL": "/images/starwars.jpg"
   },
   {
+    "title": "< Pineapple Stand >",
+    "description": "Pinia: Vue's store library",
+    "stacks": "Vue3, Pinia, JavaScript",
+    "UI": {
+      "0": "CSS"
+    },
+    "githubURL": "https://github.com/zulfidly/Pinia-PineappleStand",
+    "netlifyURL": "https://gleeful-souffle-56603a.netlify.app/",
+    "imgURL": "/images/pineappleStand.jpg"
+  },
+  {
     "title": "< Portfolio-v1 >",
     "description": "my portfolio site",
     "stacks": "HTML, JavaScript",

@@ -116,7 +116,7 @@
             <span id="navIconSensor" :class="[navSensor.init]"></span>
         </button>
     
-        <ul :style="isMobile?centerMark:''" :class="[isMobile?nLink.ctnrInit:nLink.ctnrInitDesktop]">
+        <ul :style="isMobile?centerMark:''" :class="['transition-all duration-200', isMobile?nLink.ctnrInit:nLink.ctnrInitDesktop]">
             <li @click="toggleMenu"
                 :class="[nLink.div.init, isMobile?[isMenuHidden?nLink.div.hide:nLink.div.show]:'' ]"
                 class="delay-[0ms]" 
