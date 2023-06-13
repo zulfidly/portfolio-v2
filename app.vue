@@ -15,7 +15,7 @@
     author: 'zulfidly@gmail.com',
     description: 'zulfidly, a frontend web developer',
     keywords: 'vuejs, nuxtjs, html, css, javascript',
-    themeColor: "#317EFB",    
+    themeColor: "#34495E",    
   })  
   const nuxtApp = useNuxtApp()
   const isDark = ref(undefined); nuxtApp.provide("isDarkApp", ()=> isDark);
