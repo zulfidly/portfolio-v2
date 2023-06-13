@@ -9,7 +9,7 @@
   console.log('app loading - - -');
 
   useHead({
-    title: 'loading...',
+    title: 'portfolio of freddie',
     script: `if(window.matchMedia("(prefers-color-scheme:dark)").matches) document.querySelector('html').classList.add('dark')`,
     htmlAttrs:{ lang:'en', class: { 'zappa1':true, 'zappa2':false, } },
   })

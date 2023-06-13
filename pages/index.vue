@@ -19,11 +19,12 @@
 
 <template>
     <main class="p-4 mt-[15%] md:mt-0">
-        <p :class="[intro.greet, isMenuHidden?intro.show:intro.hide]"> Welcome </p>
+        <header :class="[intro.greet, isMenuHidden?intro.show:intro.hide]"> Welcome </header>
         <br>
         <p :class="style"> May this space</p>
         <p :class="style"> offers you a glimpse </p>
         <p :class="style"> into my coding</p>
         <p :class="style"> journey </p>
     </main>
+    <h1 class="opacity-0">Welcome to freddie's online portfolio</h1>
 </template>
