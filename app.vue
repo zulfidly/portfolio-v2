@@ -1,8 +1,8 @@
 <template>
   <NuxtPage @pgPath="(x)=> providePathToNavBar(x)" />
-    <SocMed />  
-    <ColorModeSwitch @click="darkManualToggle" />
     <NavBar @toggleMenu="(y)=> provideNavBarEventsToOthers(y)"  />
+      <ColorModeSwitch @click="darkManualToggle" />
+      <SocMed />  
 </template>
 
 <script setup>
