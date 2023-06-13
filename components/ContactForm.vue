@@ -140,7 +140,7 @@ const testf = () => {
                 />
             <!-- <pre wrap class="overflow-scroll"> {{ value }}</pre> -->            
         </FormKit>
-        <p class="fixed flex items-center origin-center px-12 bg-orange-300 h-1/3 w-fit rounded-xl text-xl text-[var(--vt-c-indigo)] transition-all duration-300" :class="[ isSent?'opacity-100':'opacity-0', isSent?'z-10':'-z-10 delay-300' ]">Message sent ! &#127925;</p>
+        <dialog class="fixed flex items-center origin-center px-12 bg-orange-300 h-1/3 w-fit rounded-xl text-xl text-[var(--vt-c-indigo)] transition-all duration-300" :class="[ isSent?'opacity-100':'opacity-0', isSent?'z-10':'-z-10 delay-300' ]">Message sent ! &#127925;</dialog>
 
     </div>
 </template>
