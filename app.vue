@@ -43,12 +43,10 @@
     if(X)               {
       isDark.value = true;
       useHead({ htmlAttrs: {class: { 'dark': true }}})
-      useSeoMeta({themeColor: "#935116"})  
     }    
     else if(X == false) {
       isDark.value = false
       useHead({ htmlAttrs: {class: { 'dark': false}}})
-      useSeoMeta({themeColor: "#34495E"})  
     }
     else console.log('app.vue: unknown prefers-color-scheme');
   }      
