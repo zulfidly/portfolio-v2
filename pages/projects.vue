@@ -12,7 +12,6 @@
     })
     const currKard = ref(1)
     const totalCards = Object.keys(data).length;
-
     const getHeight = ref('height:100px;') // dummy init for server side
     const isPortrait = ref(undefined)    
     onMounted(()=> {
@@ -40,7 +39,7 @@
                 currKard.value = ind + 1
                 if(loadedImg.value.includes(ind + 1)) return
                 loadedImg.value.push(ind + 1)                
-                console.log(loadedImg.value);
+                // console.log(loadedImg.value);
             }            
         })
     }    
@@ -78,9 +77,9 @@
                                 :alt="x.description"                        
                                 class="mx-auto rounded-lg transition-all duration-300 w-auto h-auto sm:hidden lg:block"
                                 :class="[loadedImg.includes(ind +1)?'opacity-100':'opacity-0', isDarkScoped?'grayscale-[75%]':'grayscale-0']"                               
-                                :src="[loadedImg.includes(ind)?x.imgURL:'#']"
+                                :src="[loadedImg.includes(ind)?x.imgURL:undefined]"                                
                             />
-                            </template>
+                        </template>
 
                         <template #links>
                             <div class="space-x-14 p-2 flex justify-start pl-8 sm:pl-0 sm:justify-evenly">
