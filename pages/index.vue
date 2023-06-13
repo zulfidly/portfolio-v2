@@ -25,6 +25,6 @@
         <p :class="style"> offers you a glimpse </p>
         <p :class="style"> into my coding</p>
         <p :class="style"> journey </p>
+        <h1 class="opacity-0">Welcome to freddie's online portfolio</h1>
     </main>
-    <h1 class="opacity-0">Welcome to freddie's online portfolio</h1>
 </template>
