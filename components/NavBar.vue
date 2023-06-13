@@ -5,7 +5,7 @@
     const isNavBtnHidden = ref(false)
     const isMenuHidden = ref(true)
     
-    onMounted(()=> {
+    onNuxtReady(()=> {
         if(isMobile.value) {
             watch(
                 isNavBtnHidden,
