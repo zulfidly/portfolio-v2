@@ -140,7 +140,7 @@
                     <NuxtLink to="/contact">    <p :class="[isMobile?nLink.link:nLink.linkDesktop, currentPath=='/contact'?pop.currLink:pop.init]"   >Contact</p>   </NuxtLink>
             </li>
     
-            <button @click="toggleMenu" :class="[isMobile?nav.closeSVG.init:'hidden', isMenuHidden?nav.menu.close:nav.menu.open]" class="delay-[200ms]" aria-label="close navigation bar menu">
+            <button @click="toggleMenu" :class="[isMobile?[nav.closeSVG.init, isMenuHidden?nav.menu.close:nav.menu.open]:'hidden']" class="delay-[200ms]" aria-label="close navigation bar menu">
                 <svg x="0px" y="0px"  width="51px" height="22px" viewBox="0 0 51 22" enable-background="new 0 0 51 22" xml:space="preserve">
                     <path d="M49,9H7.193l5.821-5.821c0.648-0.647,0.648-1.698,0-2.346c-0.648-0.648-1.698-0.648-2.346,0L0.5,11l10.168,10.167 c0.324,0.323,0.749,0.486,1.173,0.486c0.424,0,0.85-0.163,1.172-0.486c0.648-0.647,0.648-1.698,0-2.346L7.193,13H49 c0.828,0,1.5-0.893,1.5-2S49.828,9,49,9z"/>
                 </svg>
