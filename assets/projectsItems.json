@@ -45,7 +45,7 @@
     "imgURL": "/images/portfolioV1.jpg"
   },
   {
-    "title": "< Guess The Country >",
+    "title": "< Guess That Country >",
     "description": "Mini Game",
     "stacks": "HTML, JavaScript",
     "UI": {
@@ -78,7 +78,7 @@
     "imgURL": "/images/catstagram.jpg"
   },
   {
-    "title": "< Study Tool >",
+    "title": "< Study Tool 1 >",
     "description": "Mobile Devices: Touch events",
     "stacks": "HTML, JavaScript",
     "UI": {
@@ -89,7 +89,7 @@
     "imgURL": "/images/touchEvents.jpg"
   },
   {
-    "title": "< Study Tool >",
+    "title": "< Study Tool 2 >",
     "description": "Understanding getBoundingRect()",
     "stacks": "HTML, JavaScript",
     "UI": {
