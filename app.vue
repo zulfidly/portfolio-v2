@@ -1,11 +1,13 @@
 <template>
   <NuxtPage @pgPath="(x)=> providePathToNavBar(x)" />
-    <NavBar @toggleMenu="(y)=> provideNavBarEventsToOthers(y)"  />
-      <ColorModeSwitch @click="darkManualToggle" />
-      <SocMed />  
+  <NavBar @toggleMenu="(y)=> provideNavBarEventsToOthers(y)"  />
+  <ColorModeSwitch @click="darkManualToggle" />
+  <SocMed />  
 </template>
 
 <script setup>
+  console.log('app loading - - -');
+
   useHead({
     title: 'loading...',
     script: `if(window.matchMedia("(prefers-color-scheme:dark)").matches) document.querySelector('html').classList.add('dark')`,
@@ -40,14 +42,8 @@
   })
 
   function checkSystemColorMode(X) {
-    if(X)               {
-      isDark.value = true;
-      useHead({ htmlAttrs: {class: { 'dark': true }}})
-    }    
-    else if(X == false) {
-      isDark.value = false
-      useHead({ htmlAttrs: {class: { 'dark': false}}})
-    }
+    if(X)               { isDark.value = true; useHead({ htmlAttrs: {class: { 'dark': true }}}) }    
+    else if(X == false) { isDark.value = false; useHead({ htmlAttrs: {class: { 'dark': false}}}) }
     else console.log('app.vue: unknown prefers-color-scheme');
   }      
   function addListener_WhenInnerWidthChanges() {
