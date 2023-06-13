@@ -40,8 +40,16 @@
   })
 
   function checkSystemColorMode(X) {
-    if(X)               { isDark.value = true;  useHead({ htmlAttrs: {class: { 'dark': true }}}) }    
-    else if(X == false) { isDark.value = false; useHead({ htmlAttrs: {class: { 'dark': false}}}) }
+    if(X)               {
+      isDark.value = true;
+      useHead({ htmlAttrs: {class: { 'dark': true }}})
+      useServerSeoMeta({themeColor: "#935116"})  
+    }    
+    else if(X == false) {
+      isDark.value = false
+      useHead({ htmlAttrs: {class: { 'dark': false}}})
+      useServerSeoMeta({themeColor: "#34495E"})  
+    }
     else console.log('app.vue: unknown prefers-color-scheme');
   }      
   function addListener_WhenInnerWidthChanges() {
