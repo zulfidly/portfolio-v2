@@ -25,10 +25,12 @@
   const isMobile = ref(true); nuxtApp.provide('isMobile', ()=> isMobile)
   const scrBreakpoint = ref(1024); // set mobile vs desktop breakpoint here
 
-  onNuxtReady(()=> {  // upon landed
-    // console.log('onNuxtReady: path=', useRoute().path); // to see reloaded page path    
+  onMounted(()=> {    // hydrating
     addListener_WhenUserChangeSystemColorMode()
     addListener_WhenInnerWidthChanges()
+  })
+  onNuxtReady(()=> {  // hydrated
+    // console.log('onNuxtReady: path=', useRoute().path); // to see reloaded page path    
     useHead({
       title: getTabTitle(),
       htmlAttrs: { 

@@ -6,24 +6,26 @@
     const isMenuHidden = ref(true)
     
     onMounted(()=> {
-        watch(
-            isNavBtnHidden,
-            ()=> {
-                if(isNavBtnHidden.value == true) return
-                let delay = undefined
-                if(isMenuHidden.value) delay = 1700
-                if(isMenuHidden.value == false) delay = 10
-    
-                setTimeout(()=> {
-                    console.log("isNavBtnHidden.value = true")
-                    isNavBtnHidden.value = true
-                }, delay)
-            },
-        )
-        centerMark.value = `top:${ window.innerHeight/2 }px;`        
-        window.addEventListener("resize", () => {
-            centerMark.value = `top:${ window.innerHeight/2 }px;`
-        })
+        if(isMobile.value) {
+            watch(
+                isNavBtnHidden,
+                ()=> {
+                    if(isNavBtnHidden.value == true) return
+                    let delay = undefined
+                    if(isMenuHidden.value) delay = 1700
+                    if(isMenuHidden.value == false) delay = 10
+        
+                    setTimeout(()=> {
+                        console.log("isNavBtnHidden.value = true")
+                        isNavBtnHidden.value = true
+                    }, delay)
+                },
+            )
+            centerMark.value = `top:${ window.innerHeight/2 }px;`        
+            window.addEventListener("resize", () => {
+                centerMark.value = `top:${ window.innerHeight/2 }px;`
+            })
+        }
     })    
     
     const nav = {
