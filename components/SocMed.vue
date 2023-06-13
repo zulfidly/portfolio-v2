@@ -70,6 +70,6 @@
                 </a>
             </button>                    
         </div>
-        <p :class="[isMobile||currentPath!='/contact'?'fixed bottom-0 left-1/2 -translate-x-1/2':'hidden']" class="text-xs text-center italic text-[var(--color-text)] transition-all duration-300">Nuxt 3.4.3 / @nuxt/tailwindcss 6.6.8 </p>
+        <p :class="[isMobile?'':'fixed bottom-0 left-1/2 -translate-x-1/2', currentPath!='/contact'?'':'hidden']" class="text-xs text-center italic text-[var(--color-text)] transition-all duration-300">Nuxt 3.4.3 / @nuxt/tailwindcss 6.6.8 </p>
     </div>
 </template>

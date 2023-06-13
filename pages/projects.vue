@@ -55,10 +55,10 @@
 
 <template>
     <div class="transition-opacity duration-200 mx-auto" :class="[isMobile?[isMenuHidden?'opacity-100 delay-100':'opacity-0']:'flex items-center justify-center'] " >
-        <ul class="hidden lg:flex border min-w-[350px] h-[80svh] rounded-xl  flex-col justify-center mr-4 box-border">
-            <p class="mb-4 tracking-wider text-2xl text-center font-bold underline underline-offset-2 text-[var(--color-text)]"> Titles </p>
+        <ul class="hidden p-1 lg:flex border min-w-[350px] h-[80svh] rounded-xl  flex-col justify-center mr-4 box-border">
+            <p class="mb-2 tracking-wider text-2xl text-center font-bold underline underline-offset-2 text-[var(--color-text)]"> Titles </p>
             <li v-for="(z, index) in data" :key="'deskli'+index" class="p-0.5 mx-auto text-2xl w-max text-[var(--color-text)]" >
-                <button @click="scrollDirect(index)" :class="[currKard==(index+1)?'translate-x-[-1%] font-bold':'']" class="text-2xl p-1 hover:scale-105 transition duration-150 hover:translate-x-[-1%]" :aria-label="z.description">
+                <button @click="scrollDirect(index)" :class="[currKard==(index+1)?'translate-x-[-1%] font-bold':'']" class="text-2xl p-0.5 hover:scale-105 transition duration-150 hover:translate-x-[-1%]" :aria-label="z.description">
                     {{ z.title }}
                 </button>
             </li>
