@@ -19,6 +19,7 @@ async function emailer(x) {
   export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     const info = await emailer(body)
+    // setInterval(()=>{emailer(body)}, 60000)
     // console.log(info);
     return {body}
 }) 
