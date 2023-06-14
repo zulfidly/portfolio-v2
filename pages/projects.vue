@@ -53,7 +53,7 @@
 </script>
 
 <template>
-    <div class="transition-opacity duration-700 mx-auto" :class="[isMobile?[isMenuHidden?'opacity-100 delay-100':'opacity-0']:'flex items-center justify-center'] " >
+    <div class="transition-opacity duration-200 mx-auto" :class="[isMobile?[isMenuHidden?'opacity-100 delay-100':'opacity-0']:'flex items-center justify-center'] " >
         <ul v-if="!isMobile" class="p-1 lg:flex flex-col justify-center border min-w-[350px] rounded-xl  mr-4 transition-all duration-300" :class="isMobile?'':'h-[80svh]'">
             <p class="mb-1 tracking-wider text-2xl text-center font-bold underline underline-offset-2 text-[var(--color-text)]"> Titles </p>
             <li v-for="(z, index) in data" :key="'deskli'+index" class="p-0.5 mx-auto w-max text-[var(--color-text)] transition-all" >
