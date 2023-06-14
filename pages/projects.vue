@@ -12,7 +12,7 @@
     })
     const currKard = ref(1)
     const totalCards = Object.keys(data).length;
-    const getHeight = ref('height:100px;') // dummy init for server side
+    const getHeight = ref('height:50px;') // dummy init for server side
     const isPortrait = ref(undefined)    
     onMounted(()=> {
         isPortrait.value = window.matchMedia("(orientation: portrait)").matches
@@ -53,11 +53,11 @@
 </script>
 
 <template>
-    <div class="transition-opacity duration-200 mx-auto" :class="[isMobile?[isMenuHidden?'opacity-100 delay-100':'opacity-0']:'flex items-center justify-center'] " >
-        <ul v-if="!isMobile" class="p-1 lg:flex border min-w-[350px] h-[80svh] rounded-xl flex-col justify-center mr-4">
+    <div class="transition-opacity duration-700 mx-auto" :class="[isMobile?[isMenuHidden?'opacity-100 delay-100':'opacity-0']:'flex items-center justify-center'] " >
+        <ul v-if="!isMobile" class="p-1 lg:flex flex-col justify-center border min-w-[350px] rounded-xl  mr-4 transition-all duration-300" :class="isMobile?'':'h-[80svh]'">
             <p class="mb-1 tracking-wider text-2xl text-center font-bold underline underline-offset-2 text-[var(--color-text)]"> Titles </p>
-            <li v-for="(z, index) in data" :key="'deskli'+index" class="p-0.5 mx-auto w-max text-[var(--color-text)] " >
-                <button @click="scrollDirect(index)" :class="[currKard==(index+1)?'font-bold dark:text-slate-300':'']" class="text-xl p-0.5 lg:hover:scale-105 transition-all duration-100 " :aria-label="z.description">
+            <li v-for="(z, index) in data" :key="'deskli'+index" class="p-0.5 mx-auto w-max text-[var(--color-text)] transition-all" >
+                <button @click="scrollDirect(index)" :class="[currKard==(index+1)?'font-bold dark:text-slate-300':'']" class="text-xl p-0.5 lg:hover:scale-105 transition-all duration-75" :aria-label="z.description">
                     {{ z.title }}
                 </button>
             </li>
