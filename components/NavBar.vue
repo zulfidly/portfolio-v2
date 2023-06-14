@@ -30,7 +30,7 @@
     
     const nav = {
         svg: {
-            init: ["transition-all duration-[250ms]"],
+            init: ["transition-all"],
             close: ["scale-100 fill-[var(--color-background-soft)]"],
             open: ["scale-[12] md:scale-[18] fill-[var(--color-background-mute)]"],
         },
@@ -49,7 +49,7 @@
             open: ["opacity-100 translate-x-full"],
         },
         closeSVG: {
-            init: ["transition-all duration-[250ms] fill-[var(--color-text)] pt-8 flex justify-center"],
+            init: ["transition-all fill-[var(--color-text)] pt-8 "],
         }
     }
     const navSensor = {
@@ -104,7 +104,7 @@
 </script>
 
 <template>
-    <div :class="isMobile?'':'absolute top-0 left-0 ml-12 mt-3'">
+    <nav :class="isMobile?'':'absolute top-0 left-0 ml-12 mt-3'">
         <button :style="isMobile?centerMark:'display:none;'" :class="[navBtn.init, isSensorHidden?navBtn.show:navBtn.hide]" @click="toggleMenu" aria-haspopup="menu" :aria-expanded="[isMenuHidden?'false':'true']" aria-label="Toggle navigation menu">
             <svg :class="[nav.svg.init, isMenuHidden?nav.svg.close:nav.svg.open]" x="0px" y="0px" width="55px" height="76px" viewBox="0 0 55 76" enable-background="new 0 0 55 76" xml:space="preserve">
                 <path d="M17,0c-0.084,0-0.166,0.006-0.25,0.006V0h-17v76h17v-0.006C16.834,75.994,16.916,76,17,76c20.987,0,38-17.013,38-38 C55,17.013,37.987,0,17,0z"/>
@@ -141,12 +141,13 @@
             >
                     <NuxtLink to="/contact">    <p :class="['transition-all duration-150', isMobile?nLink.link:nLink.linkDesktop, currentPath=='/contact'?pop.currLink:pop.init]"   >Contact</p>   </NuxtLink>
             </li>
-    
-            <button v-if="isMobile" @click="toggleMenu" :class="[isMobile?[nav.closeSVG.init, isMenuHidden?nav.menu.close:nav.menu.open]:'hidden']" class="delay-[200ms]" aria-label="close navigation bar menu">
-                <svg x="0px" y="0px"  width="51px" height="22px" viewBox="0 0 51 22" enable-background="new 0 0 51 22" xml:space="preserve">
-                    <path d="M49,9H7.193l5.821-5.821c0.648-0.647,0.648-1.698,0-2.346c-0.648-0.648-1.698-0.648-2.346,0L0.5,11l10.168,10.167 c0.324,0.323,0.749,0.486,1.173,0.486c0.424,0,0.85-0.163,1.172-0.486c0.648-0.647,0.648-1.698,0-2.346L7.193,13H49 c0.828,0,1.5-0.893,1.5-2S49.828,9,49,9z"/>
-                </svg>
-            </button>
+            <li v-if="isMobile" @click="toggleMenu" :class="['delay-[200ms]', nLink.div.init, isMobile?[isMenuHidden?nLink.div.hide:nLink.div.show]:'']">
+                <button class="w-full" aria-label="close navigation bar menu">
+                    <svg class="mx-auto mt-3" x="0px" y="0px"  width="51px" height="22px" viewBox="0 0 51 22" enable-background="new 0 0 51 22" xml:space="preserve">
+                        <path d="M49,9H7.193l5.821-5.821c0.648-0.647,0.648-1.698,0-2.346c-0.648-0.648-1.698-0.648-2.346,0L0.5,11l10.168,10.167 c0.324,0.323,0.749,0.486,1.173,0.486c0.424,0,0.85-0.163,1.172-0.486c0.648-0.647,0.648-1.698,0-2.346L7.193,13H49 c0.828,0,1.5-0.893,1.5-2S49.828,9,49,9z"/>
+                    </svg>
+                </button>
+            </li>    
         </ul>
-    </div>
+    </nav>
 </template>
