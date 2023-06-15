@@ -71,7 +71,7 @@
   }
 
   function getTabTitle() {
-    let temp = currentPath.value.toString()
+    let temp = currentPath.value.toString().trim()
       if(temp == '/') return 'Home : Freddie\'s Portfolio'
       else if(temp == '/projects') return 'Projects : Freddie\'s Portfolio'
       else if(temp == '/about') return 'About : Freddie\'s Portfolio'
@@ -81,7 +81,7 @@
   }
  
   watch ( currentPath,    // zappa classes removed upon navigation
-    ()=> { useHead({  title: getTabTitle(), htmlAttrs: {class: { 'dark': isDark.value}} }) }
+    ()=> { useHead({  title: getTabTitle(), htmlAttrs: {class: {'dark':isDark.value}} }) }
   )
 
   const provideNavBarEventsToOthers = (y)=> {

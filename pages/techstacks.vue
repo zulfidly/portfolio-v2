@@ -25,13 +25,12 @@
                 
                 <div class="p-4">
                     <section>
-                        <a :href="stack.link" target="_blank" :aria-label="'visit '+stack.title+' website'" class="text-lg font-bold underline decoration-dotted underline-offset-4 text-[var(--color-text)]">{{ stack.title }}</a>
-                        <span class="text-lg text-[var(--color-text)]">&nbsp;{{ stack.description }}</span>
+                        <a :href="stack.link" target="_blank" :aria-label="'visit '+stack.title+' website'" class="text-lg lg:text-bold font-medium underline decoration-dotted underline-offset-4 text-[var(--color-text)]">{{ stack.title }}</a>
+                        <span class="text-lg font-light text-[var(--color-text)]">&nbsp;{{ stack.description }}</span>
                     </section>
-                    <p class="mt-2 text-lg text-[var(--color-text)]">Area of application : {{ stack.application }}</p>
+                    <p class="mt-2 font-extralight text-lg text-[var(--color-text)]">Area of application : {{ stack.application }}</p>
                 </div>
             </li>
         </ul>
     </div>
-
 </template>
