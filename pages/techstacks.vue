@@ -19,7 +19,7 @@
             <li v-for="(stack, ind) in stacks" :key="'stack'+ind" :class="['px-4 py-8 flex flex-col lg:flex-row-reverse items-center justify-between border border-[var(--color-border)] bg-[var(--color-background-soft)] rounded-xl']">
                 <button :aria-label="'visit '+stack.title" class="min-w-[80px] min-h-[80px] mx-4 rounded-lg">
                     <a :href="stack.link" target="_blank" :aria-label="'visit '+stack.title">
-                        <img :src="stack.iconURL" :alt="stack.title+' logo'" class="rounded-lg"/>
+                        <img :src="stack.iconURL" :alt="stack.title+' logo'" />
                     </a>
                 </button>  
                 

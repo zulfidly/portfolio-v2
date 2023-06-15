@@ -16,21 +16,28 @@
   {
     "title": "Tailwind CSS",
     "description": "is a utility-first CSS framework that can be composed directly in HTML scripts.",
-    "application": "Dynamic application stylings.",
+    "application": "Dynamic application stylings during development stage.",
     "link": "https://tailwindcss.com/",
     "iconURL": "/icons/tailwind80.svg"
   },
   {
+    "title": "FormKit",
+    "description": "is a comprehensive form building framework for Vue developers that makes authoring high quality production-ready forms faster, more accessible, with better DX and UX, and less code. It is easy to learn, and ships with production-ready features like inputs, validation rules, and submission/error handling.",
+    "application": "Forms type(ing), creation, validation, styling with schemas.",
+    "link": "https://formkit.com/",
+    "iconURL": "/icons/formkit80b.svg"
+  },
+  {
     "title": "HTML 5",
     "description": "is a W3C's framework for building user interfaces.",
-    "application": "semantics, caching, storage, multimedia, web sockets, graphics, and to work with CSS3.",
+    "application": "semantics, caching, storage, multimedia, web sockets, graphics, and can be used directly with CSS3.",
     "link": "https://www.w3.org/html/logo/",
     "iconURL": "/icons/html5_80.svg"
   },
   {
     "title": "JavaScript",
     "description": "is a programming language for implementing complex features on web pages.",
-    "application": "Client-side web development with HTML 5 and CSS3. Can be used with node.js for server side scripting.",
+    "application": "Client-side web development with HTML 5 and CSS3. Coded together with node.js for server side scripting.",
     "link": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript",
     "iconURL": "/icons/javascript80.svg"
   }

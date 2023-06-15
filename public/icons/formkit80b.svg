@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+	<linearGradient id="formkitID" gradientUnits="userSpaceOnUse" x1="18.2344" y1="58.5469" x2="21.6465" y2="53.2799" gradientTransform="matrix(15.1181 0 0 -15.1181 -273.0591 893.9532)">
+		<stop  offset="0" style="stop-color:#FF9357"/>
+		<stop  offset="1" style="stop-color:#F7CE68"/>
+	</linearGradient>
+	<path fill="url(#formkitID)" d="M79.809,66.538v13.27H40.001v-13.27H79.809z M13.46,53.27v13.269H0.191V53.27H13.46z M26.732,40
+		v13.27H13.46V40H26.732z M40.001,26.731V40H26.732V26.731H40.001z M26.732,13.461v13.27H13.46v-13.27H26.732z M13.46,0.192v13.269
+		H0.191V0.192H13.46z"/>
+</svg>
