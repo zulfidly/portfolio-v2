@@ -14,25 +14,22 @@
 
 <template>
     <div class="mt-8 lg:mt-0 px-2 py-2 lg:max-w-[55vw] lg:h-[80svh] transition-opacity duration-200" :class="[isMenuHidden?opac.show:opac.hide]">
-        <p class="text-xl mb-4 text-[var(--color-text)]">My current coding vocabularies includes </p>
+        <p class="text-lg lg:text-xl mb-4 text-[var(--color-text)]">Listed are my current coding vocabularies. </p>
         <ul class=" grid grid-cols-1 gap-3 h-[inherit] overflow-scroll">
-            <li v-for="(stack, ind) in stacks" :key="stack+ind" :class="['px-4 py-8 flex flex-col lg:flex-row-reverse items-center justify-between border border-[var(--color-border)] bg-[var(--color-background-soft)] rounded-xl']">
-                <button :aria-label="'visit '+stacks.title" class="mx-4 rounded-lg">
+            <li v-for="(stack, ind) in stacks" :key="'stack'+ind" :class="['px-4 py-8 flex flex-col lg:flex-row-reverse items-center justify-between border border-[var(--color-border)] bg-[var(--color-background-soft)] rounded-xl']">
+                <button :aria-label="'visit '+stack.title" class="min-w-[80px] min-h-[80px] mx-4 rounded-lg">
                     <a :href="stack.link" target="_blank" :aria-label="'visit '+stack.title">
-                        <img :src="stack.iconURL" :alt="stack.title+' logo'" class="rounded-xl"/>
+                        <img :src="stack.iconURL" :alt="stack.title+' logo'" class="rounded-lg"/>
                     </a>
-                </button>
-    
+                </button>  
                 
                 <div class="p-4">
                     <section>
-                        <span class="text-lg font-bold text-[var(--color-text)]">{{ stack.title }}</span>
+                        <a :href="stack.link" target="_blank" :aria-label="'visit '+stack.title+' website'" class="text-lg font-bold underline decoration-dotted underline-offset-4 text-[var(--color-text)]">{{ stack.title }}</a>
                         <span class="text-lg text-[var(--color-text)]">&nbsp;{{ stack.description }}</span>
                     </section>
                     <p class="mt-2 text-lg text-[var(--color-text)]">Area of application : {{ stack.application }}</p>
                 </div>
-    
-            
             </li>
         </ul>
     </div>
