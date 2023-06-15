@@ -66,8 +66,8 @@
         show: ["left-0"]
     }
     const pop = {
-        init: ['font-normal scale-100'],
-        currLink: ["font-bold scale-105 dark:text-slate-300 "]
+        init: ['scale-100'],
+        currLink: ["text-orange-500 scale-[101%] dark:text-slate-300 "]
     }
     const slideInNavIcon = () => {
         console.log('slideInNavIcon');
@@ -93,14 +93,14 @@
     })    
     const nLink = {
         ctnrInit: ['fixed -translate-x-[110%] -translate-y-1/2 flex flex-col space-y-2 '],
-        ctnrInitDesktop: ['flex flex-row gap-8 '],
+        ctnrInitDesktop: ['flex flex-row gap-10 '],
         div: {
-            init: ['transition-all duration-150 transform-gpu p-1'],
+            init: ['transition-all duration-150 transform-gpu p-0'],
             hide: ['translate-x-0 opacity-0'],
             show: ['translate-x-[115%] opacity-100'],
         },
         link: ['text-5xl md:text-3xl text-[var(--color-text)] scale-100'],
-        linkDesktop: ['text-4xl text-[var(--color-text)] hover:scale-105'],
+        linkDesktop: ['text-4xl text-[var(--color-text)] lg:hover:scale-105'],
     }
     const nLinkCom = computed(()=> {
         return ['transition-all duration-150', isMobile.value?nLink.link:nLink.linkDesktop]
