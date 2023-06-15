@@ -1,0 +1,37 @@
+[
+  {
+    "title": "VueJS",
+    "description": "is a progressive JavaScript framework for building user interfaces.",
+    "application": "Client side frontend web applications.",
+    "link": "https://vuejs.org/",
+    "iconURL": "/icons/vue80.svg"
+  },
+  {
+    "title": "NuxtJS",
+    "description": "is a free and open-source framework with an intuitive and extendable way to create type-safe, performant and production-grade full-stack web applications and websites with Vue.js.",
+    "application": "Static Site Generation, Server Side Rendering & server side scripting.",
+    "link": "https://nuxt.com/",
+    "iconURL": "/icons/nuxt80.svg"
+  },
+  {
+    "title": "Tailwind CSS",
+    "description": "is a utility-first CSS framework that can be composed directly in HTML scripts.",
+    "application": "Dynamic application stylings, .",
+    "link": "https://tailwindcss.com/",
+    "iconURL": "/icons/tailwind80.svg"
+  },
+  {
+    "title": "HTML 5",
+    "description": "is a W3C's framework for building user interfaces.",
+    "application": "semantics, caching, storage, multimedia, web sockets, graphics, and to work with CSS3.",
+    "link": "https://www.w3.org/html/logo/",
+    "iconURL": "/icons/html5_80.svg"
+  },
+  {
+    "title": "JavaScript",
+    "description": "is a programming language for implementing complex features on web pages.",
+    "application": "Client-side web development with HTML 5 and CSS3. Can be used with node.js for server side scripting.",
+    "link": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript",
+    "iconURL": "/icons/javascript80.svg"
+  }
+]

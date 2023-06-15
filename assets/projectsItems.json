@@ -35,7 +35,7 @@
   },
   {
     "title": "< Pineapple Stand >",
-    "description": "Pinia: Vue's store library",
+    "description": "Pinia - a Vue's store library",
     "stacks": "Vue3, Pinia, JavaScript",
     "UI": {
       "0": "CSS"

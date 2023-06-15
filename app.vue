@@ -1,13 +1,30 @@
 <template>
-  <NuxtPage @pgPath="(x)=> providePathToNavBar(x)" />
+  <Notifier :msg="notifier.msg"/>
+  <NuxtPage @pgPath="(x)=> providePathToNavBar(x)" @notifier-msg="(y)=> notifierMngr(y)"/>
   <NavBar @toggleMenu="(y)=> provideNavBarEventsToOthers(y)"  />
   <ColorModeSwitch @click="darkManualToggle" />
   <SocMed />  
 </template>
 
 <script setup>
-  console.log('app loading - - -');
+  const nuxtApp = useNuxtApp()
+  const isDark = ref(undefined); nuxtApp.provide("isDarkApp", ()=> isDark);
+  const currentPath = ref(useRoute().path); nuxtApp.provide("currentPathApp", ()=> currentPath);
+  const isNavBtnHiddenApp = ref(false); nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (similar to Vue3's provide/inject)
+  const isMenuHiddenApp = ref(true); nuxtApp.provide('isMenuHiddenApp', ()=> isMenuHiddenApp)  
+  const isMobile = ref(true); nuxtApp.provide('isMobile', ()=> isMobile)
+  const scrBreakpoint = ref(1024); // set mobile vs desktop breakpoint here
+  const notifier = reactive({
+    msg: undefined,
+    isShown: false,
+  }); nuxtApp.provide('notifier', ()=> notifier)
 
+  console.log('app loading - - -');
+  function notifierMngr(msg) {
+    notifier.msg = msg
+    notifier.isShown = true
+    setTimeout(()=> notifier.isShown = false, 3000)
+  }
   useHead({
     title: 'portfolio of freddie',
     script: `if(window.matchMedia("(prefers-color-scheme:dark)").matches) document.querySelector('html').classList.add('dark')`,
@@ -19,13 +36,6 @@
     keywords: 'vuejs, nuxtjs, html, css, javascript',
     themeColor: "#34495E",    
   })  
-  const nuxtApp = useNuxtApp()
-  const isDark = ref(undefined); nuxtApp.provide("isDarkApp", ()=> isDark);
-  const currentPath = ref(useRoute().path); nuxtApp.provide("currentPathApp", ()=> currentPath);
-  const isNavBtnHiddenApp = ref(false); nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (similar to Vue3's provide/inject)
-  const isMenuHiddenApp = ref(true); nuxtApp.provide('isMenuHiddenApp', ()=> isMenuHiddenApp)  
-  const isMobile = ref(true); nuxtApp.provide('isMobile', ()=> isMobile)
-  const scrBreakpoint = ref(1024); // set mobile vs desktop breakpoint here
 
   onMounted(()=> {    // hydrating
     addListener_WhenUserChangeSystemColorMode()
@@ -66,6 +76,7 @@
       else if(temp == '/projects') return 'Projects : Freddie\'s Portfolio'
       else if(temp == '/about') return 'About : Freddie\'s Portfolio'
       else if(temp == '/contact') return 'Contact : Freddie\'s Portfolio'
+      else if(temp == '/techstacks') return 'Tech Stacks : Freddie\'s Portfolio'
       else return 'Others'
   }
  

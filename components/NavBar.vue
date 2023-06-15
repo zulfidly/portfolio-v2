@@ -26,6 +26,8 @@
                 centerMark.value = `top:${ window.innerHeight/2 }px;`
             })
         }
+        // console.log(useRouter().options.routes);
+        // console.log(useRouter());
     })    
     
     const nav = {
@@ -65,7 +67,7 @@
     }
     const pop = {
         init: ['font-normal scale-100'],
-        currLink: ["font-bold scale-105 dark:text-slate-300"]
+        currLink: ["font-bold scale-105 dark:text-slate-300 "]
     }
     const slideInNavIcon = () => {
         console.log('slideInNavIcon');
@@ -90,17 +92,22 @@
         else return true
     })    
     const nLink = {
-        ctnrInit: ['fixed -translate-x-[110%] -translate-y-1/2 flex flex-col space-y-4 '],
+        ctnrInit: ['fixed -translate-x-[110%] -translate-y-1/2 flex flex-col space-y-2 '],
         ctnrInitDesktop: ['flex flex-row gap-8 '],
         div: {
             init: ['transition-all duration-150 transform-gpu p-1'],
             hide: ['translate-x-0 opacity-0'],
             show: ['translate-x-[115%] opacity-100'],
         },
-        link: ['text-6xl md:text-3xl text-[var(--color-text)]'],
+        link: ['text-5xl md:text-3xl text-[var(--color-text)] scale-100'],
         linkDesktop: ['text-4xl text-[var(--color-text)] hover:scale-105'],
     }
-    
+    const nLinkCom = computed(()=> {
+        return ['transition-all duration-150', isMobile.value?nLink.link:nLink.linkDesktop]
+    })
+    const liComp = computed(()=> {
+        return [nLink.div.init, isMobile.value?[isMenuHidden.value?nLink.div.hide:nLink.div.show]:'' ]
+    })
 </script>
 
 <template>
@@ -117,33 +124,24 @@
         </button>
     
         <ul :style="isMobile?centerMark:''" :class="['transition-all duration-200', isMobile?nLink.ctnrInit:nLink.ctnrInitDesktop]">
-            <li @click="toggleMenu"
-                :class="[nLink.div.init, isMobile?[isMenuHidden?nLink.div.hide:nLink.div.show]:'' ]"
-                class="delay-[0ms]" 
-            >
-                    <NuxtLink to="/">           <p :class="['transition-all duration-150', isMobile?nLink.link:nLink.linkDesktop, currentPath=='/'?pop.currLink:pop.init]"          >Home</p></NuxtLink>
+            <li @click="toggleMenu" :class="[liComp, 'delay-[0ms]'  ]" >
+                <NuxtLink to="/">           <p :class="[nLinkCom, currentPath=='/'?pop.currLink:pop.init]"         >Home</p>        </NuxtLink>
             </li>
-            <li @click="toggleMenu"
-                :class="[nLink.div.init, isMobile?[isMenuHidden?nLink.div.hide:nLink.div.show]:'']"
-                class="delay-[50ms]"
-            >
-                    <NuxtLink to="/projects">   <p :class="['transition-all duration-150', isMobile?nLink.link:nLink.linkDesktop, currentPath=='/projects'?pop.currLink:pop.init]" >Projects</p>  </NuxtLink>
+            <li @click="toggleMenu" :class="[liComp, 'delay-[50ms]' ]" >
+                <NuxtLink to="/projects">   <p :class="[nLinkCom, currentPath=='/projects'?pop.currLink:pop.init]" >Projects</p>    </NuxtLink>
             </li>
-            <li @click="toggleMenu"
-                :class="[nLink.div.init, isMobile?[isMenuHidden?nLink.div.hide:nLink.div.show]:'']"
-                class="delay-[100ms]"
-            >
-                    <NuxtLink to="/about">      <p :class="['transition-all duration-150', isMobile?nLink.link:nLink.linkDesktop, currentPath=='/about'?pop.currLink:pop.init]"    >About</p>     </NuxtLink>
+            <li @click="toggleMenu" :class="[liComp, 'delay-[100ms]' ]" >
+                <NuxtLink to="/techstacks"> <p :class="[nLinkCom, currentPath=='/techstacks'?pop.currLink:pop.init]" >Tech Stacks</p>    </NuxtLink>
             </li>
-            <li @click="toggleMenu"
-                :class="[nLink.div.init, isMobile?[isMenuHidden?nLink.div.hide:nLink.div.show]:'']"
-                class="delay-[150ms]"
-            >
-                    <NuxtLink to="/contact">    <p :class="['transition-all duration-150', isMobile?nLink.link:nLink.linkDesktop, currentPath=='/contact'?pop.currLink:pop.init]"   >Contact</p>   </NuxtLink>
+            <li @click="toggleMenu" :class="[liComp, 'delay-[100ms]']" >
+                <NuxtLink to="/about">      <p :class="[nLinkCom, currentPath=='/about'?pop.currLink:pop.init]"    >About</p>       </NuxtLink>
             </li>
-            <li v-if="isMobile" @click="toggleMenu" :class="['delay-[200ms]', nLink.div.init, isMobile?[isMenuHidden?nLink.div.hide:nLink.div.show]:'']">
+            <li @click="toggleMenu" :class="[liComp, 'delay-[150ms]']" >
+                <NuxtLink to="/contact">    <p :class="[nLinkCom, currentPath=='/contact'?pop.currLink:pop.init]"   >Contact</p>    </NuxtLink>
+            </li>
+            <li v-if="isMobile" @click="toggleMenu" :class="[liComp, 'delay-[200ms]']">
                 <button class="w-full" aria-label="close navigation bar menu">
-                    <svg class="mx-auto mt-3 fill-[var(--color-text)]" x="0px" y="0px"  width="51px" height="22px" viewBox="0 0 51 22" enable-background="new 0 0 51 22" xml:space="preserve">
+                    <svg class="mx-auto mt-3 transition-all duration-150 fill-[var(--color-text)]" x="0px" y="0px"  width="51px" height="22px" viewBox="0 0 51 22" enable-background="new 0 0 51 22" xml:space="preserve">
                         <path d="M49,9H7.193l5.821-5.821c0.648-0.647,0.648-1.698,0-2.346c-0.648-0.648-1.698-0.648-2.346,0L0.5,11l10.168,10.167 c0.324,0.323,0.749,0.486,1.173,0.486c0.424,0,0.85-0.163,1.172-0.486c0.648-0.647,0.648-1.698,0-2.346L7.193,13H49 c0.828,0,1.5-0.893,1.5-2S49.828,9,49,9z"/>
                     </svg>
                 </button>

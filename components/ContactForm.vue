@@ -3,6 +3,7 @@
     const rate = ref(5)
     const isSending = ref(false)
     const isSent = ref(false)
+    const emiT = defineEmits(['notifierMsg'])
 
     const sendMsg = async(x) => {
         // console.log(x);
@@ -44,22 +45,18 @@
             }
         ).then((resp) => {
             // console.log(resp)
+            emiT('notifierMsg', 'Message sent ! 🎵')
             isSending.value = false
             isSent.value = true
             setTimeout(()=> { isSent.value = false}, 2000)
         })
     }
 
-const test = ref(false)
-const testf = () => {
-    test.value = !test.value
-}
 </script>
 
 <!-- #default="{value}" -->
 <template>
-    <div @click="testf" class="mt-2 w-full flex flex-col justify-center items-center">
-
+    <div class="mt-2 w-full flex flex-col justify-center items-center">
         <FormKit
             id="contactForm"
             type="form"
@@ -140,7 +137,6 @@ const testf = () => {
                 />
             <!-- <pre wrap class="overflow-scroll"> {{ value }}</pre> -->            
         </FormKit>
-        <section class="fixed flex items-center origin-center px-12 bg-orange-300 h-1/3 w-fit rounded-xl text-xl text-[var(--vt-c-indigo)] transition-all duration-300" :class="[ isSent?'opacity-100':'opacity-0', isSent?'z-10':'-z-10 delay-300' ]">Message sent ! &#127925;</section>
 
     </div>
 </template>

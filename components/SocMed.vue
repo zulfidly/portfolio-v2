@@ -5,7 +5,7 @@
 
     const isSocMedHidden = computed(()=> {
         if(currentPath.value == '/' || currentPath.value == '/about') return false
-        else if(currentPath.value == '/projects' || currentPath.value == '/contact') return true
+        else if(currentPath.value == '/projects' || currentPath.value == '/contact' || currentPath.value == '/techstacks') return true
         else console.log('error in SocMed.vue');
     })
 
