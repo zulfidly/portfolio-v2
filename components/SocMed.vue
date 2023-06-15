@@ -17,7 +17,7 @@
 </script>
 
 <template>
-    <div :class="[isMobile?[mobi.init, isSocMedHidden?mobi.hide:mobi.show]:'absolute top-0 right-0 mt-24 mr-8 ' ]" >
+    <div :class="[isMobile?[mobi.init, isSocMedHidden?mobi.hide:mobi.show]:'absolute top-0 right-0 mt-24 mr-0' ]" >
         <div :class="[isMobile?'flex justify-evenly':['flex flex-col gap-5 transition-all duration-200']]">
             <button class="[&>a>svg>g>path]:dark:lg:hover:fill-[#0077B5]" aria-label="visit linked in website">
                 <a href="https://www.linkedin.com/in/zulfidly/" target="_blank" aria-label="visit linked in website">

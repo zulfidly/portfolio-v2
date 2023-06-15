@@ -8,7 +8,7 @@
             if(currentPath.value == '/projects') return ['absolute bottom-[80px] right-[40px]']
             else return ['absolute m-4 top-0 right-0 ']
         } else {
-            return ['absolute m-7 top-0 right-0 ']
+            return ['absolute mt-8 top-0 right-0 ']
         }
     })
 </script>

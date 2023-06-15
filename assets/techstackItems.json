@@ -16,7 +16,7 @@
   {
     "title": "Tailwind CSS",
     "description": "is a utility-first CSS framework that can be composed directly in HTML scripts.",
-    "application": "Dynamic application stylings, .",
+    "application": "Dynamic application stylings.",
     "link": "https://tailwindcss.com/",
     "iconURL": "/icons/tailwind80.svg"
   },

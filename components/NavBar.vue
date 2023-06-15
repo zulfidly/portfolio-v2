@@ -111,7 +111,7 @@
 </script>
 
 <template>
-    <nav :class="isMobile?'':'absolute top-0 left-0 ml-12 mt-3'">
+    <nav :class="isMobile?'':'absolute top-0 left-0 lg:ml-0 mt-3'">
         <button :style="isMobile?centerMark:'display:none;'" :class="[navBtn.init, isSensorHidden?navBtn.show:navBtn.hide]" @click="toggleMenu" aria-haspopup="menu" :aria-expanded="[isMenuHidden?'false':'true']" aria-label="Toggle navigation menu">
             <svg :class="[nav.svg.init, isMenuHidden?nav.svg.close:nav.svg.open]" x="0px" y="0px" width="55px" height="76px" viewBox="0 0 55 76" enable-background="new 0 0 55 76" xml:space="preserve">
                 <path d="M17,0c-0.084,0-0.166,0.006-0.25,0.006V0h-17v76h17v-0.006C16.834,75.994,16.916,76,17,76c20.987,0,38-17.013,38-38 C55,17.013,37.987,0,17,0z"/>
