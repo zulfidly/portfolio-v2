@@ -37,7 +37,7 @@
                         <td class="align-top text-[var(--color-text)]"> UI/UX</td>
                         <td class="align-top text-[var(--color-text)]">&nbsp; : &nbsp;</td>
                         <td>
-                            <li v-for="x in uiux"  class="text-[var(--color-text)]">{{ x }}</li>                        
+                            <p v-for="x in uiux"  class="text-[var(--color-text)]">{{ x }}</p>                        
                         </td>
                     </tr>
                 </tbody>    

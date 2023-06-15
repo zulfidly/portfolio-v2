@@ -93,7 +93,7 @@
     })    
     const nLink = {
         ctnrInit: ['fixed -translate-x-[110%] -translate-y-1/2 flex flex-col space-y-2 '],
-        ctnrInitDesktop: ['flex flex-row gap-10 '],
+        ctnrInitDesktop: ['flex flex-row gap-10'],
         div: {
             init: ['transition-all duration-150 transform-gpu p-0'],
             hide: ['translate-x-0 opacity-0'],
