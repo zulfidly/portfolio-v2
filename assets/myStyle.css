@@ -86,14 +86,12 @@
   }
 
   .zappa1 {
-    opacity: 0;
-    filter: grayscale(100%);
-    transition: all 1s ease-out;
-    /* transition: filter 0.5s ease-out; */
+    filter: grayscale(100%), invert(100%);
+    transition: filter 2.5s ease-out;
+
   }
   .zappa2 {
-    opacity: 100%;
-    filter: grayscale(0%);
+    filter: grayscale(0%), invert(0%);
   }
 
   #__nuxt {

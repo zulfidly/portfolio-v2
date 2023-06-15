@@ -2,7 +2,7 @@
   {
     "title": "VueJS",
     "description": "is a progressive JavaScript framework for building user interfaces.",
-    "application": "Client side frontend web applications.",
+    "application": "Client side frontend web applications, having Vite as development environment",
     "link": "https://vuejs.org/",
     "iconURL": "/icons/vue80.svg"
   },
@@ -16,7 +16,7 @@
   {
     "title": "Tailwind CSS",
     "description": "is a utility-first CSS framework that can be composed directly in HTML scripts.",
-    "application": "Dynamic application stylings during development stage.",
+    "application": "Dynamic application stylings during development stage. Lightning fast hot-reload with Vite",
     "link": "https://tailwindcss.com/",
     "iconURL": "/icons/tailwind80.svg"
   },
