@@ -1,5 +1,16 @@
 [
   {
+    "title": "< Web Scraper >",
+    "description": "online database build updated with web scrape datas.",
+    "stacks": "Nuxt3 SSR, airtable.js, Netlify Scheduled Functions",
+    "UI": {
+      "0": "Tailwind CSS, Illustrator"
+    },
+    "githubURL": "https://github.com/zulfidly/Experimental-Scraper",
+    "netlifyURL": "https://exp-scraper-fidly.netlify.app/",
+    "imgURL": "/images/webScraper.jpg"
+  },
+  {
     "title": "< Currency Converter >",
     "description": "online currency converter",
     "stacks": "Vue 3 Composition, Google Chart",
@@ -10,7 +21,6 @@
     "netlifyURL": "https://fidly-currex.netlify.app/",
     "imgURL": "/images/currexP.jpg"
   },
-
   {
     "title": "< Multi Step Form >",
     "description": "Mock website practice",

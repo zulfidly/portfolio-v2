@@ -11,7 +11,11 @@ module.exports = {
     '/formkit.config.js'
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'color-mode-sw': '0 1px 2px rgba(0, 0, 0, .04), 0 1px 2px rgba(0, 0, 0, .06)',
+      }
+    },
   },
   plugins: [formKitTailwind],
 }

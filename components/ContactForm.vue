@@ -44,7 +44,7 @@
                 }                 
             }
         ).then((resp) => {
-            // console.log(resp)
+            console.log(resp)
             emiT('notifierMsg', 'Message sent ! 🎵')
             isSending.value = false
             isSent.value = true

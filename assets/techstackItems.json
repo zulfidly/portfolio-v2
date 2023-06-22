@@ -21,6 +21,13 @@
     "iconURL": "/icons/tailwind80.svg"
   },
   {
+    "title": "Airtable",
+    "description": "is a Cloud-Based Hybrid Spreadsheet Database platform. ",
+    "application": "Serverless database management. Work-flow automation",
+    "link": "https://www.airtable.com/",
+    "iconURL": "/icons/airtable80.svg"
+  },
+  {
     "title": "FormKit",
     "description": "is a comprehensive form building framework for Vue developers that makes authoring high quality production-ready forms faster, more accessible, with better DX and UX, and less code. It is easy to learn, and ships with production-ready features like inputs, validation rules, and submission/error handling.",
     "application": "Forms type(ing), creation, validation, styling with schemas.",
