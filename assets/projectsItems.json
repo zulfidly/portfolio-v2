@@ -1,8 +1,8 @@
 [
   {
-    "title": "< Web Scraper >",
+    "title": "< Scheduled Web Scraper >",
     "description": "online database build updated with web scrape datas.",
-    "stacks": "Nuxt3 SSR, airtable.js, Netlify Scheduled Functions",
+    "stacks": "Nuxt3 SSR, VueUse, airtable.js, Netlify Scheduled Functions",
     "UI": {
       "0": "Tailwind CSS, Illustrator"
     },

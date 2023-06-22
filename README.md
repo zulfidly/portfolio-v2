@@ -1,13 +1,13 @@
-## [view site](https://portfolio-fidly.netlify.app/)
+# [my Portfolio (ver2)](https://portfolio-fidly.netlify.app/)
 
 ## npx nuxi init 'project name'
 - cd to project folder
-- npm install
-- npm run dev -- -o (this opens new browser)
+```npm install```
+```npm run dev -- -o``` (this opens new browser)
 
 ## Adding Tailwind CSS 
 ```npm install -D @nuxtjs/tailwindcss```
-```npx tailwindcss init -p (to bring tailwindcss.config.js into root folder)```
+```npx tailwindcss init -p``` (bring tailwindcss.config.js into root folder)
 - see edits > nuxt.config.ts
 
 
@@ -18,13 +18,13 @@
 
 ## CLI :  create a page => npx nuxi add page index
 - landing page must be named index.vue
-- this is to be used with <code><NuxtPage/></code> inside app.vue
+- this is to be used with ```<NuxtPage/>``` inside app.vue
 - other pages for routing are placed inside the 'pages' folder
 
 
-## Add nodemailer
+## Add nodemailer (contact form is emailed)
 ```npm install nodemailer```
-- this fully server side code has 'post' as method, and is coded in its filename
+- this server side code has 'post' as method, coded in its filename
 
 ## CI/CD implementation (continuous integration / continuous delivery)
 - for Netlify deployment 
