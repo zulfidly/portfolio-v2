@@ -10,6 +10,10 @@
 ```npx tailwindcss init -p``` (bring tailwindcss.config.js into root folder)
 - see edits > nuxt.config.ts
 
+<!-- ## Add ```<nuxt-img />``` directive
+```npm install -D @nuxt/image@rc```
+```npm uninstall -D @nuxt/image@rc```
+- see edit > nuxt.config -->
 
 ## Adding [FormKit](https://formkit.com/getting-started/installation) (contact page form build)
 ```npm install @formkit/nuxt```

@@ -76,9 +76,9 @@
                             <img
                                 :id="'imgCard'+ind"
                                 :alt="x.description"                        
-                                class="mx-auto rounded-lg transition-all duration-300 max-w-[212px] max-h-[400px] sm:hidden lg:block"
+                                class="mx-auto rounded-lg transition-all duration-300 w-[212px] h-[400px] sm:hidden lg:block"
                                 :class="[loadedImg.includes(ind +1)?'opacity-100':'opacity-0', isDark?'grayscale-[75%]':'grayscale-0']"                               
-                                :src="[loadedImg.includes(ind)?x.imgURL:undefined]"                                
+                                :src="[loadedImg.includes(ind)?x.imgURL:'']"                                
                             />
                         </template>
 

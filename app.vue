@@ -28,7 +28,7 @@
   useHead({
     title: 'portfolio of freddie',
     script: `if(window.matchMedia("(prefers-color-scheme:dark)").matches) document.querySelector('html').classList.add('dark')`,
-    htmlAttrs:{ lang:'en', class: { 'zappa1':true, 'zappa2':false, } },
+    htmlAttrs:{ lang:'en', class: { 'zappa1':true, 'zappa2':false } },
   })
   useServerSeoMeta({
     author: 'zulfidly@gmail.com',
@@ -46,7 +46,7 @@
     useHead({
       title: getTabTitle(),
       htmlAttrs: { 
-        class: { 'dark':isDark.value, 'zappa1':true, 'zappa2':true, },
+        class: { 'dark':isDark.value, 'zappa1':true, 'zappa2':true },
       }
     }, { mode: 'client' }) // extras
   })
