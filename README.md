@@ -1,6 +1,6 @@
 # [my Portfolio (ver2)](https://portfolio-fidly.netlify.app/)
 
-## npx nuxi init 'project name'
+## npx nuxi init 'project na  me'
 - cd to project folder
 ```npm install```
 ```npm run dev -- -o``` (this opens new browser)
