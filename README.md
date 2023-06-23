@@ -1,7 +1,8 @@
 # [my Portfolio (ver2)](https://portfolio-fidly.netlify.app/)
 
-## npx nuxi init 'project na  me'
-- cd to project folder
+## ```npx nuxi@latest init <project-name>```
+
+```cd <project-name>```
 ```npm install```
 ```npm run dev -- -o``` (this opens new browser)
 
@@ -17,6 +18,7 @@
 
 ## Adding [FormKit](https://formkit.com/getting-started/installation) (contact page form build)
 ```npm install @formkit/nuxt```
+```npm install @formkit/themes```, see edits in tailwind.config.js
 - see edits > nuxt.config.ts
 
 
