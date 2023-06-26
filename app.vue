@@ -34,12 +34,14 @@
     author: 'zulfidly@gmail.com',
     description: 'zulfidly, a frontend web developer',
     keywords: 'vuejs, nuxtjs, html, css, javascript',
-    themeColor: "#34495E",    
+    themeColor: "#34495E",  
+    // viewport: 'width=device-width, initial-scale=0.65',
   })  
 
   onMounted(()=> {    // hydrating
     addListener_WhenUserChangeSystemColorMode()
     addListener_WhenInnerWidthChanges()
+    // console.log(window.navigator.userAgent);
   })
   onNuxtReady(()=> {  // hydrated
     // console.log('onNuxtReady: path=', useRoute().path); // to see reloaded page path    

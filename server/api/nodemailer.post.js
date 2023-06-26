@@ -10,17 +10,16 @@ async function emailer(x) {
         pass: process.env.PASSWORD,  
       },
     }); 
-    // let info = await transporter.sendMail(x)  
     // console.log("Message sent: %s", info.messageId);
+    // let info = await transporter.sendMail(x)  
     // return info
-    await transporter.sendMail(x)
+    return await transporter.sendMail(x)
   } 
   
   export default defineEventHandler(async (event) => {
     // const body = await readBody(event)
     await emailer(await readBody(event))
     // const info = await emailer(body)
-    // setInterval(()=>{emailer(body)}, 60000)
     // console.log(info);
     return {status: 'email sent'}
     // return {body}

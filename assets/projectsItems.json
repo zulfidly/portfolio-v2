@@ -1,11 +1,9 @@
 [
   {
     "title": "< Scheduled Web Scraper >",
-    "description": "online database build updated with web scrape datas.",
+    "description": "online database build updated with web scraped datas.",
     "stacks": "Nuxt3 SSR, VueUse, airtable.js, Netlify Scheduled Functions",
-    "UI": {
-      "0": "Tailwind CSS, Illustrator"
-    },
+    "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/Experimental-Scraper",
     "netlifyURL": "https://exp-scraper-fidly.netlify.app/",
     "imgURL": "/images/webScraper.jpg"
@@ -14,9 +12,7 @@
     "title": "< Currency Converter >",
     "description": "online currency converter",
     "stacks": "Vue 3 Composition, Google Chart",
-    "UI": {
-      "0": "Tailwind CSS, Illustrator"
-    },
+    "UI":  "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/Currency-Converter",
     "netlifyURL": "https://fidly-currex.netlify.app/",
     "imgURL": "/images/currexP.jpg"
@@ -25,9 +21,7 @@
     "title": "< Multi Step Form >",
     "description": "Mock website practice",
     "stacks":  "Vue 3 Composition",
-    "UI": {
-      "0": "Tailwind CSS"
-    },
+    "UI": "Tailwind CSS",
     "githubURL": "https://github.com/zulfidly/Multi-Step-Form",
     "netlifyURL": "https://fidly-multistepform.netlify.app/",
     "imgURL": "/images/multiStepForm.jpg"
@@ -36,9 +30,7 @@
     "title": "< Star Wars Guide >",
     "description": "API coding practice",
     "stacks": "HTML, JavaScript",
-    "UI": {
-      "0": "CSS"
-    },
+    "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/StarWarsAPI-GET",
     "netlifyURL": "https://fidly-sw-api-get.netlify.app/",
     "imgURL": "/images/starwars.jpg"
@@ -47,9 +39,7 @@
     "title": "< Pineapple Stand >",
     "description": "Pinia - a Vue's store library",
     "stacks": "Vue3, Pinia, JavaScript",
-    "UI": {
-      "0": "CSS"
-    },
+    "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/Pinia-PineappleStand",
     "netlifyURL": "https://gleeful-souffle-56603a.netlify.app/",
     "imgURL": "/images/pineappleStand.jpg"
@@ -58,9 +48,7 @@
     "title": "< Portfolio-v1 >",
     "description": "my portfolio site",
     "stacks": "HTML, JavaScript",
-    "UI": {
-      "0": "Tailwind CSS"
-    },
+    "UI": "Tailwind CSS",
     "githubURL": "https://github.com/zulfidly/Portfolio-v1",
     "netlifyURL": "https://portfolio-fidly-v1.netlify.app/",
     "imgURL": "/images/portfolioV1.jpg"
@@ -69,9 +57,7 @@
     "title": "< Guess That Country >",
     "description": "Mini Game",
     "stacks": "HTML, JavaScript",
-    "UI": {
-      "0": "CSS"
-    },
+    "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/Game-Guess-The-Nameof-The-Country",
     "netlifyURL": "https://guess-that-country.netlify.app/",
     "imgURL": "/images/guessthatcountry.jpg"
@@ -80,9 +66,7 @@
     "title": "< Countdown Timer >",
     "description": "coding practice",
     "stacks": "HTML, JavaScript",
-    "UI": {
-      "0": "CSS"
-    },
+    "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/Game-Guess-The-Nameof-The-Country",
     "netlifyURL": "https://fidly-countdown-timer.netlify.app/",
     "imgURL": "/images/countDownTimer.jpg"
@@ -91,31 +75,34 @@
     "title": "< Catstagram >",
     "description": "Cats online information",
     "stacks": "HTML, JavaScript",
-    "UI": {
-      "0": "CSS"
-    },
+    "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/Catstagram",
     "netlifyURL": "https://fidlydompractice.netlify.app/",
     "imgURL": "/images/catstagram.jpg"
   },
   {
-    "title": "< Study Tool 1 >",
-    "description": "Mobile Devices: Touch events",
+    "title": "< Study Tool: Screen properties >",
+    "description": "Understanding screen display properties",
+    "stacks": "Vue3, JavaScript",
+    "UI": "Tailwind",
+    "githubURL": "https://github.com/zulfidly/screen-properties",
+    "netlifyURL": "https://scr-props-bass.netlify.app/",
+    "imgURL": "/images/scrProps.jpg"
+  },
+  {
+    "title": "< Study Tool: Touch Events >",
+    "description": "Touch events on mobile devices",
     "stacks": "HTML, JavaScript",
-    "UI": {
-      "0": "CSS"
-    },
+    "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/touchevent-fidly",
     "netlifyURL": "https://touchevent-fidly.netlify.app/",
     "imgURL": "/images/touchEvents.jpg"
   },
   {
-    "title": "< Study Tool 2 >",
+    "title": "< Study Tool: getBoundingRect() >",
     "description": "Understanding getBoundingRect()",
     "stacks": "HTML, JavaScript",
-    "UI": {
-      "0": "CSS"
-    },
+    "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/StudyTool-getBoundingClientRect",
     "netlifyURL": "https://study-getboundingclientrect.netlify.app/",
     "imgURL": "/images/getBoundRect.jpg"
@@ -124,9 +111,7 @@
     "title": "< News Homepage >",
     "description": "mock website practice",
     "stacks": "HTML, JavaScript",
-    "UI": {
-      "0": "CSS"
-    },
+    "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/fmProductPreviewCard",
     "netlifyURL": "https://fidly-fm-newshomepage.netlify.app/#",
     "imgURL": "/images/newsHomepage.jpg"
@@ -135,9 +120,7 @@
     "title": "< Product Preview >",
     "description": "a card component",
     "stacks": "HTML, JavaScript",
-    "UI": {
-      "0": "CSS"
-    },
+    "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/fmProductPreviewCard",
     "netlifyURL": "https://fm-prod-preview-card.netlify.app/",
     "imgURL": "/images/productPreviewCardComponent.jpg"
@@ -146,9 +129,7 @@
     "title": "< Intro Section  >",
     "description": "with dropdown navigation",
     "stacks": "HTML, JavaScript",
-    "UI": {
-      "0": "Tailwind CSS"
-    },
+    "UI": "Tailwind CSS",
     "githubURL": "https://github.com/zulfidly/fm-Intro-section-with-dropdown-navigation",
     "netlifyURL": "https://fm-introsectwithdropdownmenu.netlify.app/",
     "imgURL": "/images/introSectWithDropDownNav.jpg"
@@ -157,9 +138,7 @@
     "title": "< Airbnb Clone >",
     "description": "basic website cloning",
     "stacks": "HTML, JavaScript",
-    "UI": {
-      "0": "CSS"
-    },
+    "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/Clone-AirBnB",
     "netlifyURL": "https://cerulean-bombolone-02d962.netlify.app/",
     "imgURL": "/images/airbnbClone.jpg"
@@ -168,9 +147,7 @@
     "title": "< Calculator (beta) >",
     "description": "basic Vue3 app",
     "stacks": "Vue 3 Composition, math.js",
-    "UI": {
-      "0": "Tailwind CSS"
-    },
+    "UI": "Tailwind CSS",
     "githubURL": "https://github.com/zulfidly/Calculator-beta",
     "netlifyURL": "https://relaxed-kangaroo-e4f3b3.netlify.app/",
     "imgURL": "/images/calculator.jpg"
