@@ -22,9 +22,9 @@
 <template>
     <div class="flex flex-col justify-between sm:justify-evenly relative h-[inherit] w-full bg-[var(--color-background-mute)] rounded-xl">
         
-        <div class="space-y-4">
-            <p class="font-extrabold text-2xl sm:text-xl text-center text-[var(--color-text)]"> {{ title }} </p>
-            <p class="font-normal lg:font-medium text-xl text-center text-[var(--color-text)]"> {{ description }} </p>
+        <div class="space-y-1.5">
+            <p class="font-extrabold text-xl sm:text-xl text-center text-[var(--color-text)]"> {{ title }} </p>
+            <p class="font-normal lg:font-medium text-lg text-center text-[var(--color-text)]"> {{ description }} </p>
     
             <table class="py-2 font-medium text-center text-md lg:text-lg mx-auto text-[var(--color-text)]">
                 <tbody>
