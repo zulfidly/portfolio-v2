@@ -1,7 +1,7 @@
 [
   {
     "title": "< Treasury Yield Charts >",
-    "description": "analysis of large data",
+    "description": "see curve inversion points",
     "stacks": "Large data presentation, web scraping, Vue3, VueUse, Google Chart",
     "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/charting-yield-curve",
