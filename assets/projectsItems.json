@@ -1,5 +1,14 @@
 [
   {
+    "title": "< Treasury Yield Charts >",
+    "description": "analysis of large data",
+    "stacks": "Large data presentation, web scraping, Vue3, VueUse, Google Chart",
+    "UI": "Tailwind CSS, Illustrator",
+    "githubURL": "https://github.com/zulfidly/charting-yield-curve",
+    "netlifyURL": "https://ust-yield-chart-fidly.netlify.app/",
+    "imgURL": "/images/yieldCurveCharting.jpg"
+  },
+  {
     "title": "< Scheduled Web Scraper >",
     "description": "online database build with scraped datas.",
     "stacks": "Nuxt3 SSR, VueUse, airtable.js, Netlify Functions",
@@ -84,7 +93,7 @@
     "title": "< Study Tool: Screen properties >",
     "description": "Understanding screen display properties",
     "stacks": "Vue3, JavaScript",
-    "UI": "Tailwind",
+    "UI": "Tailwind CSS",
     "githubURL": "https://github.com/zulfidly/screen-properties",
     "netlifyURL": "https://scr-props-bass.netlify.app/",
     "imgURL": "/images/scrProps.jpg"
