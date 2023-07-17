@@ -1,14 +1,13 @@
 # [my Portfolio (ver2)](https://portfolio-fidly.netlify.app/)
 
 ## ```npx nuxi@latest init <project-name>```
-
-```cd <project-name>```
-```npm install```
-```npm run dev -- -o``` (this opens new browser)
+- ```cd <project-name>```
+- ```npm install```
+- ```npm run dev -- -o``` (this opens new browser)
 
 ## Adding Tailwind CSS 
-```npm install -D @nuxtjs/tailwindcss```
-```npx tailwindcss init -p``` (bring tailwindcss.config.js into root folder)
+- ```npm install -D @nuxtjs/tailwindcss```
+- ```npx tailwindcss init -p``` (bring tailwindcss.config.js into root folder)
 - see edits > nuxt.config.ts
 
 <!-- ## Add ```<nuxt-img />``` directive
@@ -17,8 +16,8 @@
 - see edit > nuxt.config -->
 
 ## Adding [FormKit](https://formkit.com/getting-started/installation) (contact page form build)
-```npm install @formkit/nuxt```
-```npm install @formkit/themes```, see edits in tailwind.config.js
+- ```npm install @formkit/nuxt```
+- ```npm install @formkit/themes```, see edits in tailwind.config.js
 - see edits > nuxt.config.ts
 
 
@@ -29,7 +28,7 @@
 
 
 ## Add nodemailer (contact form is emailed)
-```npm install nodemailer```
+- ```npm install nodemailer```
 - this server side code has 'post' as method, coded in its filename
 
 ## CI/CD implementation (continuous integration / continuous delivery)

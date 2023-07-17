@@ -21,6 +21,13 @@
     "iconURL": "/icons/tailwind80.svg"
   },
   {
+    "title": "Pinia",
+    "description": "is the intuitive store for Vue.js.",
+    "application": "modular state management with devtools & HMR support",
+    "link": "https://pinia.vuejs.org/",
+    "iconURL": "/icons/pinia80.svg"
+  },
+  {
     "title": "Airtable",
     "description": "is a Cloud-Based Hybrid Spreadsheet Database platform.",
     "application": "Serverless database management. Work-flow automation.",
