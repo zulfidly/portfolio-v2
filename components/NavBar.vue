@@ -33,7 +33,7 @@
     const nav = {
         svg: {
             init: ["transition-all"],
-            close: ["scale-100 fill-[var(--color-background-soft)]"],
+            close: ["scale-100 fill-orange-100"],
             open: ["scale-[12] md:scale-[18] fill-[var(--color-background-mute)]"],
         },
         sign: {

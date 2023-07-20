@@ -8,7 +8,7 @@
 ## Adding Tailwind CSS 
 - ```npm install -D @nuxtjs/tailwindcss```
 - ```npx tailwindcss init -p``` (bring tailwindcss.config.js into root folder)
-- see edits > nuxt.config.ts
+- see ```nuxt.config.ts```
 
 <!-- ## Add ```<nuxt-img />``` directive
 ```npm install -D @nuxt/image@rc```
@@ -18,7 +18,7 @@
 ## Adding [FormKit](https://formkit.com/getting-started/installation) (contact page form build)
 - ```npm install @formkit/nuxt```
 - ```npm install @formkit/themes```, see edits in tailwind.config.js
-- see edits > nuxt.config.ts
+- see ```nuxt.config.ts```
 
 
 ## CLI :  create a page => npx nuxi add page index
@@ -33,6 +33,6 @@
 
 ## CI/CD implementation (continuous integration / continuous delivery)
 - for Netlify deployment 
-- Build command : npm run build
+- Build command : ```npm run build```
 - Publish directory : dist
 - Import environment variables from the .env file (email & password)

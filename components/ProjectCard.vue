@@ -20,7 +20,7 @@
 </script>
 
 <template>
-    <div class="flex flex-col justify-between sm:justify-evenly relative h-[inherit] w-full bg-[var(--color-background-mute)] rounded-xl">
+    <div class="flex flex-col justify-between sm:justify-evenly relative h-[inherit] w-full rounded-xl">
         
         <div class="space-y-1.5">
             <p class="font-extrabold text-xl sm:text-xl text-center text-[var(--color-text)]"> {{ title }} </p>

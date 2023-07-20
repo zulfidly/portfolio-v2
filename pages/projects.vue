@@ -54,7 +54,7 @@
 </script>
 
 <template>
-    <div class="transition-opacity duration-200 mx-auto" :class="[isMobile?[isMenuHidden?'opacity-100 delay-100':'opacity-0']:'flex items-center justify-center'] " >
+    <div class="transition-opacity duration-200 mx-auto border border-[var(--color-border)] rounded-xl" :class="[isMobile?[isMenuHidden?'opacity-100 delay-100':'opacity-0']:'flex items-center justify-center'] " >
         <ul v-if="!isMobile" class="p-1 lg:flex flex-col justify-center border min-w-[350px] rounded-xl  mr-4 transition-all duration-300 overflow-scroll" :class="isMobile?'':'h-[80svh]'">
             <p class="mb-1 tracking-wider text-xl text-center font-bold underline underline-offset-2 text-[var(--color-text)]"> Titles </p>
             <li v-for="(z, index) in data" :key="'deskli'+index" class="p-0 mx-auto w-max text-[var(--color-text)] transition-all" >
@@ -65,7 +65,7 @@
         </ul>
         <ul ref="scrollDirectRef" @scroll="isCardInsideOfViewport" :style="isMobile?getHeight:''" class="w-full grid gap-4 snap-y snap-mandatory overflow-scroll transition-all duration-300" :class="[isMobile?[isPortrait?'':scrLscape.uList]:'h-[80svh] min-w-[700px]']" >    
             <li v-for="(x, ind) in data" class="relative list-none h-[inherit] snap-center" :key="'li'+ind">
-                <div :id="'card'+ind" class="h-full w-full bg-[var(--color-background-mute)] rounded-xl overflow-clip p-4">
+                <div :id="'card'+ind" class="h-full w-full bg-[var(--color-background-soft)] rounded-xl overflow-clip p-4">
                     <ProjectCard :key="'card'+ind"
                         :title="x.title"
                         :description="x.description"

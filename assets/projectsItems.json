@@ -11,7 +11,7 @@
   {
     "title": "< Scheduled Web Scraper >",
     "description": "online database build with scraped datas.",
-    "stacks": "Nuxt3 SSR, VueUse, airtable.js, Netlify Functions",
+    "stacks": "Nuxt3 SSR, VueUse, Pinia, airtable.js, Netlify Functions",
     "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/Experimental-Scraper",
     "netlifyURL": "https://exp-scraper-fidly.netlify.app/",

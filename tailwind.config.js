@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
-const formKitTailwind = require('@formkit/themes/tailwindcss')
+// const formKitTailwind = require('@formkit/themes/tailwindcss')
+import formKitTailwind from '@formkit/themes/tailwindcss'
 
 module.exports = {
   darkMode: 'class',

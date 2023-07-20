@@ -35,7 +35,6 @@
     description: 'zulfidly, a frontend web developer',
     keywords: 'vuejs, nuxtjs, html, css, javascript',
     themeColor: "#34495E",  
-    // viewport: 'width=device-width, initial-scale=0.65',
   })  
 
   onMounted(()=> {    // hydrating
