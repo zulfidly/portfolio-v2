@@ -60,7 +60,6 @@
 
   onMounted(()=> {    // hydrating
     // displayNotifier('Welcome 🎵', 2000)
-    console.log('onMounted app.vue');
     updateClientScreenPropertiesOnMounted()
     initClientAppPropertiesOnMounted()
     useEventListener('resize', ()=> { updateClientScreenPropertiesOnMounted() })
@@ -72,6 +71,7 @@
   })
   onNuxtReady(()=> {  // hydrated
     // console.log('onNuxtReady: path=', useRoute().path); // to see reloaded page path 
+    console.log('Nuxt hydrated');
     useHead({
       title: getTabTitle(),
       htmlAttrs: { 
@@ -80,9 +80,8 @@
     }, { mode: 'client' }) // extras
   })
   function initClientAppPropertiesOnMounted() {
-    console.log(useRoute().path);
+    // console.log(useRoute().path);
     appStore.client_updateCurrentPath(useRoute().path)
-    console.log('isDarkDevice:', appStore.clientScr.isDarkDevice);
     appStore.client_IsDarkViewport(appStore.clientScr.isDarkDevice)   // initialise viewport's color mode to follow system's color mode
   }
   function updateClientScreenPropertiesOnMounted() {   
