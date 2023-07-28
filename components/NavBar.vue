@@ -1,12 +1,15 @@
 <script setup>
     const centerMark = ref('position:fixed; top:100%; left:-100%;') //dummy init for server side
-    const currentPath = useNuxtApp().$currentPathApp()
-    const isMobile = useNuxtApp().$isMobile()
     const isNavBtnHidden = ref(false)
     const isMenuHidden = ref(true)
     
+    const props = defineProps({
+        currentPath: { type: String, required: true },
+        isMobile: { type: Boolean, required: true }
+    })
+
     onNuxtReady(()=> {
-        if(isMobile.value) {
+        if(props.isMobile) {
             watch(
                 isNavBtnHidden,
                 ()=> {
@@ -77,15 +80,12 @@
     // <NavBar  @toggleMenu="(y)=> test2(y)" />
     const emiT = defineEmits(['toggleMenu'])
     function toggleMenu() {
-        if(isMobile.value == false) return
+        if(props.isMobile === false) return
         isNavBtnHidden.value = !isNavBtnHidden.value
         if(isNavBtnHidden.value) isMenuHidden.value = false
         else isMenuHidden.value = true
         
-        emiT('toggleMenu', {
-            'isNavBtnHiddenEmitted': isNavBtnHidden.value,
-            'isMenuHiddenEmitted': isMenuHidden.value,
-        })
+        emiT('toggleMenu', isMenuHidden.value)
     }
     const isSensorHidden = computed(()=> {
         if(isMenuHidden.value && isNavBtnHidden.value) return false
@@ -103,10 +103,10 @@
         linkDesktop: ['text-4xl text-[var(--color-text)] lg:hover:scale-105'],
     }
     const nLinkCom = computed(()=> {
-        return ['transition-all duration-150', isMobile.value?nLink.link:nLink.linkDesktop]
+        return ['transition-all duration-150', props.isMobile?nLink.link:nLink.linkDesktop]
     })
     const liComp = computed(()=> {
-        return [nLink.div.init, isMobile.value?[isMenuHidden.value?nLink.div.hide:nLink.div.show]:'' ]
+        return [nLink.div.init, props.isMobile?[isMenuHidden.value?nLink.div.hide:nLink.div.show]:'' ]
     })
 </script>
 

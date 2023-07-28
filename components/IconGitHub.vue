@@ -1,16 +1,18 @@
 <script setup>
-    const isDarkScoped = useNuxtApp().$isDarkApp()
-
     defineProps({
         link: {
             type: String,
             required: true,
         },
+        isDark: {
+            type: Boolean,
+            required: true,
+        }
     })
 </script>
 
 <template>
-    <button :class="[isDarkScoped?'[&>a>svg]:dark:lg:hover:fill-[var(--vt-c-white-soft)]':'']" aria-label="visit git hub repository">
+    <button :class="[isDark ? '[&>a>svg]:dark:lg:hover:fill-[var(--vt-c-white-soft)]' : '']" aria-label="visit git hub repository">
         <a :href="link" target="_blank" aria-label="visit git hub repository">
             <svg class="transition-all duration-300" fill="var(--color-text)"  x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                 <g>

@@ -1,30 +1,51 @@
 <template>
-  <Notifier :msg="notifier.msg"/>
-  <NuxtPage @pgPath="(x)=> providePathToNavBar(x)" @notifier-msg="(y)=> notifierMngr(y)"/>
-  <NavBar @toggleMenu="(y)=> provideNavBarEventsToOthers(y)"  />
-  <ColorModeSwitch @click="darkManualToggle" />
-  <SocMed />  
+  <Notifier ref="exposeNotifierRef" />
+  <NuxtPage
+    :is-menu-hidden="isMenuHidden"
+    :is-dark="appStore.clientApp.isDarkViewport"
+    :is-mobile="appStore.clientScr.isMobile"
+    :is-portrait="appStore.isPortrait"
+    :custom-inner-height="appStore.clientScr.innerH"
+    @pgPath="(path)=> currentPath = path"
+    @notifier-msg="(txt)=> displayNotifier(txt, 2000)"
+  />
+
+  <NavBar
+    @toggleMenu="(bool)=> isMenuHidden = bool"
+    :is-mobile="appStore.clientScr.isMobile"
+    :current-path="currentPath"
+  />
+
+  <ColorModeSwitch
+    ref="exposeColorModeSwitchRef"
+    :is-mobile="appStore.clientScr.isMobile"
+    :current-path="currentPath"
+    :is-dark-device="appStore.clientScr.isDarkDevice"
+    :is-dark-viewport="appStore.clientApp.isDarkViewport"
+    @user-toggle-color-mode="(bool)=> appStore.client_IsDarkViewport(bool)"
+  />
+
+  <SocMed
+    :is-mobile="appStore.clientScr.isMobile"
+    :current-path="currentPath"
+    :is-dark="appStore.clientApp.isDarkViewport"
+    @is-soc-med-visible="(bool)=> appStore.client_socMedVisibilityMngr(bool)"
+  />  
 </template>
 
 <script setup>
-  const nuxtApp = useNuxtApp()
-  const isDark = ref(undefined); nuxtApp.provide("isDarkApp", ()=> isDark);
-  const currentPath = ref(useRoute().path); nuxtApp.provide("currentPathApp", ()=> currentPath);
-  const isNavBtnHiddenApp = ref(false); nuxtApp.provide('isNavBtnHiddenApp', ()=> isNavBtnHiddenApp)    // data direction is parent to child only (similar to Vue3's provide/inject)
-  const isMenuHiddenApp = ref(true); nuxtApp.provide('isMenuHiddenApp', ()=> isMenuHiddenApp)  
-  const isMobile = ref(true); nuxtApp.provide('isMobile', ()=> isMobile)
-  const scrBreakpoint = ref(1024); // set mobile vs desktop breakpoint here
-  const notifier = reactive({
-    msg: undefined,
-    isShown: false,
-  }); nuxtApp.provide('notifier', ()=> notifier)
+  const currentPath = ref(useRoute().path)
+  const appStore = useMainStorePinia()
+  const exposeNotifierRef = ref(null)
+  const exposeColorModeSwitchRef = ref(null)
+  const isMenuHidden = ref(true)
+  watch( currentPath, ()=> {
+    useHead({  title: getTabTitle() })
+    appStore.client_updateCurrentPath(currentPath.value.toString())
+  })
 
   console.log('app loading - - -');
-  function notifierMngr(msg) {
-    notifier.msg = msg
-    notifier.isShown = true
-    setTimeout(()=> notifier.isShown = false, 3000)
-  }
+
   useHead({
     title: 'portfolio of freddie',
     script: `if(window.matchMedia("(prefers-color-scheme:dark)").matches) document.querySelector('html').classList.add('dark')`,
@@ -38,63 +59,59 @@
   })  
 
   onMounted(()=> {    // hydrating
-    addListener_WhenUserChangeSystemColorMode()
-    addListener_WhenInnerWidthChanges()
+    // displayNotifier('Welcome 🎵', 2000)
+    console.log('onMounted app.vue');
+    updateClientScreenPropertiesOnMounted()
+    initClientAppPropertiesOnMounted()
+    useEventListener('resize', ()=> { updateClientScreenPropertiesOnMounted() })
+    useEventListener(window.matchMedia("(prefers-color-scheme:dark)"), 'change', ()=> {
+      updateClientScreenPropertiesOnMounted() 
+      appColorModeHandler()
+    })
     // console.log(window.navigator.userAgent);
   })
   onNuxtReady(()=> {  // hydrated
-    // console.log('onNuxtReady: path=', useRoute().path); // to see reloaded page path    
+    // console.log('onNuxtReady: path=', useRoute().path); // to see reloaded page path 
     useHead({
       title: getTabTitle(),
       htmlAttrs: { 
-        class: { 'dark':isDark.value, 'zappa1':true, 'zappa2':true },
+        class: { 'dark':appStore.clientScr.isDarkDevice, 'zappa1':true, 'zappa2':true },
       }
     }, { mode: 'client' }) // extras
   })
+  function initClientAppPropertiesOnMounted() {
+    console.log(useRoute().path);
+    appStore.client_updateCurrentPath(useRoute().path)
+    console.log('isDarkDevice:', appStore.clientScr.isDarkDevice);
+    appStore.client_IsDarkViewport(appStore.clientScr.isDarkDevice)   // initialise viewport's color mode to follow system's color mode
+  }
+  function updateClientScreenPropertiesOnMounted() {   
+    appStore.m_clientScrW()
+    appStore.m_clientScrH()
+    appStore.m_clientScrOrientation()
+    appStore.m_clientScrRatioWH()
+    appStore.m_clientScrFormFactor()
+    appStore.m_clientScrIsMobile()
+    appStore.m_clientScrIsMobileAndLandscape()
+    appStore.m_clientScrIsDarkDevice()
+    
+  }
+  function appColorModeHandler() {
+    appStore.client_IsDarkViewport(appStore.clientScr.isDarkDevice) 
+    exposeColorModeSwitchRef.value.singularColorModeCheckAndToggle(appStore.clientScr.isDarkDevice)
+  }
 
-  function checkSystemColorMode(X) {
-    if(X)               { isDark.value = true; useHead({ htmlAttrs: {class: { 'dark': true }}}) }    
-    else if(X == false) { isDark.value = false; useHead({ htmlAttrs: {class: { 'dark': false}}}) }
-    else console.log('app.vue: unknown prefers-color-scheme');
-  }      
-  function addListener_WhenInnerWidthChanges() {
-    if(window.innerWidth >= scrBreakpoint.value) isMobile.value = false;
-    window.addEventListener("resize", ()=> {
-      if(window.innerWidth >= scrBreakpoint.value) isMobile.value = false;
-      else isMobile.value = true
-    })
-  }
-  function addListener_WhenUserChangeSystemColorMode() {
-    checkSystemColorMode( window.matchMedia("(prefers-color-scheme:dark)").matches)
-    window.matchMedia("(prefers-color-scheme:dark)").addEventListener("change", () => {
-      checkSystemColorMode( window.matchMedia("(prefers-color-scheme: dark)").matches) // switches when user change local system color setting
-    })
-  }
+  function displayNotifier(text, duration) { exposeNotifierRef.value.showNotifier(text.toString(), duration)} 
 
   function getTabTitle() {
-    let temp = currentPath.value.toString().trim()
-      if(temp == '/') return 'Home : Freddie\'s Portfolio'
-      else if(temp == '/projects') return 'Projects : Freddie\'s Portfolio'
-      else if(temp == '/about') return 'About : Freddie\'s Portfolio'
-      else if(temp == '/contact') return 'Contact : Freddie\'s Portfolio'
-      else if(temp == '/techstacks') return 'Tech Stacks : Freddie\'s Portfolio'
+    let temp = useRoute().path
+    temp = temp.toString().trim()
+      if(temp === '/') return 'Home : Freddie\'s Portfolio'
+      else if(temp === '/projects') return 'Projects : Freddie\'s Portfolio'
+      else if(temp === '/about') return 'About : Freddie\'s Portfolio'
+      else if(temp === '/contact') return 'Contact : Freddie\'s Portfolio'
+      else if(temp === '/techstacks') return 'Tech Stacks : Freddie\'s Portfolio'
       else return 'Others'
-  }
- 
-  watch ( currentPath,    // zappa classes removed upon navigation
-    ()=> { useHead({  title: getTabTitle(), htmlAttrs: {class: {'dark':isDark.value}} }) }
-  )
-
-  const provideNavBarEventsToOthers = (y)=> {
-    isNavBtnHiddenApp.value = y.isNavBtnHiddenEmitted
-    isMenuHiddenApp.value = y.isMenuHiddenEmitted
-  }
-  
-  const providePathToNavBar = (x) => currentPath.value = x
-
-  const darkManualToggle = () => {
-    document.querySelector('html').classList.toggle('dark')
-    isDark.value = !isDark.value
   }
 </script>
 

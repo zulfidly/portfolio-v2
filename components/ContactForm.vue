@@ -6,9 +6,6 @@
     const emiT = defineEmits(['notifierMsg'])
 
     const sendMsg = async(x) => {
-        // console.log(x);
-        // const { data } = await useFetch('/api/nodemailer')
-        // console.log(data);
         isCCref.value = true
         isSending.value = true
         $fetch(

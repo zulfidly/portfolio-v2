@@ -1,5 +1,10 @@
 <script setup>
-    const isMenuHidden = useNuxtApp().$isMenuHiddenApp()
+    const props = defineProps({
+        isMenuHidden: {
+            type: Boolean,
+            required: true
+        }
+    })
 
     const emiT = defineEmits(['pgPath'])
     onMounted(()=>{
@@ -13,7 +18,7 @@
         show: ["opacity-100 delay-100"],
     }
     const style = computed(() => {
-        return [intro.init, isMenuHidden.value?intro.show:intro.hide]
+        return [intro.init, props.isMenuHidden?intro.show:intro.hide]
     })
 </script>
 

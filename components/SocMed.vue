@@ -1,14 +1,22 @@
 <script setup>
-    const currentPath = useNuxtApp().$currentPathApp()
-    const isMobile = useNuxtApp().$isMobile()
-    const isDarkScoped = useNuxtApp().$isDarkApp()
-
+    const props = defineProps({
+        currentPath: { type: String, required: true },
+        isDark: { type: Boolean, required: true },
+        isMobile: { type: Boolean, required: true },
+        // isSocMedHidden: { type: Boolean, required: true },
+    })
+    const emiT = defineEmits(['isSocMedVisible'])
     const isSocMedHidden = computed(()=> {
-        if(currentPath.value == '/' || currentPath.value == '/about') return false
-        else if(currentPath.value == '/projects' || currentPath.value == '/contact' || currentPath.value == '/techstacks') return true
+        if(props.currentPath === '/' || props.currentPath === '/about') {
+            emiT('isSocMedVisible', false)
+            return false
+        }
+        else if(props.currentPath === '/projects' || props.currentPath === '/contact' || props.currentPath === '/techstacks') {
+            emiT('isSocMedVisible', true)
+            return true
+        }
         else console.log('error in SocMed.vue');
     })
-
     const mobi = {
         init: ['fixed w-full translate-1/2 left-0 space-y-2 transition-all duration-300'],
         show: ['opacity-100 bottom-0'],
@@ -17,8 +25,8 @@
 </script>
 
 <template>
-    <div :class="[isMobile?[mobi.init, isSocMedHidden?mobi.hide:mobi.show]:'absolute top-0 right-0 mt-24 mr-0' ]" >
-        <div :class="[isMobile?'flex justify-evenly':['flex flex-col gap-5 transition-all duration-200']]">
+    <div :class="[isMobile ? [mobi.init, isSocMedHidden?mobi.hide:mobi.show] : 'absolute top-0 right-0 mt-24 mr-0' ]" >
+        <div :class="[isMobile ? 'flex justify-evenly' : ['flex flex-col gap-5 transition-all duration-200'] ]">
             <button class="[&>a>svg>g>path]:dark:lg:hover:fill-[#0077B5]" aria-label="visit linked in website">
                 <a href="https://www.linkedin.com/in/zulfidly/" target="_blank" aria-label="visit linked in website">
                     <svg name="linkedin" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
@@ -45,7 +53,7 @@
                 </a>
             </button>
     
-            <button :class="[isDarkScoped?'[&>a>svg]:dark:lg:hover:fill-[var(--vt-c-white-soft)]':'']" aria-label="visit github in website">
+            <button :class="[isDark?'[&>a>svg]:dark:lg:hover:fill-[var(--vt-c-white-soft)]':'']" aria-label="visit github in website">
                 <a href="https://github.com/zulfidly" target="_blank" aria-label="visit github in website">
                     <svg name="github" class="fill-[var(--color-text)] transition-all duration-300" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                         <g>

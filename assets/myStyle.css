@@ -85,7 +85,7 @@
 
   .zappa1 {
     filter: grayscale(100%);
-    transition: filter 1.5s ease-out;
+    transition: filter 1s ease-out;
   }
   .zappa2 {
     filter: grayscale(0%);
