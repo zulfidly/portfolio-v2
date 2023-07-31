@@ -1,22 +1,11 @@
 <script setup>
     defineProps({
-        title: {
-            type: String,
-            required: true,
-        },
-        description: {
-            type: String,
-            required: true,
-        },
-        steks: {
-            type: String,
-            required: true,
-        },
-        uiux: {
-            type: String,
-            required: true,
-        },
+        title: { type: String, required: true },
+        description: { type: String, required: true },
+        steks: { type: String, required: true },
+        uiux: { type: String, required: true },
     })
+    
 </script>
 
 <template>

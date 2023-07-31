@@ -1,6 +1,5 @@
 <script setup>
     import data from '../assets/projectsItems.json'
-    import ProjectCardPagination from '../components/ProjectPageNumber.vue'
 
     const props = defineProps({
         isMobile: { type: Boolean, required: true },
@@ -14,11 +13,7 @@
         emiT('pgPath', useRoute().path)
     })
     const currKard = ref(1)
-    const totalCards = Object.keys(data).length;
-    // const getHeight = ref('height:50px;') // dummy init for server side
-    // const isPortrait = ref(undefined)    
- 
-
+    const totalCards = Object.keys(data).length
     const getHeight = computed(()=> {
         return `height:${props.customInnerHeight - 32}px;`
     })
@@ -53,9 +48,11 @@
 <template>
     <div class="transition-opacity duration-200 mx-auto border lg:border-0 border-[var(--color-border)] rounded-xl"
         :class="[isMobile ? [isMenuHidden ? 'opacity-100 delay-100':'opacity-0'] : 'flex items-center justify-center'] " >
-        <ul v-if="!isMobile" class="p-1 lg:flex flex-col justify-center border border-[var(--color-border)] min-w-[350px] rounded-xl  mr-4 overflow-scroll bg-[var(--color-background-soft)]" :class="isMobile?'':'h-[80svh]'">
-            <p class="mb-1 tracking-wider text-xl text-center font-bold underline underline-offset-2 text-[var(--color-text)]"> Titles </p>
-            <li v-for="(z, index) in data" :key="'deskli'+index" class="p-0 mx-auto w-max text-[var(--color-text)] transition-all" >
+        <ul v-if="!isMobile"
+            class="p-1 lg:flex flex-col justify-center border border-[var(--color-border)] min-w-[350px] rounded-xl  mr-4 overflow-scroll bg-[var(--color-background-soft)]"
+            :class="[isMobile ? '' : 'h-[80svh]']">
+            <li class="mb-1 tracking-wider text-xl text-center font-bold underline underline-offset-2 text-[var(--color-text)]"> Titles </li>
+            <li v-for="(z, index) in data" :key="index" class="p-0 mx-auto w-max text-[var(--color-text)] transition-all" >
                 <button @click="scrollDirect(index)"
                     :class="[currKard === (index + 1) ? 'text-orange-400 dark:text-slate-300' : 'text-[var(--color-text)]']"
                     class="p-0.5 text-lg lg:hover:scale-105 transition-all duration-100"
@@ -75,7 +72,7 @@
                     :id="'card'+ind"
                     class="h-full w-full bg-[var(--color-background-soft)] rounded-xl overflow-clip p-4 lg:border lg:border-[var(--color-border)]">
                     <ProjectCard
-                        :key="'card'+ind"
+                        :key="ind"
                         :title="x.title"
                         :description="x.description"
                         :steks="x.stacks"
@@ -83,7 +80,7 @@
                     >                                       
                         <template #image>
                             <img
-                                :id="'imgCard'+ind"
+                                :id="ind"
                                 :alt="x.description"                        
                                 class="mx-auto rounded-lg transition-all duration-300 w-[212px] h-[400px] sm:hidden lg:block"
                                 :class="[loadedImg.includes(ind + 1) ? 'opacity-100' : 'opacity-0', isDark ? 'grayscale-[75%]' : 'grayscale-0']"                               
@@ -101,7 +98,8 @@
                 </div>
             </li>    
         </ul>
-        <ProjectCardPagination
+
+        <ProjectPageNumber
             :current-kard="currKard"
             :total-kards="totalCards" />
     </div>
