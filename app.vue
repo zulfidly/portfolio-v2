@@ -92,8 +92,7 @@
     appStore.m_clientScrFormFactor()
     appStore.m_clientScrIsMobile()
     appStore.m_clientScrIsMobileAndLandscape()
-    appStore.m_clientScrIsDarkDevice()
-    
+    appStore.m_clientScrIsDarkDevice()    
   }
   function appColorModeHandler() {
     appStore.client_IsDarkViewport(appStore.clientScr.isDarkDevice) 

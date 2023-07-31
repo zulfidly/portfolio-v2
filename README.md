@@ -8,7 +8,7 @@
 - ```npm run dev -- -o``` (this opens new browser)
 
 ## install [Pinia](https://pinia.vuejs.org/ssr/nuxt.html)
-- add ```overrides``` added to package.json
+- add ```overrides``` to package.json
 - ```npm install pinia @pinia/nuxt```
 - ```export const useMainStorePinia = defineStore('appStore', {})```, dir: ```./composables/appStore.js``` 
 - see ```@pinia/nuxt``` in nuxt.config.js

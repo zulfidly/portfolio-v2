@@ -18,6 +18,8 @@
 <!-- const exposeNotifierRef = ref(null) -->
 <!-- displayNotifier('Welcome 🎵', 3000) -->
 <!-- function displayNotifier(text, duration) { exposeNotifierRef.value.showNotifier(text.toString(), duration)} -->
+<!-- inside parent's template: <Notifier ref="exposeNotifierRef" /> -->
+
 <template>
     <p :class="[card.init, isShow ? card.show : card.hide]" >
         {{ msg }}

@@ -19,7 +19,7 @@
                     if(isMenuHidden.value == false) delay = 10
         
                     setTimeout(()=> {
-                        console.log("isNavBtnHidden.value = true")
+                        // console.log("isNavBtnHidden.value = true")
                         isNavBtnHidden.value = true
                     }, delay)
                 },
@@ -73,11 +73,10 @@
         currLink: ["text-orange-500 scale-[101%] dark:text-slate-300 "]
     }
     const slideInNavIcon = () => {
-        console.log('slideInNavIcon');
+        // console.log('slideInNavIcon');
         isNavBtnHidden.value = false
     }
 
-    // <NavBar  @toggleMenu="(y)=> test2(y)" />
     const emiT = defineEmits(['toggleMenu'])
     function toggleMenu() {
         if(props.isMobile === false) return
