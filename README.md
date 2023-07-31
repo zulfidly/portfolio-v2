@@ -1,6 +1,6 @@
 # [my Portfolio (ver2)](https://portfolio-fidly.netlify.app/)
 
-#### 2023-07-28, added Pinia, to replace the runtime useNuxtApp() provide method
+#### 2023-07-28 (commit 35), added Pinia, to replace the runtime useNuxtApp() provide method
 
 ## ```npx nuxi@latest init <project-name>```
 - ```cd <project-name>```
