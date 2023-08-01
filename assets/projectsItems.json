@@ -21,7 +21,7 @@
     "title": "< Currency Converter >",
     "description": "online currency converter",
     "stacks": "Vue 3 Composition, Google Chart",
-    "UI":  "Tailwind CSS, Illustrator",
+    "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/Currency-Converter",
     "netlifyURL": "https://fidly-currex.netlify.app/",
     "imgURL": "/images/currexP.jpg"
@@ -29,7 +29,7 @@
   {
     "title": "< Multi Step Form >",
     "description": "Mock website practice",
-    "stacks":  "Vue 3 Composition",
+    "stacks": "Vue 3 Composition",
     "UI": "Tailwind CSS",
     "githubURL": "https://github.com/zulfidly/Multi-Step-Form",
     "netlifyURL": "https://fidly-multistepform.netlify.app/",
