@@ -1,8 +1,8 @@
-# [my Portfolio (ver2)](https://portfolio-fidly.netlify.app/)
+## [my Portfolio (ver2)](https://portfolio-fidly.netlify.app/)
 
 ##### 2023-07-28 (commit 35), added Pinia, to replace the runtime useNuxtApp() provide method
 ##### 2023-08-01 (commit 37), added Prettier (3.0.0)
-##### 2023-08-10 (commit 39), use of ```<ClientOnly>``` on projects.vue
+##### 2023-08-10 (commit 39), use of ```<ClientOnly>``` on projects.vue elements which 'waits' for window object input
 
 ### Install [Nuxt](Install)
 
@@ -78,5 +78,5 @@
 ```
 
 #### Extra notes:
-- element's resize also triggers ```@scroll``` ?
+- element's resize also triggers ```@scroll``` ???
 - use of ```<ClientOnly>``` can speed up rendering if its DOM properties required window inputs
