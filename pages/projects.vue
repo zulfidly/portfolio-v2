@@ -1,12 +1,13 @@
 <script setup>
 import data from "../assets/projectsItems.json"
+// import ProjectCard from './components/ProjectCard.vue'
 
 const props = defineProps({
   isMobile: { type: Boolean, required: true },
   isMenuHidden: { type: Boolean, required: true },
   isDark: { type: Boolean, required: true },
   isPortrait: { type: Boolean, required: true },
-  customInnerHeight: { type: Number, required: true, default: 132 },
+  customInnerHeight: { type: Number, required: true, default: 100 },
 })
 const emiT = defineEmits(["pgPath"])
 onMounted(() => {

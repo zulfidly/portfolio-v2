@@ -17,7 +17,7 @@
 - `export const useMainStorePinia = defineStore('appStore', {})`, dir: `./composables/appStore.js`
 - see `@pinia/nuxt` in nuxt.config.js
 - see `./composables/appStore.js`
-
+ 
 ## Install [Tailwind CSS](https://tailwindcss.com/)
 
 - `npm install -D @nuxtjs/tailwindcss`
