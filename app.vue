@@ -59,7 +59,7 @@ useServerSeoMeta({
 })
 
 onMounted(() => {
-  // hydrating
+  // console.log('Nuxt onMounted');
   // displayNotifier('Welcome 🎵', 2000)
   updateClientScreenPropertiesOnMounted()
   initClientAppPropertiesOnMounted()
@@ -77,8 +77,6 @@ onMounted(() => {
   // console.log(window.navigator.userAgent);
 })
 onNuxtReady(() => {
-  // hydrated
-  // console.log('onNuxtReady: path=', useRoute().path); // to see reloaded page path
   console.log("Nuxt hydrated")
   useHead(
     {
@@ -95,7 +93,6 @@ onNuxtReady(() => {
   ) // extras
 })
 function initClientAppPropertiesOnMounted() {
-  // console.log(useRoute().path);
   appStore.client_updateCurrentPath(useRoute().path)
   appStore.client_IsDarkViewport(appStore.clientScr.isDarkDevice) // initialise viewport's color mode to follow system's color mode
 }

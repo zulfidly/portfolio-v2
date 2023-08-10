@@ -1,6 +1,5 @@
 <script setup>
 import stacks from "../assets/techstackItems.json"
-// import TechStackCard from './components/TechStackCard.vue'
 
 const props = defineProps({
   isMenuHidden: { type: Boolean, required: true },
