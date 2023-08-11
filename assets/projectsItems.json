@@ -6,7 +6,7 @@
     "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/charting-yield-curve",
     "netlifyURL": "https://ust-yield-chart-fidly.netlify.app/",
-    "imgURL": "/public/images/yieldCurveCharting.jpg"
+    "imgURL": "/yieldCurveCharting.jpg"
   },
   {
     "title": "< Scheduled Web Scraper >",
