@@ -4,62 +4,62 @@
     "description": "is a progressive JavaScript framework for building user interfaces.",
     "application": "Client side frontend web applications, having Vite as development environment.",
     "link": "https://vuejs.org/",
-    "iconURL": "/icons/vue80.svg"
+    "iconURL": "https://a.storyblok.com/f/246301/80x80/a96addf74a/vue80.svg"
   },
   {
     "title": "NuxtJS",
     "description": "is a free and open-source framework with an intuitive and extendable way to create type-safe, performant and production-grade full-stack web applications and websites with Vue.js.",
     "application": "Static Site Generation, Server Side Rendering & server side scripting.",
     "link": "https://nuxt.com/",
-    "iconURL": "/icons/nuxt80.svg"
+    "iconURL": "https://a.storyblok.com/f/246301/80x80/ca24065e94/nuxt80.svg"
   },
   {
     "title": "Tailwind CSS",
     "description": "is a utility-first CSS framework that can be composed directly in HTML scripts.",
     "application": "Dynamic application stylings during development stage. Lightning fast hot-reload with Vite.",
     "link": "https://tailwindcss.com/",
-    "iconURL": "/icons/tailwind80.svg"
+    "iconURL": "https://a.storyblok.com/f/246301/80x80/e72cd30dac/tailwind80.svg"
   },
   {
     "title": "Pinia",
     "description": "is the intuitive store for Vue.js.",
     "application": "modular state management with devtools & HMR support.",
     "link": "https://pinia.vuejs.org/",
-    "iconURL": "/icons/pinia80.svg"
+    "iconURL": "https://a.storyblok.com/f/246301/80x80/2f57473ced/pinia80.svg"
   },
   {
     "title": "Airtable",
     "description": "is a Cloud-Based Hybrid Spreadsheet Database platform.",
     "application": "Serverless database management. Work-flow automation.",
     "link": "https://www.airtable.com/",
-    "iconURL": "/icons/airtable80.svg"
+    "iconURL": "https://a.storyblok.com/f/246301/80x80/4e01e76952/airtable80.svg"
   },
   {
     "title": "VueUse",
     "description": "is a collection of Vue Composition utilities.",
     "application": "Vue applications development .",
     "link": "https://vueuse.org/",
-    "iconURL": "/icons/vueuse80.svg"
+    "iconURL": "https://a.storyblok.com/f/246301/80x80/98a4e3edeb/vueuse80.svg"
   },
   {
     "title": "FormKit",
     "description": "is a comprehensive form building framework for Vue developers that makes authoring high quality production-ready forms faster, more accessible, with better DX and UX, and less code. It is easy to learn, and ships with production-ready features like inputs, validation rules, and submission/error handling.",
     "application": "Forms type(ing), creation, validation, styling with schemas.",
     "link": "https://formkit.com/",
-    "iconURL": "/icons/formkit80b.svg"
+    "iconURL": "https://a.storyblok.com/f/246301/80x80/532a2e3eb0/formkit80b.svg"
   },
   {
     "title": "HTML 5",
     "description": "is a W3C's framework for building user interfaces.",
     "application": "semantics, caching, storage, multimedia, web sockets, graphics, and can be used directly with CSS3.",
     "link": "https://www.w3.org/html/logo/",
-    "iconURL": "/icons/html5_80.svg"
+    "iconURL": "https://a.storyblok.com/f/246301/80x80/d3bf11cb49/html5_80.svg"
   },
   {
     "title": "JavaScript",
     "description": "is a programming language for implementing complex features on web pages.",
     "application": "Client-side web development with HTML 5 and CSS3. Coded together with node.js for server side scripting.",
     "link": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript",
-    "iconURL": "/icons/javascript80.svg"
+    "iconURL": "https://a.storyblok.com/f/246301/80x80/f92b0dc88a/javascript80.svg"
   }
 ]

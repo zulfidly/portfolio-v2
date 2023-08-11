@@ -25,9 +25,8 @@ const opac = {
         : 'grid grid-cols-1 place-items-center',
     ]"
   >
-    <nuxt-img
-      sizes="lg:180px 2xl:200px"
-      class="mx-auto md:float-left md:m-4"
+    <img
+      class="mx-auto md:float-left md:m-4 w-[200px] h-[200px]"
       :class="[isDark ? 'grayscale-[20%]' : 'grayscale-0']"
       src="/profilePhoto.png"
       alt="freddie's cartoon"

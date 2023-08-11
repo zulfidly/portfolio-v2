@@ -105,6 +105,7 @@ function individualCardIsVisibleWithinViewport(ind, txt) {
             <template #image>
               <nuxt-img
                 loading="lazy"
+                format="webp"
                 sizes="sm:180px xl:220px"
                 :src="kard.imgURL"
                 :alt="kard.description"

@@ -137,14 +137,7 @@ const mobi = {
           target="_blank"
           aria-label="visit freddie's instagram"
         >
-          <nuxt-img
-            loading="lazy"
-            width="40"
-            height="40"
-            class="grayscale-0 dark:grayscale invert-0 dark:invert-[60%] transition-all duration-300"
-            src="/insta40.png"
-            alt="Instagram logo"
-          />
+          <IconInstagram :isDark="isDark" />
         </a>
       </button>
     </div>
@@ -159,3 +152,4 @@ const mobi = {
     </p>
   </div>
 </template>
+

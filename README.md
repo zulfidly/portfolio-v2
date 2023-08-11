@@ -31,7 +31,8 @@
 
 - Ensure using LTS version of NodeJS
 - `npm install -D @nuxt/image@rc`
-- see edit > nuxt.config
+- see `nuxt.config`
+- to use [storyblok](https://www.storyblok.com/home) as provider for remote image hosting
 
 ### Install [VueUse](https://vueuse.org/) for access to Vue3 friendly composables
 
