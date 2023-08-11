@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     ],
   },
   image: {
-    dir: 'public/_ipx',
+    // dir: 'public/',
     provider: 'ipx',
     format: ['webp']
   }
