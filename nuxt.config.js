@@ -18,9 +18,9 @@ export default defineNuxtConfig({
       ["defineStore", "definePiniaStore"], // import { defineStore as definePiniaStore } from 'pinia'
     ],
   },
-  image: {
-    dir: 'public/',
-    provider: 'ipx',
-    // format: ['webp'],   // format does not work well with Netlify
-  }
+  // image: {
+  //   dir: 'public/',
+  //   // provider: 'ipx',
+  //   // format: ['webp'],   // format does not work well with Netlify
+  // }
 })
