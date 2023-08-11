@@ -6,7 +6,7 @@
     "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/charting-yield-curve",
     "netlifyURL": "https://ust-yield-chart-fidly.netlify.app/",
-    "imgURL": "/images/yieldCurveCharting.jpg"
+    "imgURL": "/public/images/yieldCurveCharting.jpg"
   },
   {
     "title": "< Scheduled Web Scraper >",
@@ -15,7 +15,7 @@
     "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/Experimental-Scraper",
     "netlifyURL": "https://exp-scraper-fidly.netlify.app/",
-    "imgURL": "/images/webScraper.jpg"
+    "imgURL": "webScraper.jpg"
   },
   {
     "title": "< Currency Converter >",
