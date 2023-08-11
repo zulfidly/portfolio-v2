@@ -15,7 +15,7 @@
     "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/Experimental-Scraper",
     "netlifyURL": "https://exp-scraper-fidly.netlify.app/",
-    "imgURL": "webScraper.jpg"
+    "imgURL": "/webScraper.jpg"
   },
   {
     "title": "< Currency Converter >",
