@@ -18,7 +18,6 @@ onMounted(() => {
 
 let loadedImg = ref([0, 1])
 function isCardInsideOfViewport() {
-  console.log('isCardInsideOfViewport');
   data.forEach((x, ind) => {
     let y = document.getElementById("card" + ind)
     let z = y.firstElementChild
@@ -46,100 +45,100 @@ const scrollDirect = (ind) => {
 </script>
 
 <template>
-  <div
-    class="transition-opacity duration-200 mx-auto border lg:border-0 border-[var(--color-border)] rounded-xl"
-    :class="[
-      isMobile
-        ? [isMenuHidden ? 'opacity-100 delay-100' : 'opacity-0']
-        : 'flex items-center justify-center',
-    ]"
-  >
+  <div>
     <ClientOnly>
-      <ul v-if="!isMobile"
-        class="p-1 lg:flex flex-col justify-center border border-[var(--color-border)] min-w-[350px] rounded-xl mr-4 overflow-scroll bg-[var(--color-background-soft)]"
-        :class="[isMobile ? '' : 'h-[80svh]']"
-      >
-        <li
-          class="mb-1 tracking-wider text-xl text-center font-bold underline underline-offset-2 text-[var(--color-text)]"
-        >
-          Titles
-        </li>
-        <li
-          v-for="(z, index) in data"
-          :key="index"
-          class="p-0 mx-auto w-max text-[var(--color-text)] transition-all"
-        >
-          <button
-            @click="scrollDirect(index)"
-            :class="[
-              currKard === index + 1
-                ? 'text-orange-400 dark:text-slate-300'
-                : 'text-[var(--color-text)]',
-            ]"
-            class="p-0.5 text-lg lg:hover:scale-105 transition-all duration-100"
-            :aria-label="z.description"
-          >
-            {{ z.title }}
-          </button>
-        </li>
-      </ul>
-    </ClientOnly>
-
-    <ClientOnly>
-      <ul
-        ref="scrollDirectRef"
-        :style="isMobile ? `height:${customInnerHeight - 32}px;` : ''"
-        class="w-full grid gap-4 snap-y snap-mandatory overflow-scroll transition-all duration-300"
-        @scroll.passive="isCardInsideOfViewport"  
+      <div
+        class="transition-opacity duration-200 mx-auto border lg:border-0 border-[var(--color-border)] rounded-xl"
         :class="[
           isMobile
-            ? [isPortrait ? '' : scrLscape.uList]
-            : 'h-[80svh] min-w-[700px]',
+            ? [isMenuHidden ? 'opacity-100 delay-100' : 'opacity-0']
+            : 'flex items-center justify-center',
         ]"
       >
-        <li
-          v-for="(x, ind) in data"
-          class="relative list-none h-[inherit] snap-center"
-          :key="ind"
-        >
-          <div
-            :id="'card' + ind"
-            class="h-full w-full bg-[var(--color-background-soft)] rounded-xl overflow-clip p-4 lg:border lg:border-[var(--color-border)]"
+          <ul v-if="!isMobile"
+            class="p-1 lg:flex flex-col justify-center border border-[var(--color-border)] min-w-[350px] rounded-xl mr-4 overflow-scroll bg-[var(--color-background-soft)]"
+            :class="[isMobile ? '' : 'h-[80svh]']"
           >
-            <ProjectCard
-              :key="ind"
-              :title="x.title"
-              :description="x.description"
-              :steks="x.stacks"
-              :uiux="x.UI"
+            <li
+              class="mb-1 tracking-wider text-xl text-center font-bold underline underline-offset-2 text-[var(--color-text)]"
             >
-              <template #image>
-                <img
-                  :id="ind"
-                  :alt="x.description"
-                  class="mx-auto rounded-lg transition-all duration-300 w-[212px] h-[400px] sm:hidden lg:block"
-                  :class="[
-                    loadedImg.includes(ind + 1) ? 'opacity-100' : 'opacity-0',
-                    isDark ? 'grayscale-[75%]' : 'grayscale-0',
-                  ]"
-                  :src="[loadedImg.includes(ind) ? x.imgURL : '']"
-                />
-              </template>
+              Titles
+            </li>
+            <li
+              v-for="(z, index) in data"
+              :key="index"
+              class="p-0 mx-auto w-max text-[var(--color-text)] transition-all"
+            >
+              <button
+                @click="scrollDirect(index)"
+                :class="[
+                  currKard === index + 1
+                    ? 'text-orange-400 dark:text-slate-300'
+                    : 'text-[var(--color-text)]',
+                ]"
+                class="p-0.5 text-lg lg:hover:scale-105 transition-all duration-100"
+                :aria-label="z.description"
+              >
+                {{ z.title }}
+              </button>
+            </li>
+          </ul>
 
-              <template #links>
-                <div
-                  class="space-x-14 p-2 flex justify-start pl-8 sm:pl-0 sm:justify-evenly"
+          <ul
+            ref="scrollDirectRef"
+            :style="isMobile ? `height:${customInnerHeight - 32}px;` : ''"
+            class="w-full grid gap-4 snap-y snap-mandatory overflow-scroll transition-all duration-300"
+            @scroll.passive="isCardInsideOfViewport"  
+            :class="[
+              isMobile
+                ? [isPortrait ? '' : scrLscape.uList]
+                : 'h-[80svh] min-w-[700px]',
+            ]"
+          >
+            <li
+              v-for="(x, ind) in data"
+              class="relative list-none h-[inherit] snap-center"
+              :key="ind"
+            >
+              <div
+                :id="'card' + ind"
+                class="h-full w-full bg-[var(--color-background-soft)] rounded-xl overflow-clip p-4 lg:border lg:border-[var(--color-border)]"
+              >
+                <ProjectCard
+                  :key="ind"
+                  :title="x.title"
+                  :description="x.description"
+                  :steks="x.stacks"
+                  :uiux="x.UI"
                 >
-                  <IconGitHub :link="x.githubURL" :is-dark="isDark" />
-                  <IconNetlify :link="x.netlifyURL" />
-                </div>
-              </template>
-            </ProjectCard>
-          </div>
-        </li>
-      </ul>
-    </ClientOnly>
+                  <template #image>
+                    <img
+                      :id="ind"
+                      :alt="x.description"
+                      class="mx-auto rounded-lg transition-all duration-300 w-[212px] h-[400px] sm:hidden lg:block"
+                      :class="[
+                        loadedImg.includes(ind + 1) ? 'opacity-100' : 'opacity-0',
+                        isDark ? 'grayscale-[75%]' : 'grayscale-0',
+                      ]"
+                      :src="[loadedImg.includes(ind) ? x.imgURL : '']"
+                    />
+                  </template>
 
-    <ProjectPageNumber :current-kard="currKard" :total-kards="totalCards" />
+                  <template #links>
+                    <div
+                      class="space-x-14 p-2 flex justify-start pl-8 sm:pl-0 sm:justify-evenly"
+                    >
+                      <IconGitHub :link="x.githubURL" :is-dark="isDark" />
+                      <IconNetlify :link="x.netlifyURL" />
+                    </div>
+                  </template>
+                </ProjectCard>
+              </div>
+            </li>
+          </ul>
+          
+          <ProjectPageNumber :current-kard="currKard" :total-kards="totalCards" />
+        </div>
+    </ClientOnly>
   </div>
 </template>
