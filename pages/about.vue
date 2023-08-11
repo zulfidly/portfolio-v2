@@ -26,7 +26,6 @@ const opac = {
     ]"
   >
     <nuxt-img
-      format="webp"
       sizes="lg:180px 2xl:200px"
       class="mx-auto md:float-left md:m-4"
       :class="[isDark ? 'grayscale-[20%]' : 'grayscale-0']"

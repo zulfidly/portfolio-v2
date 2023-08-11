@@ -15,7 +15,7 @@
     "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/Experimental-Scraper",
     "netlifyURL": "https://exp-scraper-fidly.netlify.app/",
-    "imgURL": "/images/webScraper.jpg"
+    "imgURL": "/_ipx/webScraper.jpg"
   },
   {
     "title": "< Currency Converter >",
@@ -24,7 +24,7 @@
     "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/Currency-Converter",
     "netlifyURL": "https://fidly-currex.netlify.app/",
-    "imgURL": "/images/currexP.jpg"
+    "imgURL": "/_ipx/currexP.jpg"
   },
   {
     "title": "< Multi Step Form >",
