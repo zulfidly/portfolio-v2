@@ -6,7 +6,7 @@
     "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/charting-yield-curve",
     "netlifyURL": "https://ust-yield-chart-fidly.netlify.app/",
-    "imgURL": "/yieldCurveCharting.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/212x400/77085ee24d/yieldcurvecharting.jpg"
   },
   {
     "title": "< Scheduled Web Scraper >",
@@ -15,7 +15,7 @@
     "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/Experimental-Scraper",
     "netlifyURL": "https://exp-scraper-fidly.netlify.app/",
-    "imgURL": "/_ipx/webScraper.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/198x400/f715f06767/webscraper.jpg"
   },
   {
     "title": "< Currency Converter >",
@@ -24,7 +24,7 @@
     "UI": "Tailwind CSS, Illustrator",
     "githubURL": "https://github.com/zulfidly/Currency-Converter",
     "netlifyURL": "https://fidly-currex.netlify.app/",
-    "imgURL": "/_ipx/currexP.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/212x400/68b201f9f8/currexp.jpg"
   },
   {
     "title": "< Multi Step Form >",
@@ -33,7 +33,7 @@
     "UI": "Tailwind CSS",
     "githubURL": "https://github.com/zulfidly/Multi-Step-Form",
     "netlifyURL": "https://fidly-multistepform.netlify.app/",
-    "imgURL": "/images/multiStepForm.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/212x400/6fee7262c3/multistepform.jpg"
   },
   {
     "title": "< Star Wars Guide >",
@@ -42,7 +42,7 @@
     "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/StarWarsAPI-GET",
     "netlifyURL": "https://fidly-sw-api-get.netlify.app/",
-    "imgURL": "/images/starwars.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/212x400/d54b53fc57/starwars.jpg"
   },
   {
     "title": "< Pineapple Stand >",
@@ -51,7 +51,7 @@
     "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/Pinia-PineappleStand",
     "netlifyURL": "https://gleeful-souffle-56603a.netlify.app/",
-    "imgURL": "/images/pineappleStand.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/212x400/37685de11a/pineapplestand.jpg"
   },
   {
     "title": "< Portfolio-v1 >",
@@ -60,7 +60,7 @@
     "UI": "Tailwind CSS",
     "githubURL": "https://github.com/zulfidly/Portfolio-v1",
     "netlifyURL": "https://portfolio-fidly-v1.netlify.app/",
-    "imgURL": "/images/portfolioV1.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/213x400/2d9d5c5866/portfoliov1.jpg"
   },
   {
     "title": "< Guess That Country >",
@@ -69,7 +69,7 @@
     "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/Game-Guess-The-Nameof-The-Country",
     "netlifyURL": "https://guess-that-country.netlify.app/",
-    "imgURL": "/images/guessthatcountry.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/212x400/869ba31d06/guessthatcountry.jpg"
   },
   {
     "title": "< Countdown Timer >",
@@ -78,7 +78,7 @@
     "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/Game-Guess-The-Nameof-The-Country",
     "netlifyURL": "https://fidly-countdown-timer.netlify.app/",
-    "imgURL": "/images/countDownTimer.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/212x400/b3c71e24ec/countdowntimer.jpg"
   },
   {
     "title": "< Catstagram >",
@@ -87,7 +87,7 @@
     "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/Catstagram",
     "netlifyURL": "https://fidlydompractice.netlify.app/",
-    "imgURL": "/images/catstagram.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/198x400/a268d28449/catstagram.jpg"
   },
   {
     "title": "< Study Tool: Screen properties >",
@@ -96,7 +96,7 @@
     "UI": "Tailwind CSS",
     "githubURL": "https://github.com/zulfidly/screen-properties",
     "netlifyURL": "https://scr-props-bass.netlify.app/",
-    "imgURL": "/images/scrProps.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/212x400/6010852660/scrprops.jpg"
   },
   {
     "title": "< Study Tool: Touch Events >",
@@ -105,7 +105,7 @@
     "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/touchevent-fidly",
     "netlifyURL": "https://touchevent-fidly.netlify.app/",
-    "imgURL": "/images/touchEvents.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/203x400/ebeb0f2dda/touchevents.jpg"
   },
   {
     "title": "< Study Tool: getBoundingRect() >",
@@ -114,7 +114,7 @@
     "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/StudyTool-getBoundingClientRect",
     "netlifyURL": "https://study-getboundingclientrect.netlify.app/",
-    "imgURL": "/images/getBoundRect.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/198x400/f5cd2a10c6/getboundrect.jpg"
   },
   {
     "title": "< News Homepage >",
@@ -123,7 +123,7 @@
     "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/fmProductPreviewCard",
     "netlifyURL": "https://fidly-fm-newshomepage.netlify.app/#",
-    "imgURL": "/images/newsHomepage.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/212x400/b539dfbdef/newshomepage.jpg"
   },
   {
     "title": "< Product Preview >",
@@ -132,7 +132,7 @@
     "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/fmProductPreviewCard",
     "netlifyURL": "https://fm-prod-preview-card.netlify.app/",
-    "imgURL": "/images/productPreviewCardComponent.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/212x400/1356991530/productpreviewcardcomponent.jpg"
   },
   {
     "title": "< Intro Section  >",
@@ -141,7 +141,7 @@
     "UI": "Tailwind CSS",
     "githubURL": "https://github.com/zulfidly/fm-Intro-section-with-dropdown-navigation",
     "netlifyURL": "https://fm-introsectwithdropdownmenu.netlify.app/",
-    "imgURL": "/images/introSectWithDropDownNav.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/212x400/a5d032b2bc/introsectwithdropdownnav.jpg"
   },
   {
     "title": "< Airbnb Clone >",
@@ -150,7 +150,7 @@
     "UI": "CSS",
     "githubURL": "https://github.com/zulfidly/Clone-AirBnB",
     "netlifyURL": "https://cerulean-bombolone-02d962.netlify.app/",
-    "imgURL": "/images/airbnbClone.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/212x400/8e0f9feeb7/airbnbclone.jpg"
   },
   {
     "title": "< Calculator (beta) >",
@@ -159,6 +159,6 @@
     "UI": "Tailwind CSS",
     "githubURL": "https://github.com/zulfidly/Calculator-beta",
     "netlifyURL": "https://relaxed-kangaroo-e4f3b3.netlify.app/",
-    "imgURL": "/images/calculator.jpg"
+    "imgURL": "https://a.storyblok.com/f/246301/201x400/4258cf6060/calculator.jpg"
   }
 ]
