@@ -113,7 +113,6 @@ function individualCardIsVisibleWithinViewport(ind, txt) {
                 :class="[isDark ? 'grayscale-[75%]' : 'grayscale-0']"
               />
             </template>
-            <!-- :src="[loadedImg.includes(ind) ? kard.imgURL : '']" -->
 
             <template #links>
               <div
