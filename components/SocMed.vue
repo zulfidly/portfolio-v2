@@ -138,7 +138,6 @@ const mobi = {
           aria-label="visit freddie's instagram"
         >
           <nuxt-img
-            format="webp"
             loading="lazy"
             width="40"
             height="40"
