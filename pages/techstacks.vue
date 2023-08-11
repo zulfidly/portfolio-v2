@@ -26,7 +26,11 @@ const opac = {
     </p>
 
     <ul class="grid grid-cols-1 gap-3 h-[inherit] overflow-scroll">
-      <TechStackCard v-for="(stackItem, ind) in stacks" :stack="stackItem" />
+      <TechStackCard
+        v-for="(stackItem, ind) in stacks"
+        :stack="stackItem"
+        :key="ind"
+      />
     </ul>
   </div>
 </template>

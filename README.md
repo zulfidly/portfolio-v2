@@ -1,8 +1,10 @@
 ## [my Portfolio (ver2)](https://portfolio-fidly.netlify.app/)
 
 ##### 2023-07-28 (commit 35), added Pinia, to replace the runtime useNuxtApp() provide method
+
 ##### 2023-08-01 (commit 37), added Prettier (3.0.0)
-##### 2023-08-10 (commit 39), use of ```<ClientOnly>``` on projects.vue elements which 'waits' for window object input
+
+##### 2023-08-10 (commit 39), use of `<ClientOnly>` on projects.vue elements which 'waits' for window object input
 
 ### Install [Nuxt](Install)
 
@@ -18,7 +20,7 @@
 - `export const useMainStorePinia = defineStore('appStore', {})`, dir: `./composables/appStore.js`
 - see `@pinia/nuxt` in nuxt.config.js
 - see `./composables/appStore.js`
- 
+
 ### Install [Tailwind CSS](https://tailwindcss.com/)
 
 - `npm install -D @nuxtjs/tailwindcss`
@@ -34,6 +36,7 @@
 
 - `npm i -D @vueuse/nuxt @vueuse/core`
 - use of `useEventListener()` in place of `window.addEventListener()`
+- use of `useElementVisibility()` to reduce rendered DOM on page load, also lazy loads page's content on scroll. See `ProjectCard.vue`
 
 ### Install [FormKit](https://formkit.com/getting-started/installation) (contact page form build)
 
@@ -51,7 +54,7 @@
 - `npm install --save-dev --save-exact prettier`
 - `npx prettier --check .` to check all relevant status
 - `npx prettier --write .` to write all relevant files
-- see ```prettierrc.json``` config (personal preference to not have semicolons)
+- see `prettierrc.json` config (personal preference to not have semicolons)
 
 ### CLI : create a page => npx nuxi add page index
 
@@ -78,5 +81,6 @@
 ```
 
 #### Extra notes:
-- element's resize also triggers ```@scroll``` ???
-- use of ```<ClientOnly>``` can speed up rendering if its DOM properties required window inputs
+
+- element's resize also triggers `@scroll` ???
+- use of `<ClientOnly>` can speed up rendering if its DOM properties required window inputs
