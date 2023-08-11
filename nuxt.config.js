@@ -21,6 +21,10 @@ export default defineNuxtConfig({
   image: {
     // dir: 'public/',
     // provider: 'ipx',
-    format: ['webp']
+    format: ['webp'],
+    provider: 'netlify',
+    netlify: {
+      baseURl: process.env.IMAGES_URL
+    }
   }
 })
