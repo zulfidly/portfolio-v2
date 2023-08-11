@@ -5,7 +5,7 @@ const props = defineProps({
   isDarkDevice: { type: Boolean, required: true },
   isDarkViewport: { type: Boolean, required: true },
 })
-const isDarkScoped = ref(false) // attempt on 'light first' approach
+
 const emiT = defineEmits(["userToggleColorMode"])
 defineExpose({ singularColorModeCheckAndToggle })
 
