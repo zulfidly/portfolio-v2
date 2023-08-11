@@ -27,7 +27,8 @@
 - `npx tailwindcss init -p` (bring tailwindcss.config.js into root folder)
 - see `nuxt.config.ts`
 
-## Install [Nuxt Image](https://v1.image.nuxtjs.org/)
+### Install [Nuxt Image](https://v1.image.nuxtjs.org/)
+
 - Ensure using LTS version of NodeJS
 - `npm install -D @nuxt/image@rc`
 - see edit > nuxt.config

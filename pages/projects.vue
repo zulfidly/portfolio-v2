@@ -100,7 +100,8 @@ function individualCardIsVisibleWithinViewport(ind, txt) {
             :index="ind"
             @is-visible-emit="
               (ind, txt) => individualCardIsVisibleWithinViewport(ind, txt)
-            "          >
+            "
+          >
             <template #image>
               <nuxt-img
                 format="webp"
@@ -109,9 +110,7 @@ function individualCardIsVisibleWithinViewport(ind, txt) {
                 :src="kard.imgURL"
                 :alt="kard.description"
                 class="mx-auto rounded-lg transition-all duration-300 sm:hidden lg:block"
-                :class="[
-                  isDark ? 'grayscale-[75%]' : 'grayscale-0',
-                ]"
+                :class="[isDark ? 'grayscale-[75%]' : 'grayscale-0']"
               />
             </template>
             <!-- :src="[loadedImg.includes(ind) ? kard.imgURL : '']" -->
