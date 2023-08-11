@@ -35,6 +35,13 @@
     "iconURL": "/icons/airtable80.svg"
   },
   {
+    "title": "VueUse",
+    "description": "is a collection of Vue Composition utilities.",
+    "application": "Vue applications development .",
+    "link": "https://vueuse.org/",
+    "iconURL": "/icons/vueuse80.svg"
+  },
+  {
     "title": "FormKit",
     "description": "is a comprehensive form building framework for Vue developers that makes authoring high quality production-ready forms faster, more accessible, with better DX and UX, and less code. It is easy to learn, and ships with production-ready features like inputs, validation rules, and submission/error handling.",
     "application": "Forms type(ing), creation, validation, styling with schemas.",
