@@ -33,10 +33,10 @@ const scrollDirect = (ind) => {
 }
 
 function individualCardIsVisibleWithinViewport(ind, txt) {
-  console.log(ind, txt)
+  // console.log(ind, txt)
   currKard.value = ind + 1
-  if (loadedImg.value.includes(ind + 1)) return
-  else loadedImg.value.push(ind + 1)
+  // if (loadedImg.value.includes(ind + 1)) return
+  // else loadedImg.value.push(ind + 1)
 }
 </script>
 
@@ -100,19 +100,21 @@ function individualCardIsVisibleWithinViewport(ind, txt) {
             :index="ind"
             @is-visible-emit="
               (ind, txt) => individualCardIsVisibleWithinViewport(ind, txt)
-            "
-          >
+            "          >
             <template #image>
-              <img
+              <nuxt-img
+                format="webp"
+                loading="lazy"
+                sizes="sm:180px xl:220px"
+                :src="kard.imgURL"
                 :alt="kard.description"
-                class="mx-auto rounded-lg transition-all duration-300 w-[212px] h-[400px] sm:hidden lg:block"
+                class="mx-auto rounded-lg transition-all duration-300 sm:hidden lg:block"
                 :class="[
-                  loadedImg.includes(ind + 1) ? 'opacity-100' : 'opacity-0',
                   isDark ? 'grayscale-[75%]' : 'grayscale-0',
                 ]"
-                :src="[loadedImg.includes(ind) ? kard.imgURL : '']"
               />
             </template>
+            <!-- :src="[loadedImg.includes(ind) ? kard.imgURL : '']" -->
 
             <template #links>
               <div

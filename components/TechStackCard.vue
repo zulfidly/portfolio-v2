@@ -14,10 +14,12 @@
         :aria-label="'visit ' + stack.title"
       >
         <abbr :title="stack.title">
-          <img
+          <nuxt-img
+            width="80"
+            height="80"
+            loading="lazy"
             :src="stack.iconURL"
             :alt="stack.title + ' logo'"
-            class="w-[80px] h-[80px]"
           />
         </abbr>
       </a>

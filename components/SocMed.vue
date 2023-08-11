@@ -135,10 +135,14 @@ const mobi = {
         <a
           href="https://www.instagram.com/fidlybass/"
           target="_blank"
-          aria-label="visit instagram in website"
+          aria-label="visit freddie's instagram"
         >
-          <img
-            class="grayscale-0 dark:grayscale invert-0 dark:invert-[60%] w-[40px] h-[40px] transition-all duration-300"
+          <nuxt-img
+            format="webp"
+            loading="lazy"
+            width="40"
+            height="40"
+            class="grayscale-0 dark:grayscale invert-0 dark:invert-[60%] transition-all duration-300"
             src="/images/insta40.png"
             alt="Instagram logo"
           />
