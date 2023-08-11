@@ -138,7 +138,7 @@ const scrollDirect = (ind) => {
           </ul>
           
           <ProjectPageNumber :current-kard="currKard" :total-kards="totalCards" />
-        </div>
+      </div>
     </ClientOnly>
   </div>
 </template>
