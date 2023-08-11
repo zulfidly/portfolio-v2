@@ -5,8 +5,9 @@
 ##### 2023-08-01 (commit 37), added Prettier (3.0.0)
 
 ##### 2023-08-10 (commit 39), use of `<ClientOnly>` on projects.vue elements which 'waits' for window object input
+##### 2023-08-11 (commit 40), `<nuxt-img/>` integration for project's page images completed
 
-### Install [Nuxt](Install)
+### Install [Nuxt](https://nuxt.com/)
 
 - `npx nuxi@latest init <project-name>`
 - `cd <project-name>`
@@ -85,4 +86,4 @@
 #### Extra notes:
 
 - element's resize also triggers `@scroll` ???
-- use of `<ClientOnly>` can speed up rendering if its DOM properties requires window object inputs
+- use of `<ClientOnly>` can speed up rendering if its DOM elements require window object inputs

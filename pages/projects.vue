@@ -4,12 +4,6 @@ import ProjectList from "../assets/projectsItems.json"
 const currKard = ref(1)
 const totalCards = Object.keys(ProjectList).length
 
-// const allItems = ref(data)
-// const { list, containerProps, wrapperProps } = useVirtualList(
-//   allItems,
-//   { itemHeight: 25, },
-// )
-
 const props = defineProps({
   isMobile: { type: Boolean, required: true },
   isMenuHidden: { type: Boolean, required: true },
@@ -32,11 +26,8 @@ const scrollDirect = (ind) => {
   scrollDirectRef.value.scrollTop = scrollDirectRef.value.offsetHeight * ind
 }
 
-function individualCardIsVisibleWithinViewport(ind, txt) {
-  // console.log(ind, txt)
+function individualCardIsVisibleWithinViewport(ind) {
   currKard.value = ind + 1
-  // if (loadedImg.value.includes(ind + 1)) return
-  // else loadedImg.value.push(ind + 1)
 }
 </script>
 
@@ -99,7 +90,7 @@ function individualCardIsVisibleWithinViewport(ind, txt) {
             :uiux="kard.UI"
             :index="ind"
             @is-visible-emit="
-              (ind, txt) => individualCardIsVisibleWithinViewport(ind, txt)
+              (ind) => individualCardIsVisibleWithinViewport(ind)
             "
           >
             <template #image>
