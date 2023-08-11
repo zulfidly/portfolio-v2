@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     "@formkit/nuxt",
     "@pinia/nuxt",
     "@vueuse/nuxt",
-    '@nuxt/image',
+    "@nuxt/image",
   ],
   css: ["/assets/myStyle.css"],
   app: {
