@@ -10,7 +10,9 @@ const emiT = defineEmits(["pgPath"])
 onMounted(() => {
   emiT("pgPath", useRoute().path)
 })
-
+useHead({
+  title: 'Home'
+})
 const intro = {
   init: [
     "text-4xl text-center text-[var(--color-text)] transition-opacity duration-200",
@@ -32,10 +34,9 @@ const style = computed(() => {
       Welcome
     </header>
     <br />
-    <p :class="style">May this space</p>
-    <p :class="style">offers you a glimpse</p>
-    <p :class="style">into my coding</p>
-    <p :class="style">journey</p>
-    <h1 class="opacity-0">Welcome to freddie's online portfolio</h1>
+    <h1 :class="style">May this space</h1>
+    <h1 :class="style">offers you a glimpse</h1>
+    <h1 :class="style">into my coding</h1>
+    <h1 :class="style">journey</h1>
   </main>
 </template>

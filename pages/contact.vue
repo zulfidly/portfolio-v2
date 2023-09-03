@@ -9,7 +9,9 @@ const props = defineProps({
 onMounted(() => {
   emiT("pgPath", useRoute().path)
 })
-
+useHead({
+  title: 'Contact'
+})
 const opac = {
   show: ["opacity-100 delay-100"],
   hide: ["opacity-0"],

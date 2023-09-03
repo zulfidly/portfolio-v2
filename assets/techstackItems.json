@@ -28,13 +28,6 @@
     "iconURL": "https://a.storyblok.com/f/246301/80x80/2f57473ced/pinia80.svg"
   },
   {
-    "title": "Airtable",
-    "description": "is a Cloud-Based Hybrid Spreadsheet Database platform.",
-    "application": "Serverless database management. Work-flow automation.",
-    "link": "https://www.airtable.com/",
-    "iconURL": "https://a.storyblok.com/f/246301/80x80/4e01e76952/airtable80.svg"
-  },
-  {
     "title": "VueUse",
     "description": "is a collection of Vue Composition utilities.",
     "application": "Vue applications development .",
@@ -47,6 +40,20 @@
     "application": "Forms type(ing), creation, validation, styling with schemas.",
     "link": "https://formkit.com/",
     "iconURL": "https://a.storyblok.com/f/246301/80x80/532a2e3eb0/formkit80b.svg"
+  },
+  {
+    "title": "Element UI",
+    "description": "is a Vue 2.0 based component library for developers, designers and product managers.",
+    "application": "UI library for Vue 2.0 projects.",
+    "link": "https://element.eleme.io/#/en-US",
+    "iconURL": "https://a.storyblok.com/f/246301/80x80/c8704becfb/element-ui80.svg"
+  },
+  {
+    "title": "Airtable",
+    "description": "is a Cloud-Based Hybrid Spreadsheet Database platform.",
+    "application": "Serverless database management. Work-flow automation.",
+    "link": "https://www.airtable.com/",
+    "iconURL": "https://a.storyblok.com/f/246301/80x80/4e01e76952/airtable80.svg"
   },
   {
     "title": "HTML 5",

@@ -6,7 +6,7 @@
     :is-mobile="appStore.clientScr.isMobile"
     :is-portrait="appStore.isPortrait"
     :custom-inner-height="appStore.clientScr.innerH"
-    @pgPath="(path) => (currentPath = path)"
+    @pgPath="(path) => currentPath = path"
     @notifier-msg="(txt) => displayNotifier(txt, 2000)"
   />
 
@@ -40,14 +40,16 @@ const exposeNotifierRef = ref(null)
 const exposeColorModeSwitchRef = ref(null)
 const isMenuHidden = ref(true)
 watch(currentPath, () => {
-  useHead({ title: getTabTitle() })
+  // console.log('currentPath :', currentPath.value);
   appStore.client_updateCurrentPath(currentPath.value.toString())
-})
+}, { immediate: true })
 
 console.log("app loading - - -")
 
 useHead({
-  title: "portfolio of freddie",
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} : Freddie's Portfolio` : "Freddie's Portfolio"
+  },
   script: `if(window.matchMedia("(prefers-color-scheme:dark)").matches) document.querySelector('html').classList.add('dark')`,
   htmlAttrs: { lang: "en", class: { zappa1: true, zappa2: false } },
 })
@@ -80,10 +82,9 @@ onNuxtReady(() => {
   console.log("Nuxt hydrated")
   useHead(
     {
-      title: getTabTitle(),
       htmlAttrs: {
         class: {
-          dark: appStore.clientScr.isDarkDevice,
+          dark: appStore.clientScr.isDarkDevice,    //client side only
           zappa1: true,
           zappa2: true,
         },
@@ -115,16 +116,5 @@ function appColorModeHandler() {
 
 function displayNotifier(text, duration) {
   exposeNotifierRef.value.showNotifier(text.toString(), duration)
-}
-
-function getTabTitle() {
-  let temp = useRoute().path
-  temp = temp.toString().trim()
-  if (temp === "/") return "Home : Freddie's Portfolio"
-  else if (temp === "/projects") return "Projects : Freddie's Portfolio"
-  else if (temp === "/about") return "About : Freddie's Portfolio"
-  else if (temp === "/contact") return "Contact : Freddie's Portfolio"
-  else if (temp === "/techstacks") return "Tech Stacks : Freddie's Portfolio"
-  else return "Others"
 }
 </script>
