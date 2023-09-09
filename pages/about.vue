@@ -11,7 +11,7 @@ onMounted(() => {
 })
 
 useHead({
-  title: 'About'
+  title: "About",
 })
 
 const opac = {

@@ -10,7 +10,7 @@ onMounted(() => {
   emiT("pgPath", useRoute().path)
 })
 useHead({
-  title: 'Contact'
+  title: "Contact",
 })
 const opac = {
   show: ["opacity-100 delay-100"],
@@ -30,7 +30,7 @@ const opac = {
     <p
       class="fixed bottom-0 text-xs text-center italic text-[var(--color-text)]"
     >
-      nodemailer 6.9.3 / @formkit/nuxt 0.17.2
+      nodemailer 6.9.5 / @formkit/nuxt 1.0.0
     </p>
   </div>
 </template>
