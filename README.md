@@ -2,11 +2,12 @@
 
 ### Simple timeline :
 
-- 2023-09-09 : performed `npm update --save` and `npm i <package>@latest`
-- 2023-08-11 (commit 40), `<nuxt-img/>` integration for project's page images completed
-- 2023-08-10 (commit 39), use of `<ClientOnly>` on projects.vue elements which 'waits' for window object input
-- 2023-08-01 (commit 37), added Prettier (3.0.0)
-- 2023-07-28 (commit 35), added Pinia, to replace the runtime useNuxtApp() provide method
+- 2023-09-09 (43): deleted `postcss.config.js` in favor of `options.postcss` in `nuxt.config.js`
+- 2023-09-09 (42): performed `npm update --save` and `npm i <package>@latest`
+- 2023-08-11 (40): `<nuxt-img/>` integration for project's page images completed
+- 2023-08-10 (39): use of `<ClientOnly>` on projects.vue elements which 'waits' for window object input
+- 2023-08-01 (37): added Prettier (3.0.0)
+- 2023-07-28 (35): added Pinia, to replace the runtime useNuxtApp() provide method
 
 ### Bug :
 - 2023-09-09 : color mode resets itself on mobile upon changing page (ok on desktop)
