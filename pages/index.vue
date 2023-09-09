@@ -11,7 +11,7 @@ onMounted(() => {
   emiT("pgPath", useRoute().path)
 })
 useHead({
-  title: 'Home'
+  title: "Home",
 })
 const intro = {
   init: [

@@ -6,7 +6,7 @@
     :is-mobile="appStore.clientScr.isMobile"
     :is-portrait="appStore.isPortrait"
     :custom-inner-height="appStore.clientScr.innerH"
-    @pgPath="(path) => currentPath = path"
+    @pgPath="(path) => (currentPath = path)"
     @notifier-msg="(txt) => displayNotifier(txt, 2000)"
   />
 
@@ -39,16 +39,22 @@ const appStore = useMainStorePinia()
 const exposeNotifierRef = ref(null)
 const exposeColorModeSwitchRef = ref(null)
 const isMenuHidden = ref(true)
-watch(currentPath, () => {
-  // console.log('currentPath :', currentPath.value);
-  appStore.client_updateCurrentPath(currentPath.value.toString())
-}, { immediate: true })
+watch(
+  currentPath,
+  () => {
+    // console.log('currentPath :', currentPath.value);
+    appStore.client_updateCurrentPath(currentPath.value.toString())
+  },
+  { immediate: true },
+)
 
 console.log("app loading - - -")
 
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} : Freddie's Portfolio` : "Freddie's Portfolio"
+    return titleChunk
+      ? `${titleChunk} : Freddie's Portfolio`
+      : "Freddie's Portfolio"
   },
   script: `if(window.matchMedia("(prefers-color-scheme:dark)").matches) document.querySelector('html').classList.add('dark')`,
   htmlAttrs: { lang: "en", class: { zappa1: true, zappa2: false } },
@@ -84,7 +90,7 @@ onNuxtReady(() => {
     {
       htmlAttrs: {
         class: {
-          dark: appStore.clientScr.isDarkDevice,    //client side only
+          dark: appStore.clientScr.isDarkDevice, //client side only
           zappa1: true,
           zappa2: true,
         },

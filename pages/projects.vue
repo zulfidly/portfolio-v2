@@ -16,7 +16,7 @@ onMounted(() => {
   emiT("pgPath", useRoute().path)
 })
 useHead({
-  title: 'Projects'
+  title: "Projects",
 })
 let loadedImg = ref([0, 1]) //init with 1st & 2nd card images
 

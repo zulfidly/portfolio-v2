@@ -8,10 +8,7 @@ const gradient_bg_url =
 
 <template>
   <svg
-    class="
-      grayscale-0 dark:grayscale dark:hover:grayscale-0
-      invert-0 dark:invert-[60%] dark:hover:invert-0
-      transition-all duration-300"
+    class="grayscale-0 dark:grayscale dark:hover:grayscale-0 invert-0 dark:invert-[60%] dark:hover:invert-0 transition-all duration-300"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     x="0px"

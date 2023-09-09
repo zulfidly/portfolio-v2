@@ -11,7 +11,7 @@ onMounted(() => {
   emiT("pgPath", useRoute().path)
 })
 useHead({
-  title: 'Tech Stacks'
+  title: "Tech Stacks",
 })
 const opac = {
   show: ["opacity-100 delay-100"],

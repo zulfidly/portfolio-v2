@@ -148,8 +148,7 @@ const mobi = {
       ]"
       class="text-xs text-center italic text-[var(--color-text)] transition-all duration-300"
     >
-      Nuxt 3.4.3 / @nuxt/tailwindcss 6.6.8
+      Nuxt 3.7.1 / @nuxt/tailwindcss 6.8.0
     </p>
   </div>
 </template>
-
