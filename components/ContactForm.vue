@@ -134,7 +134,8 @@ const sendMsg = async (x) => {
         label-class="$reset select-none pl-3 flex items-center text-[var(--color-text)] [&>span:first-child]:text-[var(--color-text)]"
         :value="isCCref"
         @click="isCCref = !isCCref"
-        decorator-class="$reset transition-all duration-200 block relative h-5 w-5 mr-2 rounded bg-transparent ring-1 ring-gray-400 peer-checked:ring-blue-500 text-transparent peer-checked:text-blue-500"
+        decorator-class="$reset transition-all duration-200 block relative h-5 w-5 mr-2 rounded text-transparent bg-transparent ring-1 ring-gray-400 
+          peer-checked:ring-blue-500 peer-checked:text-blue-500"
       />
       <FormKit
         type="email"
@@ -161,7 +162,7 @@ const sendMsg = async (x) => {
   </div>
 </template>
 
-<style>
+<style scoped>
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

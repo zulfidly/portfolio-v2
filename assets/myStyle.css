@@ -75,9 +75,6 @@ html.dark {
   display: none;
 }
 * {
-  transition:
-    color 0.2s,
-    background-color 0.2s;
   -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
   scrollbar-width: none; /* Hide scrollbar for Firefox */
   scroll-behavior: smooth;
