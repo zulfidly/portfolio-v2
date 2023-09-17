@@ -59,8 +59,15 @@
     "title": "HTML 5",
     "description": "is a W3C's framework for building user interfaces.",
     "application": "semantics, caching, storage, multimedia, web sockets, graphics, and can be used directly with CSS3.",
-    "link": "https://www.w3.org/html/logo/",
+    "link": "https://www.w3.org/groups/wg/htmlwg/",
     "iconURL": "https://a.storyblok.com/f/246301/80x80/d3bf11cb49/html5_80.svg"
+  },
+  {
+    "title": "CSS 3",
+    "description": "is a simple mechanism for adding style (e.g., fonts, colors, spacing) to Web documents.",
+    "application": "Styling implementation on HTML markups.",
+    "link": "https://www.w3.org/Style/CSS/",
+    "iconURL": "https://a.storyblok.com/f/246301/80x80/112f233989/css3_80.svg"
   },
   {
     "title": "JavaScript",

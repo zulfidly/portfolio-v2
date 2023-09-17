@@ -16,6 +16,7 @@ defineProps({
     :class="[
       isDark ? '[&>a>svg]:dark:lg:hover:fill-[var(--vt-c-white-soft)]' : '',
     ]"
+    class="hover:scale-110 transition-transform"
     aria-label="visit git hub repository"
   >
     <a :href="link" target="_blank" aria-label="visit git hub repository">

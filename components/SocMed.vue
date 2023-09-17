@@ -44,7 +44,7 @@ const mobi = {
       ]"
     >
       <button
-        class="[&>a>svg>g>path]:dark:lg:hover:fill-[#0077B5]"
+        class="[&>a>svg>g>path]:dark:lg:hover:fill-[#0077B5] hover:scale-110 transition-transform"
         aria-label="visit linked in website"
       >
         <a
@@ -92,6 +92,7 @@ const mobi = {
         :class="[
           isDark ? '[&>a>svg]:dark:lg:hover:fill-[var(--vt-c-white-soft)]' : '',
         ]"
+        class="hover:scale-110 transition-transform"
         aria-label="visit github in website"
       >
         <a
@@ -129,7 +130,7 @@ const mobi = {
       </button>
 
       <button
-        class="[&>a>img]:dark:lg:hover:grayscale-0 [&>a>img]:dark:lg:hover:invert-0"
+        class="[&>a>img]:dark:lg:hover:grayscale-0 [&>a>img]:dark:lg:hover:invert-0 hover:scale-110 transition-transform"
         aria-label="visit instagram in website"
       >
         <a

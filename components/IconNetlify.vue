@@ -9,7 +9,11 @@ defineProps({
 
 <template>
   <button
-    class="[&>a>svg>g>g:nth-child(1)]:fill-[var(--netlifyGeo)] [&>a>svg>g>g:nth-child(1)]:lg:dark:hover:fill-[#05BDBA] [&>a>svg>g>g:nth-child(2)]:fill-[var(--netlifyWord)] [&>a>svg>g>g:nth-child(2)]:lg:dark:hover:fill-[var(--vt-c-white-soft)]"
+    class=" hover:scale-110 transition-transform
+      [&>a>svg>g>g:nth-child(1)]:fill-[var(--netlifyGeo)]
+    [&>a>svg>g>g:nth-child(1)]:lg:dark:hover:fill-[#05BDBA] 
+      [&>a>svg>g>g:nth-child(2)]:fill-[var(--netlifyWord)] 
+      [&>a>svg>g>g:nth-child(2)]:lg:dark:hover:fill-[var(--vt-c-white-soft)]"
     aria-label="visit netlify live page"
   >
     <a :href="link" target="_blank" aria-label="visit netlify live page">

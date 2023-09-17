@@ -15,7 +15,7 @@
       >
         <abbr :title="stack.title">
           <img
-            class="w-[80px] h-[80px]"
+            class="w-[80px] h-[80px] hover:scale-110 transition-transform"
             :src="stack.iconURL"
             :alt="stack.title + ' logo'"
           />
