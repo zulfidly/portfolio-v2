@@ -1,7 +1,7 @@
 <template>
   <li
     ref="domEL"
-    class="px-4 py-4 flex flex-col lg:flex-row-reverse items-center justify-between border border-[var(--color-border)] bg-[var(--color-background-soft)] rounded-xl transition-opacity duration-300"
+    class="px-4 py-4 flex flex-col md:flex-row-reverse items-center justify-between border border-[var(--color-border)] bg-[var(--color-background-soft)] rounded-xl transition-opacity duration-300"
     :class="[isVisible ? 'opacity-100' : 'opacity-0']"
   >
     <button
@@ -14,10 +14,9 @@
         :aria-label="'visit ' + stack.title"
       >
         <abbr :title="stack.title">
-          <img
-            class="w-[80px] h-[80px] hover:scale-110 transition-transform"
-            :src="stack.iconURL"
-            :alt="stack.title + ' logo'"
+          <NuxtImgCardTechStack 
+            :img-src="stack.iconURL"
+            :img-alt="stack.title + ' logo'"
           />
         </abbr>
       </a>
