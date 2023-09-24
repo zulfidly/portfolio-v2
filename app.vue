@@ -56,7 +56,9 @@ useHead({
       ? `${titleChunk} : Freddie's Portfolio`
       : "Freddie's Portfolio"
   },
-  script: `if(window.matchMedia("(prefers-color-scheme:dark)").matches) document.querySelector('html').classList.add('dark')`,
+  script: `if(window.matchMedia("(prefers-color-scheme:dark)").matches) {
+    document.querySelector('html').classList.add('dark')
+  }`,
   htmlAttrs: { lang: "en", class: { zappa1: true, zappa2: false } },
 })
 useServerSeoMeta({
@@ -71,17 +73,10 @@ onMounted(() => {
   // displayNotifier('Welcome 🎵', 2000)
   updateClientScreenPropertiesOnMounted()
   initClientAppPropertiesOnMounted()
-  useEventListener("resize", () => {
-    updateClientScreenPropertiesOnMounted()
-  })
-  useEventListener(
-    window.matchMedia("(prefers-color-scheme:dark)"),
-    "change",
-    () => {
-      updateClientScreenPropertiesOnMounted()
-      appColorModeHandler()
-    },
-  )
+  useEventListener("resize", updateClientScreenPropertiesOnMounted)
+
+  // executed only when device's dark mode is changed
+  window.matchMedia("(prefers-color-scheme:dark)").addEventListener('change', syncViewportColorModeToDevice)
   // console.log(window.navigator.userAgent);
 })
 onNuxtReady(() => {
@@ -90,7 +85,6 @@ onNuxtReady(() => {
     {
       htmlAttrs: {
         class: {
-          dark: appStore.clientScr.isDarkDevice, //client side only
           zappa1: true,
           zappa2: true,
         },
@@ -99,6 +93,13 @@ onNuxtReady(() => {
     { mode: "client" },
   ) // extras
 })
+
+function syncViewportColorModeToDevice() {
+  appStore.m_clientScrIsDarkDevice()
+  appStore.client_IsDarkViewport(appStore.clientScr.isDarkDevice)
+  exposeColorModeSwitchRef.value.singularColorModeCheckAndToggle(appStore.clientScr.isDarkDevice)
+}
+
 function initClientAppPropertiesOnMounted() {
   appStore.client_updateCurrentPath(useRoute().path)
   appStore.client_IsDarkViewport(appStore.clientScr.isDarkDevice) // initialise viewport's color mode to follow system's color mode
@@ -112,12 +113,6 @@ function updateClientScreenPropertiesOnMounted() {
   appStore.m_clientScrIsMobile()
   appStore.m_clientScrIsMobileAndLandscape()
   appStore.m_clientScrIsDarkDevice()
-}
-function appColorModeHandler() {
-  appStore.client_IsDarkViewport(appStore.clientScr.isDarkDevice)
-  exposeColorModeSwitchRef.value.singularColorModeCheckAndToggle(
-    appStore.clientScr.isDarkDevice,
-  )
 }
 
 function displayNotifier(text, duration) {
