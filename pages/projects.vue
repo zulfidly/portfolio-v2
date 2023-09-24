@@ -1,5 +1,6 @@
 <script setup>
 import ProjectList from "../assets/projectsItems.json"
+import NuxtImgCardProjects from "../components/NuxtImgCardProjects.vue";
 
 const currKard = ref(1)
 const totalCards = Object.keys(ProjectList).length
@@ -18,7 +19,6 @@ onMounted(() => {
 useHead({
   title: "Projects",
 })
-let loadedImg = ref([0, 1]) //init with 1st & 2nd card images
 
 const scrLscape = {
   uList: ["sm:grid sm:grid-cols-2 sm:grid-flow-row sm:gap-4"],
@@ -96,14 +96,10 @@ function individualCardIsVisibleWithinViewport(ind) {
             "
           >
             <template #image>
-              <nuxt-img
-                loading="lazy"
-                format="webp"
-                sizes="sm:180px xl:220px"
-                :src="kard.imgURL"
-                :alt="kard.description"
-                class="mx-auto rounded-lg transition-all duration-300 sm:hidden lg:block"
-                :class="[isDark ? 'grayscale-[75%]' : 'grayscale-0']"
+              <NuxtImgCardProjects
+                :img-src="kard.imgURL"
+                :img-alt="kard.description"
+                :is-color-dark="isDark"
               />
             </template>
 
