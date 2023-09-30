@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-white: #ffffff;
@@ -83,19 +79,9 @@ html.dark {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.zappa1 {
-  filter: grayscale(100%);
-  transition: filter 1s ease-out;
-}
-.zappa2 {
-  filter: grayscale(0%);
-}
-
 #__nuxt {
   -ms-overflow-style: none; /* hide scrollbar in IE and Edge */
   scrollbar-width: none; /* hide scrollbar in Firefox */
-  /* max-width: 1280px; */
-  /* box-sizing: border-box; */
   width: 100vw;
   height: 100svh;
   margin: 0 auto;

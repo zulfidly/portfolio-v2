@@ -42,7 +42,6 @@ const isMenuHidden = ref(true)
 watch(
   currentPath,
   () => {
-    // console.log('currentPath :', currentPath.value);
     appStore.client_updateCurrentPath(currentPath.value.toString())
   },
   { immediate: true },
@@ -56,11 +55,14 @@ useHead({
       ? `${titleChunk} : Freddie's Portfolio`
       : "Freddie's Portfolio"
   },
-  script: `if(window.matchMedia("(prefers-color-scheme:dark)").matches) {
-    document.querySelector('html').classList.add('dark')
-  }`,
-  htmlAttrs: { lang: "en", class: { zappa1: true, zappa2: false } },
-})
+  script: `(()=> { 
+    if(window.matchMedia("(prefers-color-scheme:dark)").matches) {
+      document.documentElement.classList.add("dark");
+    };
+  })();`,
+  htmlAttrs: { lang: "en", class: {} },
+}, { mode: "server" })
+
 useServerSeoMeta({
   author: "zulfidly@gmail.com",
   description: "zulfidly, a frontend web developer",
@@ -69,29 +71,11 @@ useServerSeoMeta({
 })
 
 onMounted(() => {
-  // console.log('Nuxt onMounted');
   // displayNotifier('Welcome 🎵', 2000)
   updateClientScreenPropertiesOnMounted()
   initClientAppPropertiesOnMounted()
   useEventListener("resize", updateClientScreenPropertiesOnMounted)
-
-  // executed only when device's dark mode is changed
   window.matchMedia("(prefers-color-scheme:dark)").addEventListener('change', syncViewportColorModeToDevice)
-  // console.log(window.navigator.userAgent);
-})
-onNuxtReady(() => {
-  console.log("Nuxt hydrated")
-  useHead(
-    {
-      htmlAttrs: {
-        class: {
-          zappa1: true,
-          zappa2: true,
-        },
-      },
-    },
-    { mode: "client" },
-  ) // extras
 })
 
 function syncViewportColorModeToDevice() {
@@ -104,6 +88,7 @@ function initClientAppPropertiesOnMounted() {
   appStore.client_updateCurrentPath(useRoute().path)
   appStore.client_IsDarkViewport(appStore.clientScr.isDarkDevice) // initialise viewport's color mode to follow system's color mode
 }
+
 function updateClientScreenPropertiesOnMounted() {
   appStore.m_clientScrW()
   appStore.m_clientScrH()
