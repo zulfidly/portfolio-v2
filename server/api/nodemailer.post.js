@@ -10,19 +10,25 @@ async function emailer(x) {
       pass: process.env.PASSWORD,
     },
   })
-  // console.log("Message sent: %s", info.messageId);
-  // let info = await transporter.sendMail(x)
-  // return info
   return await transporter.sendMail(x)
 }
 
-export default defineEventHandler(async (event) => {
-  // const body = await readBody(event)
-  await emailer(await readBody(event))
-  // const info = await emailer(body)
-  // console.log(info);
-  return { status: "email sent" }
-  // return {body}
-})
+export default defineEventHandler(async(eventObj) => {
+  let temp = await readBody(eventObj)
+  let htmlString = temp.html
+    .replace(/&#..;/g, (unicodehtml)=> convertUnicodeToChar(unicodehtml))
+    .replace(/&#...;/g, (htmlunicode)=> convertUnicodeToChar(htmlunicode))
+    .replace(/<script>/g, '<p style="color:red;">')
+    .replace(/<\/script>/g, '</p>')
 
+  function convertUnicodeToChar(str) {
+    const unicodeDec = str.replace(/[&#;]/g, '')
+    return String.fromCharCode(unicodeDec)
+  }
+
+  temp.html = htmlString
+  await emailer(temp)
+  // console.log(await readBody(event));
+  return { status: "email sent" }
+})
 // async..await is not allowed in global scope, must use a wrapper
