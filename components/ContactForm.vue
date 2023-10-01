@@ -1,19 +1,43 @@
 <script setup>
+import { reset } from '@formkit/core'
 const isCCref = ref(true)
 const rate = ref(5)
 const isSending = ref(false)
 const isSent = ref(false)
 const emiT = defineEmits(["notifierMsg"])
+// console.log(stringSanitizer(`<>{}[]():!"'-*$?/\\`));
 
-const sendMsg = async (x) => {
-  isCCref.value = true
+function stringSanitizer(string) {
+  let sanitized = string
+    .replace(/[<]/g, '&#' + '<'.charCodeAt(0) + ';')
+    .replace(/[>]/g, '&#' + '>'.charCodeAt(0) + ';')
+    .replace(/[{]/g, '&#' + '{'.charCodeAt(0) + ';')
+    .replace(/[}]/g, '&#' + '}'.charCodeAt(0) + ';')
+    .replace(/[[]/g, '&#' + '['.charCodeAt(0) + ';')
+    .replace(/[\]]/g, '&#' + ']'.charCodeAt(0) + ';')
+    .replace(/[(]/g, '&#' + '('.charCodeAt(0) + ';')
+    .replace(/[)]/g, '&#' + ')'.charCodeAt(0) + ';')
+    .replace(/[:]/g, '&#' + ':'.charCodeAt(0) + ';')
+    .replace(/[!]/g, '&#' + '!'.charCodeAt(0) + ';')
+    .replace(/["]/g, '&#' + '"'.charCodeAt(0) + ';')
+    .replace(/[']/g, '&#' + "'".charCodeAt(0) + ';')
+    .replace(/[-]/g, '&#' + '-'.charCodeAt(0) + ';')
+    .replace(/[*]/g, '&#' + '*'.charCodeAt(0) + ';')
+    .replace(/[$]/g, '&#' + '$'.charCodeAt(0) + ';')
+    .replace(/[?]/g, '&#' + '?'.charCodeAt(0) + ';')
+    .replace(/[/]/g, '&#' + '/'.charCodeAt(0) + ';')
+    .replace(/[\\]/g, '&#' + '\\'.charCodeAt(0) + ';')
+  return sanitized
+}
+
+const sendMsg = async (finalObj) => {
   isSending.value = true
   $fetch("/api/nodemailer", {
     method: "post",
     body: {
-      from: x.name + " " + x.email || "", // sender address
+      from: finalObj.name + " " + finalObj.email || "", // sender address
       to: "zulfidly@gmail.com", // list of receivers
-      cc: x.email || "",
+      cc: finalObj.email || "",
       subject: "👻 Portfolio Contact Form", // Subject line
       text: "text", // plain text body
       html: `
@@ -21,33 +45,36 @@ const sendMsg = async (x) => {
                             <tr>
                                 <td style="text-align:center; padding:16px; border:1px solid; font-size:16px; font-weight:bold; border-top-left-radius: 7px;">Name</td>
                                 <td style="padding:16px; border:1px solid; font-size:16px; border-top-right-radius: 7px;"> ${
-                                  x.name
+                                  finalObj.name
                                 }</td>
                             </tr>
                             <tr>
                                 <td style="text-align:center; padding:16px; border:1px solid; font-size:16px; font-weight:bold;"> Email</td>
                                 <td style="padding:16px; border:1px solid; font-size:16px;"> ${
-                                  x.email || "not provided"
+                                  finalObj.email || "not provided"
                                 } </td>
                             </tr>
                             <tr>
                                 <td style="text-align:center; padding:16px; border:1px solid; font-size:16px; font-weight:bold;"> Rating </td>
                                 <td style="padding:16px; border:1px solid; font-size:16px;"> ${
-                                  x.rating
+                                  finalObj.rating
                                 } / 10 </td>
                             </tr>
                             <tr>
                                 <td style="text-align:center; padding:16px; border:1px solid; font-size:16px; font-weight:bold; border-bottom-left-radius: 7px;"> Message</td>
                                 <td style="padding:16px; border:1px solid; font-size:16px; border-bottom-right-radius: 7px;"> ${
-                                  x.message
+                                  finalObj.message
                                 } </td>
                             </tr>
                         </table>
                     `,
     },
   }).then((resp) => {
-    console.log(resp)
+    // console.log(resp)
+    console.log(finalObj);
     emiT("notifierMsg", "Message sent ! 🎵")
+    reset('contactForm')
+    isCCref.value = true
     isSending.value = false
     isSent.value = true
     setTimeout(() => {
@@ -57,10 +84,10 @@ const sendMsg = async (x) => {
 }
 </script>
 
-<!-- #default="{value}" -->
 <template>
   <div class="mt-2 w-full flex flex-col justify-center items-center">
     <FormKit
+      #default="{value}"
       id="contactForm"
       type="form"
       :submit-label="isSending ? 'Sending' : 'Send'"
@@ -71,9 +98,12 @@ const sendMsg = async (x) => {
         'suffix-icon': isSending ? 'spinner' : 'submit',
       }"
       @submit="
-        (value) => {
-          sendMsg(value)
-          $formkit.reset('contactForm')
+        (formObj) => {
+          // console.log(formObj);
+          formObj.name = stringSanitizer(formObj.name)
+          formObj.message = stringSanitizer(formObj.message)
+          formObj.email = formObj.email ?? ''
+          sendMsg(formObj)
         }
       "
       form-class="$reset min-w-[340px]"
@@ -84,8 +114,8 @@ const sendMsg = async (x) => {
         name="name"
         label=""
         placeholder="what is your name ?"
+        :validation="[['required']]"
         validation-visibility="dirty"
-        :validation="[['required'], ['matches', /^[A-Za-z]+$/], ['length', 3]]"
         message-class="$reset text-end text-red-400 absolute top-full right-0"
         input-class="$reset appearance-none bg-transparent webkit-autofill:bg-transparent focus:outline-none focus:ring-0 focus:shadow-none w-full px-3 py-2 border-none text-base placeholder-gray-400 text-[var(--color-text)] transition-all duration-300"
       />
@@ -99,7 +129,6 @@ const sendMsg = async (x) => {
         placeholder="what do you want to say ?"
         :validation="[
           ['required'],
-          ['matches', /^[A-Za-z0-9][^<>]*$/],
           ['length', 10],
         ]"
         validation-visibility="dirty"
@@ -144,14 +173,10 @@ const sendMsg = async (x) => {
         prefix-icon="email"
         placeholder="email address"
         validation-visibility="dirty"
-        :validation="
-          isCCref
-            ? [
+        :validation="isCCref ? [
                 ['required', 'email'],
-                ['matches', /^[A-Za-z0-9][^<>]*$/],
                 ['length', 5],
-              ]
-            : ''
+              ] : ''
         "
         message-class="$reset text-end text-red-400 absolute top-full right-0"
         prefix-icon-class="$reset w-10 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-r border-gray-400  [&>svg]:fill-[var(--color-text)] [&>svg]:w-full [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto"
@@ -172,9 +197,7 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  /* border: 1px solid green; */
   -webkit-text-fill-color: var(--color-text);
-  /* -webkit-box-shadow: 0 0 0px 1000px #000 inset; */
   transition: background-color 0.3s ease-in-out 0s;
 }
 </style>
