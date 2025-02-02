@@ -7,10 +7,13 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/image",
   ],
+
   css: ["/assets/myStyle.css"],
+
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
+
   pinia: {
     autoImports: [
       // automatically imports `defineStore`
@@ -18,16 +21,20 @@ export default defineNuxtConfig({
       ["defineStore", "definePiniaStore"], // import { defineStore as definePiniaStore } from 'pinia'
     ],
   },
+
   image: {
     provider: "storyblok",
     storyblok: {
       baseURL: "https://a.storyblok.com",
     },
   },
+
   options: {
     postcss: {
       tailwindcss: {},
       autoprefixer: {},
     }
-  }
+  },
+
+  compatibilityDate: "2025-02-02"
 })
